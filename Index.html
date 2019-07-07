@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/index.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/bulma.css">
+
+    <script src="./Source/JS/Include/particlesjs-config.js"></script>
+    <script src="./Source/JS/Include/particles.js"></script>
+    <script src="./Source/JS/Include/vue.js"></script>
+    
+    <title>lian0123 Web</title>
+</head>
+
+<body>
+    <div id="particles-js">
+        <div class="panel">
+            <div class="TITLECONTENT">
+                    <nav class="level">
+                            <!-- Left side -->
+                            <div class="level-left">
+                              <div class="level-item">
+                                <div class="title field has-addons">
+                                    <a class="TITLE_ABLBTN" href="./Index.html"><h1>lian0123作品集</h1></a>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <!-- Right side -->
+                            <div class=" level-right">
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="#" @click="ClickPanelEvent(0)">教學文件</a></p>
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="#" @click="ClickPanelEvent(1)">程式作品</a></p>
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io">關於網頁</a></p>
+                            </div>
+                    </nav>
+                    <hr v-if="HasSubListChick">
+                    <nav v-if="HasSubListChick && NowChick == 0" class="level-left">
+                        <p  v-for="(item, index) in TextList" class="level-item"><a class="TITLE_ABLBTN" @click="ClickEvent(index)">{{item.Text}}</a></p>
+                    </nav>
+
+                    <nav v-if="HasSubListChick && NowChick == 1" class="level-left">
+                        <p  v-for="(item, index) in ProgramList" class="level-item"><a class="TITLE_ABLBTN" @click="ClickEvent(index)">{{item.Text}}</a></p>
+                    </nav>
+            </div>
+
+            <div v-if="IsBaseView">
+                <br>
+                <div class="content">
+                    <h3>Hi, 歡迎來到這個網頁</h3>
+
+                    <p>在這裡專門存放著我的作品集，包含我個人撰寫的文件與程式專案。</p>
+
+                    <br>
+                    <div>
+                        <p>GitHub</p>
+                        <a target="GitHubLian0123" href="https://github.com/Lian0123/"><button class="ABLBTN" type="button">Github Link</button></a>
+                    </div>
+
+                    <br>
+                    <div>
+                        <p>SideShare</p>
+                        <a target="SideShareLian0123" href="https://www.slideshare.net/ssuser6090c0"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                    <br>
+                    <div>
+                        <p>FaceBook</p>
+                        <a target="FaceBookLian0123" href="https://www.facebook.com/profile.php?id=100003135147006"><button class="ABLBTN" type="button">FaceBook Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[0].IsClick">
+            <br>
+                <div class="content">
+                    <h3>看似比較簡單的Linux推坑教學 Linux安裝篇 ArchLabs 2019.01.20安裝 Part B</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2019-01-30</span>
+                        <span class="tag is-success is-medium">Ver 0.0.2</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-linux-archlabs-20190120-part3" href="https://www.slideshare.net/ssuser6090c0/linux-linux-archlabs-20190120-part3"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[0].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的Linux推坑教學 Linux安裝篇 ArchLabs 2019.01.20安裝 Part A</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2019-01-30</span>
+                        <span class="tag is-success is-medium">Ver 0.0.2</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-linux-archlabs-20190120-part2" href="https://www.slideshare.net/ssuser6090c0/linux-linux-archlabs-20190120-part2"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[1].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的推坑教學 Linux安裝篇 manjaro linux 201606 kde</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2016-10-15</span>
+                        <span class="tag is-success is-medium">Ver 0.0.0</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-manjaro-linux-201606-kde" href="https://www.slideshare.net/ssuser6090c0/linux-manjaro-linux-201606-kde"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[2].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的Linux推坑教學 linux mint cinnamon 18.1 操作設定教學</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2017-04-08</span>
+                        <span class="tag is-success is-medium">Ver 0.0.1</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-linux-mint-cinnamon-181" href="https://www.slideshare.net/ssuser6090c0/linux-linux-mint-cinnamon-181"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div v-if="TextList[2].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的推坑教學 Linux安裝篇 linux mint 18 cinnamon</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2016-09-28</span>
+                        <span class="tag is-success is-medium">Ver 0.1.2</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-linux-mint-18-cinnamon-66499815" href="https://www.slideshare.net/ssuser6090c0/linux-linux-mint-18-cinnamon-66499815"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div v-if="TextList[3].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的Linux推坑教學 Linux CLI 基本教學</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2016-11-26</span>
+                        <span class="tag is-success is-medium">Ver 0.0.3</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-linux-cli" href="https://www.slideshare.net/ssuser6090c0/linux-linux-cli"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>  
+
+            <div v-if="TextList[3].IsClick">
+                <br>
+                <div v-if="TextList[4].IsClick" class="content">
+                    <h3>看似比較簡單的推坑教學 C語言從崩潰到崩潰Ex(二)</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2017-08-23</span>
+                        <span class="tag is-success is-medium">Ver 1.0.0+</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="cex-79080568" href="https://www.slideshare.net/ssuser6090c0/cex-79080568"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[4].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的推坑教學 C語言從崩潰到崩潰Ex(一)</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2016-12-31</span>
+                        <span class="tag is-success is-medium">Ver 1.0.0+</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="cex-70564975" href="https://www.slideshare.net/ssuser6090c0/cex-70564975"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[5].IsClick">
+                <br>
+                <div class="content">
+                    <h3>FML Tool 理論說明</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2019-04-12</span>
+                        <span class="tag is-success is-medium">Ver 1.4.6</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="imageaudioplayer-1072-dsp-148791863" href="https://www.slideshare.net/ssuser6090c0/fml-tool"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[6].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的Linux推坑教學 講解在手機上使用 linux</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2017-06-26</span>
+                        <span class="tag is-success is-medium">Ver 0.0.0</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-linux-77271842" href="https://www.slideshare.net/ssuser6090c0/linux-linux-77271842"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="TextList[6].IsClick">
+                <br>
+                <div class="content">
+                    <h3>看似比較簡單的Linux推坑教學 FMiCa-tw.sh 說明文件</h3>
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2018-07-28</span>
+                        <span class="tag is-success is-medium">Ver 1.0.0</span>
+                        <span class="tag is-danger is-medium">較學文件</span>
+                    </div>
+
+                    <div>
+                        <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/linux-fmicatwsh"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="ProgramList[0].IsClick">
+                <br>
+                <div class="content">
+                    <div class="tile">
+                    <h3>Image-Audio-Player</h3>
+                    </div>   
+                    <p>一個把影像加密為BMP檔，並支援解密播放的播放器。</p>
+
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2019-06-11</span>
+                        <span class="tag is-success is-medium">Ver 1.2.0</span>
+                        <span class="tag is-danger is-medium">WEB APP</span>
+                    </div>
+
+                    <div class="tile is-vertical is-12">
+                        <a target="Image-Audio-Player" href="https://github.com/Lian0123/Image-Audio-Player"><button class="ABLBTN" type="button">GitHub Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="ProgramList[1].IsClick">
+                <br>
+                <div class="content">
+                    <h3>GLSL_Example</h3>
+                    <p>計算機圖學報告說明的程式碼，使用中文來簡單說明的GLSL程式範例。</p>
+
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2018-10-26</span>
+                        <span class="tag is-success is-medium">Ver 1.0.0</span>
+                        <span class="tag is-danger is-medium">GLSL</span>
+                    </div>
+
+                    <div>
+                        <a target="GLSL_Example" href="https://github.com/Lian0123/GLSL_Example"><button class="ABLBTN" type="button">GitHub Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="ProgramList[2].IsClick">
+                <br>
+                <div class="content">
+                    <h3>UnknownClang</h3>
+                    <p>一個用Macro define把C語言語法大幅修改的header檔。</p>
+
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2018-12-06</span>
+                        <span class="tag is-success is-medium">Ver 未完成</span>
+                        <span class="tag is-danger is-medium">C語言</span>
+                    </div>
+
+                    <div>
+                        <a target="UnknownClang" href="https://github.com/Lian0123/UnknownClang"><button class="ABLBTN" type="button">GitHub Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="ProgramList[3].IsClick">
+                <br>
+                <div class="content">
+                    <h3>TextArt</h3>
+                    <p>註解或執行輸出的文字藝術。</p>
+
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2019-03-30</span>
+                        <span class="tag is-success is-medium">Ver 0.0.0</span>
+                        <span class="tag is-danger is-medium">藝術創作</span>
+                    </div>
+
+                    <div>
+                        <a target="TextArt" href="https://github.com/Lian0123/TextArt"><button class="ABLBTN" type="button">GitHub Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="ProgramList[4].IsClick">
+                <br>
+                <div class="content">
+                    <h3>107-02-IOT-Project</h3>
+                    <p>107學年度第二學期物聯網期末專案。</p>
+
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2019-06-10</span>
+                        <span class="tag is-success is-medium">Ver 1.0.0</span>
+                        <span class="tag is-danger is-medium">Web</span>
+                    </div>
+
+                    <div>
+                        <a target="107-02-IOT-Project" href="https://github.com/Lian0123/107-02-IOT-Project"><button class="ABLBTN" type="button">GitHub Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="ProgramList[5].IsClick">
+                <br>
+                <div class="content">
+                    <h3>FMiCa-TW.sh</h3>
+                    <p>這是個給 Linux Mint Cinnamon Taiwan 使用者的安裝程式用腳本，主要用於安裝其他軟體。</p>
+
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2019-05-18</span>
+                        <span class="tag is-success is-medium">Ver 2.0.0</span>
+                        <span class="tag is-danger is-medium">Shell Script</span>
+                    </div>
+
+                    <div>
+                        <a target="FMiCa-TW.sh" href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTN" type="button">GitHub Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div v-if="ProgramList[6].IsClick">
+                <br>
+                <div class="content">
+                    <h3>twcall</h3>
+                    <p>一個能在zhcon中輸入繁體中文的腳本。</p>
+
+                    <div class="column">
+                        <span class="tag is-warning is-medium">2018-08-16</span>
+                        <span class="tag is-success is-medium">Ver 1.0.0</span>
+                        <span class="tag is-danger is-medium">Shell Script</span>
+                    </div>
+
+                    <div>
+                        <a target="twcall" href="https://github.com/Lian0123/twcall"><button class="ABLBTN" type="button">GitHub Link</button></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="./Source/JS/index.js"></script>

@@ -39,7 +39,7 @@ var Panel = new Vue({
                 this.HasSubListChick = false;
             }else{
                 if(this.NowChick != -1)
-                    this.IsChangeGetID = true;
+                    this.IsChangeGetID = !this.IsChangeGetID;
                     
                 this.NowChick = GetID;
                 this.HasSubListChick = true;
@@ -64,8 +64,7 @@ var Panel = new Vue({
                     this.TextList[this.NowSubChick].IsClick = false;
                     this.IsChangeGetID = false;
                 }else if(this.NowSubChick != -1){
-                        this.ProgramList[this.NowSubChick].IsClick = false;
-                    
+                    this.ProgramList[this.NowSubChick].IsClick = false;
                 }
 
                 this.NowSubChick = GetSubID;

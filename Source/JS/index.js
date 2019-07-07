@@ -50,7 +50,7 @@ var Panel = new Vue({
             this.IsBaseView = false;
 
             if(this.NowChick == 0){
-                if(this.IsChangeGetID == true){
+                if(this.IsChangeGetID == true && this.NowSubChick != -1){
                     this.ProgramList[this.NowSubChick].IsClick = false;
                     this.IsChangeGetID = false;
                 }else if(this.NowSubChick != -1){
@@ -60,11 +60,12 @@ var Panel = new Vue({
                 this.NowSubChick = GetSubID;
                 this.TextList[GetSubID].IsClick = true;
             }else if(this.NowChick == 1){
-                if(this.IsChangeGetID == true){
+                if(this.IsChangeGetID == true && this.NowSubChick != -1){
                     this.TextList[this.NowSubChick].IsClick = false;
                     this.IsChangeGetID = false;
                 }else if(this.NowSubChick != -1){
-                    this.ProgramList[this.NowSubChick].IsClick = false;
+                        this.ProgramList[this.NowSubChick].IsClick = false;
+                    
                 }
 
                 this.NowSubChick = GetSubID;

@@ -9,9 +9,7 @@ var Panel = new Vue({
     data:{
         IsBaseView: true,
         HasSubListChick: false,
-        IsChangeGetID: false,
         NowChick: -1,
-        NowSubChick: -1,
         TextList: [
             { Text: "ArchLabs相關", IsClick:false},
             { Text: "Manjaro相關", IsClick:false},
@@ -38,8 +36,6 @@ var Panel = new Vue({
                 this.NowChick = -1;
                 this.HasSubListChick = false;
             }else{
-                if(this.NowChick != -1)
-                    this.IsChangeGetID = !this.IsChangeGetID;
                     
                 this.NowChick = GetID;
                 this.HasSubListChick = true;
@@ -49,27 +45,17 @@ var Panel = new Vue({
         ClickEvent: function (GetSubID) {
             this.IsBaseView = false;
 
-            if(this.NowChick == 0){
-                if(this.IsChangeGetID == true && this.NowSubChick != -1){
-                    this.ProgramList[this.NowSubChick].IsClick = false;
-                    this.IsChangeGetID = false;
-                }else if(this.NowSubChick != -1){
-                    this.TextList[this.NowSubChick].IsClick = false;
-                }
+            for (let i = 0; i < this.TextList.length; i++)
+                this.TextList[i].IsClick = false;                  
 
-                this.NowSubChick = GetSubID;
+            for (let i = 0; i < this.ProgramList.length; i++)
+                this.ProgramList[i].IsClick = false;                   
+
+            if(this.NowChick == 0)
                 this.TextList[GetSubID].IsClick = true;
-            }else if(this.NowChick == 1){
-                if(this.IsChangeGetID == true && this.NowSubChick != -1){
-                    this.TextList[this.NowSubChick].IsClick = false;
-                    this.IsChangeGetID = false;
-                }else if(this.NowSubChick != -1){
-                    this.ProgramList[this.NowSubChick].IsClick = false;
-                }
-
-                this.NowSubChick = GetSubID;
+            else if(this.NowChick == 1)
                 this.ProgramList[GetSubID].IsClick = true;
-            }
+            
         }
     }
 });

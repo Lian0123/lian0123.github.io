@@ -68,7 +68,7 @@ var partJson = {
     }
   },
   "interactivity": {
-    "detect_on": "canvas",
+    "detect_on": "windows",
     "events": {
       "onhover": {
         "enable": false,

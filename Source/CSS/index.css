@@ -1,9 +1,22 @@
-html, body ,#particles-js{
+*{
+  color: aliceblue;
+  font-family: "WenQuanYi Micro Hei Mono";
+}
+
+html, body{
   background-color:#1d1d3a;
-  width: 100%;
-  height: 115%;
   margin: 0px;
   padding: 0px;
+}
+
+#particles-js{
+  background-color:#1d1d3a;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  z-index: -999;
+  position: fixed;
 }
 
 .BTNBUFFER{
@@ -32,7 +45,7 @@ html, body ,#particles-js{
   margin:0 auto;
   background-color: rgba(55, 57, 87, 0.466);
   width: 90%;
-  padding: 5px 10px;
+  padding: 2% 2.5%;
 }
 
 .TITLECONTENT {
@@ -64,6 +77,28 @@ html, body ,#particles-js{
   height:40px;
 }
 
+.ABLBTNSMALL{
+  z-index: 2;
+  text-align: center;
+  color:aliceblue;
+  background-color: rgba(55, 57, 87, 0.466);
+  border:2px rgb(255, 255, 255) solid;
+  cursor:pointer;
+  width:100%;
+  height:30px;
+}
+
+.ABLBTNSMALL:hover{
+  z-index: 2;
+  text-align: center;
+  color:rgb(255, 247, 130);
+  background-color: rgba(55, 57, 87, 0.466);
+  border:2px rgb(255, 247, 130) solid;
+  cursor:pointer;
+  width:100%;
+  height:30px;
+}
+
 .TITLE_ABLBTN{
   z-index: 2;
   text-align: center;
@@ -78,10 +113,6 @@ html, body ,#particles-js{
   cursor:pointer;
 }
 
-*{
-  color: aliceblue;
-  font-family: "WenQuanYi Micro Hei Mono";
-}
 
 h1:hover{
   color:rgb(255, 247, 130);
@@ -89,4 +120,140 @@ h1:hover{
 
 navbar-link {
   color: aliceblue;
+}
+
+input.ABLINPUT{
+  width:100%;
+  height:30px;
+  background-color: rgba(45, 47, 71, 0.712);
+  color: aliceblue;
+  border:0.5px rgba(45, 47, 71, 0.712) solid; /*外框*/
+  border-bottom-color: aliceblue;
+  caret-color: aliceblue; /*閃耀屬標*/ 
+  outline-style: none ;
+}
+
+
+input.ABLINPUT:hover{
+  width:100%;
+  height:30px;
+  background-color: rgba(45, 47, 71, 0.712);
+  color: rgb(255, 247, 130);
+  border:0.5px rgba(45, 47, 71, 0.712) solid; /*外框*/
+  border-bottom-color: rgb(255, 247, 130);
+  caret-color: rgb(255, 247, 130); /*閃耀屬標*/  
+  outline-style: none ;
+}
+
+input.ABLINPUT:focus{
+  width:100%;
+  height:30px;
+  background-color: rgba(45, 47, 71, 0.712);
+  color: rgb(255, 247, 130);
+  border:0.5px rgba(45, 47, 71, 0.712) solid; /*外框*/
+  border-bottom-color: rgb(255, 247, 130);
+  caret-color: rgb(255, 247, 130); /*閃耀屬標*/  
+  outline-style: none ;
+}
+
+input::placeholder{
+  color: aliceblue;
+}
+
+input:hover::placeholder{
+  color: rgb(255, 247, 130);
+}
+
+select.ABLSELECT{
+  width:100%;
+  height:30px;
+  background-color: rgba(45, 47, 71, 0.712);
+  color: aliceblue;
+  border:0.5px aliceblue solid; /*外框*/
+  border-bottom-color: aliceblue;
+  outline-style: none ;
+  line-height:18px;
+  font-size: 16px;
+}
+
+select.ABLSELECT:hover{
+  width:100%;
+  height:30px;
+  background-color: rgba(45, 47, 71, 0.712);
+  color: rgb(255, 247, 130);
+  border:0.5px rgb(255, 247, 130) solid; 
+  border-bottom-color: rgb(255, 247, 130);
+  outline-style: none ;
+  line-height:18px;
+  font-size: 16px;
+}
+
+select.ABLSELECT option{
+  background-color: rgb(26, 27, 41);
+  outline-style: none ;
+  color: aliceblue;   
+  line-height:18px;
+  font-size: 16px; 
+}
+
+.ts.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -0.4rem;
+}
+
+.A.ROW{
+  display: flex;
+  flex-direction: row;
+  margin:0 auto;
+  padding: 2% 1.25%;
+}
+
+.col1 {
+  width: calc(85% / 16 * 1)
+}
+
+.col2 {
+  width: calc(85% / 16 * 2)
+}
+
+.col3 {
+  width: calc(85% / 16 * 3)
+}
+
+.col4 {
+  width: calc(85% / 16 * 4)
+}
+
+.col8 {
+  width: calc(100% / 16 * 8);
+  padding: 0% 0%;
+}
+
+.col16 {
+  width: calc(85% / 16 * 16)
+}
+
+.BreathingAreaLight{
+  -webkit-animation-direction: alternate-reverse;
+  animation-direction: alternate-reverse;
+  -webkit-animation-iteration-count:infinite;
+  animation-iteration-count:infinite;
+  -webkit-animation-duration: 2s;
+  animation-duration:2s;
+  -webkit-animation-name:mymove;
+  animation-name:mymove;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  from {background-color: rgba(21, 21, 32, 0.924);}
+  to {background-color: rgba(29, 22, 41, 0.924);}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+  from {background-color: rgba(21, 21, 32, 0.924);}
+  to {background-color: rgba(29, 22, 41, 0.924);}
 }

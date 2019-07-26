@@ -5,7 +5,7 @@ particlesJS.load('particles-js', jsonUri, function() {
 });
 
 var Panel = new Vue({
-    el:"#particles-js",
+    el:"#MainView",
     data:{
         IsBaseView: true,
         HasSubListChick: false,

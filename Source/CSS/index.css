@@ -235,6 +235,29 @@ select.ABLSELECT option{
   width: calc(85% / 16 * 16)
 }
 
+.iframe-slideshare-4x3 {
+  padding-bottom: calc(75% + 38px);
+}
+
+.iframe-slideshare-16x9 {
+  padding-bottom: calc(56.25% + 38px);
+}
+
+.iframe-slideshare-16x9,.iframe-slideshare-4x3 {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+.iframe-slideshare-16x9 iframe, .iframe-slideshare-4x3 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border:1px solid #CCC; 
+}
+
 .BreathingAreaLight{
   -webkit-animation-direction: alternate-reverse;
   animation-direction: alternate-reverse;

@@ -1,6 +1,11 @@
 *{
   color: aliceblue;
-  font-family: "./WenQuanYi Micro Hei.ttf";
+  font-family: "WenQuanYi Micro Hei Mono";
+}
+
+@font-face {
+  font-family: "WenQuanYi Micro Hei Mono";
+  src: url(/Source/CSS/WenQuanYi\ Micro\ Hei.ttf);
 }
 
 html, body{

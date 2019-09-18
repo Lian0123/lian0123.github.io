@@ -18,6 +18,7 @@ var Panel = new Vue({
             { Text: "C語言相關", IsClick:false},
             { Text: "FML相關", IsClick:false},
             { Text: "其他技術相關", IsClick:false}, 
+            { Text: "國小Scratch教學相關", IsClick:false}, 
         ],
         ProgramList: [
             { Text: "Image-Audio-Player", IsClick:false},

@@ -1,774 +1,291 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.2">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.2">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/index.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/bulma.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/index.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/bulma.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/animate.css">
 
-    <script src="./Source/JS/Include/particlesjs-config.js"></script>
-    <script src="./Source/JS/Include/particles.js"></script>
-    <script src="./Source/JS/Include/vue.js"></script>
-    <title>lian0123 WEB</title>
-</head>
+        <script src="./Source/JS/Include/particlesjs-config.js"></script>
+        <script src="./Source/JS/Include/particles.js"></script>
+        <script src="./Source/JS/Include/vue.js"></script>
+        <script src="./Source/JS/Include/vue-router.js"></script>
+        <script src="./Source/JS/Include/vue-i18n.js"></script>
+        <title>lian0123 WEB</title>
+    </head>
 
-<body>
-    <div id="particles-js"></div>
+    <body>
+        <div id="particlesJS"></div>
+
         <div class="panel">
-            <div id="MainView">
+            <!--操作目錄界面-->
+            <div id="menuView">
                 <div class="TITLECONTENT BreathingAreaLight">
-                        <nav class="level">
-                                <!-- Left side -->
-                                <div class="level-left">
-                                <div class="level-item">
-                                    <div class="title field has-addons">
-                                        <a class="TITLE_ABLBTN" href="./index.html"><h1>lian0123作品集</h1></a>
-                                    </div>
+                    <nav class="level">
+                            <!-- Left side -->
+                            <div class="level-left">
+                            <div class="level-item">
+                                <div class="title field has-addons">
+                                    <a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')"><h1>lian0123 WebSite</h1></a>
                                 </div>
+                            </div>
+                            </div>
+                        
+                            <!-- Right side -->
+                            <div v-if="isShowBtn" class="level-right">
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')">{{$t("index")}}</a></p>
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('documentView')">{{$t("documents")}}</a></p>
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('projectView')">{{$t("program")}}</a></p>
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('aboutView')">{{$t("about")}}</a></p>
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io" target="Web_GitHub">GitHub</a></p>
+
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);"><select v-model="locale" class="ABLSELECT">
+                                    <option value="zh-tw">繁體中文</option>
+                                    <option value="zh-cn">简体中文</option>
+                                    <option value="en">English</option>
+                                    <option value="jp">日本語</option>
+                                </select></a></p>
+                            </div>
+                            <div v-else class="level-right">
+                                <div v-if="isOpenBtn">
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')">{{$t("index")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('documentView')">{{$t("documents")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('projectView')">{{$t("program")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('aboutView')">{{$t("about")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io" target="Web_GitHub">GitHub</a></p>
+
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);"><select v-model="locale" class="ABLSELECT">
+                                        <option value="zh-tw">繁體中文</option>
+                                        <option value="zh-cn">简体中文</option>
+                                        <option value="en">English</option>
+                                        <option value="jp">日本語</option>
+                                    </select></a></p>
+                                    
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(false)">cilck there to close detail</a></p>
                                 </div>
-                            
-                                <!-- Right side -->
-                                <div class=" level-right">
-                                    <p class="level-item"><a class="TITLE_ABLBTN" href="#" @click="ClickPanelEvent(0)">教學文件</a></p>
-                                    <p class="level-item"><a class="TITLE_ABLBTN" href="#" @click="ClickPanelEvent(1)">程式作品</a></p>
-                                    <p class="level-item"><a class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io">關於網頁</a></p>
+                                <div v-else>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(true)">cilck there to show detail</a></p>
                                 </div>
-                        </nav>
-                        <hr v-if="HasSubListChick">
-                        <nav v-if="HasSubListChick && NowChick == 0" class="level-left">
-                            <p  v-for="(item, index) in TextList" class="level-item"><a class="TITLE_ABLBTN" @click="ClickEvent(index)">{{item.Text}}</a></p>
-                        </nav>
-
-                        <nav v-if="HasSubListChick && NowChick == 1" class="level-left">
-                            <p  v-for="(item, index) in ProgramList" class="level-item"><a class="TITLE_ABLBTN" @click="ClickEvent(index)">{{item.Text}}</a></p>
-                        </nav>
+                            </div>
+                    </nav>
                 </div>
-
-                <div v-if="IsBaseView">
-                    <br>
-                    <div class="content">
-                        <h3>Hi, 歡迎來到這個網頁</h3>
-
-                        <p>在這裡專門存放著我的作品集，包含我個人撰寫的文件與程式專案。</p>
-
-                    </div>
-                    
-                    <br>
-                    <div class="content">
-                        <h3>介紹</h3>
-                        <div>
-                            <p>Lian0123（連永立）</p>
-                            <p>職業：大學生、業餘技術文章撰寫者、業餘PPT模板設計師</p>
-                            <p>專長：LinuxServer應用服務、人工智慧(Fuzzy部份)、全端網頁開發、Electron視窗應用開發</p>
-                        </div>    
-                    </div>
-
-                    <br>
-                    <div class="content">
-                        <h3>經歷</h3>
-                        <div>
-                            <p>2016國立臺南大學第九屆學生會新聞部部長</p>
-                            <p>2017國立臺南大學資訊工程學系第十屆宿營攝影長</p>
-                            <p>2017國立臺南大學資訊科學服務社 南化國小Scratch程式設計課講師</p>
-                            <p>2018國立臺南大學資訊科學服務社 南化國小Scratch程式設計課攝影</p>
-                        </div>    
-                    </div>
-
-                    <br>
-                    <div class="content">
-                        <h3>Side-project一覽</h3>
-                        <div>
-                            <p><b>UnknownClang：</b><br>一個自定義C語言Macro，使語意流暢化的header檔。</p>
-                            <p><b>JsCppString：</b><br>在C++中使用像是Javascript自由的語法。</p>
-                            <p><b>FMiCa-TW.sh：</b><br>一個自定義C語言Macro，使語意流暢化的header檔。</p>
-                            <p><b>TextArt：</b><br>純文字藝術。</p>
-                            <p><b>Twcall：</b><br>使zhcorn能轉成UTF8繁體中文的小工具。</p>
-                        </div>    
-                    </div>
-
-                    <br>
-                    <div class="content">
-                        <h3>代表作品</h3>
-                        <div>
-                            <p><b>看似比較簡單的Linux推坑教學</b><br> Linux安裝篇linux mint 18 cinnamon</p>
-                            <p><b>看似比較簡單的Linux推坑教學</b><br> Linux安裝篇 manjaro linux 201606 kde</p>
-                            <p><b>看似比較簡單的推坑教學</b><br> C語言從崩潰到崩潰Ex(一)</p>
-                            <p><b>看似比較簡單的推坑教學</b><br> C語言從崩潰到崩潰Ex(二)</p>
-                            <p><b>看似比較簡單的Linux推坑教學</b><br> linux mint cinnamon 18.1 操作設定教學</p>
-                            <p><b>看似比較簡單的Linux推坑教學</b><br> 講解在手機上使用 linux</p>
-                            <p><b>看似比較簡單的Linux推坑教學</b><br> Linux安裝篇 ArchLabs 2019.01.20安裝</p>
-                            
-                        </div>    
-                    </div>
-
-                    <br>
-                    <div class="content">
-                        <h3>Skill</h3>
-                        <div>
-                            <b>持有證照</b>
-                            <p>電腦軟體應用 乙級證照</p>
-                            <p>電腦軟體應用 丙級證照</p>
-                            <b>擅長領域：</b>
-                            <p>人工智慧(Fuzzy領域)、計算機組織架構。</p>
-                            <br>
-                            <b>略有涉及領域：</b>
-                            <p>資安管理、網頁全端設計、Web Application。</p>
-                            <br>
-                            <b>擅長工具：</b>
-                            <p>Linux系統、git、Unity遊戲引擎(2D)、VS Code、Microsoft Word、Microsoft Presentation、Microsoft Excel、gcc、g++、Visual Studio、draw.io。</p>
-                            <br>
-                            <b>會用的工具：</b>
-                            <p>Latex、LibreOffice、C4D、sketchup、Blender、Vim、Android Studio、C make、phpmyadmin、ssh、Krita。</p>
-                            <br>
-                            <b>擅長的程式語言：</b>
-                            <p>C、C++、C#(WPF、Unity腳本)、Bash、PHP、GO。</p>
-                            <br>
-                            <b>會的程式語言：</b>
-                            <p>Python、Kotlin、JavaScript(含node.js)。</p>
-                            <br>
-                            <b>碰過的程式語言：</b>
-                            <p>System Verilog、VHDL、JAVA。</p>
-                            <br>
-                            <b>使用過的framework：</b>
-                            <p>Laravel(PHP)、Gin(GO)、Vue(JS)、Electorn.js(node.js)。</p>
-                            <br>
-                        </div>    
-                    </div>
-
-                </div>
-
-                <div v-if="TextList[0].IsClick">
-                <br>
-                    <div class="content">
-                        <h3>看似比較簡單的Linux推坑教學 Linux安裝篇 ArchLabs 2019.01.20安裝 Part1</h3>  
-                        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-01-30</span>
-                            <span class="tag is-success is-medium">v0.0.2</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/iJdTREnXCdcRuM" > </iframe>                  
-                        </div> 
-                        
-                        <div>
-                            <a target="linux-linux-archlabs-20190120-part3" href="https://www.slideshare.net/ssuser6090c0/linux-linux-archlabs-20190120-part1"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-
-                <div v-if="TextList[0].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的Linux推坑教學 Linux安裝篇 ArchLabs 2019.01.20安裝 Part2</h3>
-                        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-01-30</span>
-                            <span class="tag is-success is-medium">v0.0.2</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/x2VRc210Hzl9OQ" width="100%" height="40%" > </iframe> 
-                        </div>
-
-                        <div>
-                            <a target="linux-linux-archlabs-20190120-part2" href="https://www.slideshare.net/ssuser6090c0/linux-linux-archlabs-20190120-part2"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[0].IsClick">
-                <br>
-                    <div class="content">
-                        <h3>看似比較簡單的Linux推坑教學 Linux安裝篇 ArchLabs 2019.01.20安裝 Part3</h3>
-                        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-01-30</span>
-                            <span class="tag is-success is-medium">v0.0.2</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-                        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/7Ofn6klzwdRpQp" > </iframe>                  
-                        </div> 
-
-                        <div>
-                            <a target="linux-linux-archlabs-20190120-part3" href="https://www.slideshare.net/ssuser6090c0/linux-linux-archlabs-20190120-part3"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[1].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的推坑教學 Linux安裝篇 manjaro linux 201606 kde</h3>
-                        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2016-10-15</span>
-                            <span class="tag is-success is-medium">v0.0.0</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/n6UjJXGJe9nAuJ" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="linux-manjaro-linux-201606-kde" href="https://www.slideshare.net/ssuser6090c0/linux-manjaro-linux-201606-kde"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-                
-                <div v-if="TextList[2].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的推坑教學 Linux安裝篇 linux mint 18 cinnamon</h3>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2016-09-28</span>
-                            <span class="tag is-success is-medium">v0.1.2</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/ECP3I5R7FLrwFu" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="linux-linux-mint-18-cinnamon-66499815" href="https://www.slideshare.net/ssuser6090c0/linux-linux-mint-18-cinnamon-66499815"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[2].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的Linux推坑教學 linux mint cinnamon 18.1 操作設定教學</h3>
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2017-04-08</span>
-                            <span class="tag is-success is-medium">v0.0.1</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/yhpyXyUr4WEo1x" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="linux-linux-mint-cinnamon-181" href="https://www.slideshare.net/ssuser6090c0/linux-linux-mint-cinnamon-181"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-                
-                <div v-if="TextList[3].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的Linux推坑教學 Linux CLI 基本教學</h3>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2016-11-26</span>
-                            <span class="tag is-success is-medium">v0.0.3</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/iFW3qCxyy2ioQo" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="linux-linux-cli" href="https://www.slideshare.net/ssuser6090c0/linux-linux-cli"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>  
-
-                <div v-if="TextList[4].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的推坑教學 C語言從崩潰到崩潰Ex(一)</h3>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2016-12-31</span>
-                            <span class="tag is-success is-medium">v1.0.0</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/8dHHHpQHqyPaQG" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="cex-70564975" href="https://www.slideshare.net/ssuser6090c0/cex-70564975"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[4].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的推坑教學 C語言從崩潰到崩潰Ex(二)</h3>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2017-08-23</span>
-                            <span class="tag is-success is-medium">v1.0.0</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/k2M84AlR73oWhP" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="cex-79080568" href="https://www.slideshare.net/ssuser6090c0/cex-79080568"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[5].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>FML Tool 理論說明</h3>
-                        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-04-12</span>
-                            <span class="tag is-success is-medium">v1.4.6</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-                        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/gEuQPhd79jVHYl" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="imageaudioplayer-1072-dsp-148791863" href="https://www.slideshare.net/ssuser6090c0/fml-tool"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[6].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的Linux推坑教學 講解在手機上使用 linux</h3>
-                        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2017-06-26</span>
-                            <span class="tag is-success is-medium">v0.0.0</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/McYYXljYqB1HIB" > </iframe>                  
-                        </div>
-
-                        <div>
-                            <a target="linux-linux-77271842" href="https://www.slideshare.net/ssuser6090c0/linux-linux-77271842"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[6].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>看似比較簡單的Linux推坑教學 FMiCa-tw.sh 說明文件</h3>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-07-28</span>
-                            <span class="tag is-success is-medium">v1.0.0</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/1cvYjWBDUqfvAt" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/linux-fmicatwsh"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第一週</h3>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-09-20</span>
-                            <span class="tag is-success is-medium">v0.0.1</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/MZkJVNGYCcIfEH" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/ss-82772587"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第二週</h3>
-        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-09-27</span>
-                            <span class="tag is-success is-medium">v0.0.1</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/nZ3mueG8fgjljH" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-82772769"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-                
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第三週</h3>
-        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-10-11</span>
-                            <span class="tag is-success is-medium">v0.0.2</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/dmM40p4TSsNkuE" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-82772948"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第四週</h3>
-        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-10-18</span>
-                            <span class="tag is-success is-medium">v0.0.1</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/LuTEWrYFmxgr0f" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-82773074"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第五週</h3>
-        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-10-25</span>
-                            <span class="tag is-success is-medium">v0.0.1</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/n1JkjkXGciK6RP" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-82773128"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第六週</h3>
-            
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-10-28</span>
-                            <span class="tag is-success is-medium">v0.0.1</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-            
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/aW7AGwRK0SHINY" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-82773178"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-            
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第七週</h3>
-        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-11-25</span>
-                            <span class="tag is-success is-medium">v0.0.2</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/gVwYoRjVBbTf5L" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-86679695"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第八週</h3>
-        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-11-22</span>
-                            <span class="tag is-success is-medium">v0.0.1</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/rQ0exwPmpe0ypj" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-82773231"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-
-                <div v-if="TextList[7].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>Scratch程式教學 第九週</h3>
-        
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-11-29</span>
-                            <span class="tag is-success is-medium">v0.0.3</span>
-                            <span class="tag is-danger is-medium">教學文</span>
-                        </div>
-        
-                        <div class="iframe-slideshare-16x9">
-                            <iframe src="https://www.slideshare.net/slideshow/embed_code/key/jEsqaEBYERdirU" > </iframe>                  
-                        </div>
-                        
-                        <div>
-                            <a target="linux-fmicatwsh" href="https://www.slideshare.net/ssuser6090c0/scratch-86679784"><button class="ABLBTN" type="button">SlideShare Link</button></a>
-                        </div>
-        
-                    </div>
-                </div>
-
-                <div v-if="ProgramList[0].IsClick">
-                    <br>
-                    <div class="content">
-                        <div class="tile">
-                        <h3>Image-Audio-Player</h3>
-                        </div>   
-                        <p>一個把影像加密為BMP檔，並支援解密播放的播放器。</p>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-06-11</span>
-                            <span class="tag is-success is-medium">v1.2.0</span>
-                            <span class="tag is-danger is-medium"><div class="0">JS</div></span>
-                        </div>
-
-                        <div class="tile is-vertical is-12">
-                            <a target="Image-Audio-Player" href="https://github.com/Lian0123/Image-Audio-Player"><button class="ABLBTN" type="button">GitHub Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="ProgramList[1].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>GLSL_Example</h3>
-                        <p>計算機圖學報告說明的程式碼，使用中文來簡單說明的GLSL程式範例。</p>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-10-26</span>
-                            <span class="tag is-success is-medium">v1.0.0</span>
-                            <span class="tag is-danger is-medium">GLSL</span>
-                        </div>
-
-                        <div>
-                            <a target="GLSL_Example" href="https://github.com/Lian0123/GLSL_Example"><button class="ABLBTN" type="button">GitHub Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="ProgramList[2].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>UnknownClang</h3>
-                        <p>一個用Macro define把C語言語法大幅修改的header檔。</p>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-12-06</span>
-                            <span class="tag is-success is-medium">v未完成</span>
-                            <span class="tag is-danger is-medium">C語言</span>
-                        </div>
-
-                        <div>
-                            <a target="UnknownClang" href="https://github.com/Lian0123/UnknownClang"><button class="ABLBTN" type="button">GitHub Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="ProgramList[3].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>TextArt</h3>
-                        <p>註解或執行輸出的文字藝術。</p>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-03-30</span>
-                            <span class="tag is-success is-medium">v0.0.0</span>
-                            <span class="tag is-danger is-medium">Art</span>
-                        </div>
-
-                        <div>
-                            <a target="TextArt" href="https://github.com/Lian0123/TextArt"><button class="ABLBTN" type="button">GitHub Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="ProgramList[4].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>107-02-IOT-Project</h3>
-                        <p>107學年度第二學期物聯網期末專案。</p>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-06-10</span>
-                            <span class="tag is-success is-medium">v1.0.0</span>
-                            <span class="tag is-danger is-medium">Web</span>
-                        </div>
-
-                        <div>
-                            <a target="107-02-IOT-Project" href="https://github.com/Lian0123/107-02-IOT-Project"><button class="ABLBTN" type="button">GitHub Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="ProgramList[5].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>FMiCa-TW.sh</h3>
-                        <p>這是個給 Linux Mint Cinnamon Taiwan 使用者的安裝程式用腳本，主要用於安裝其他軟體。</p>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2019-05-18</span>
-                            <span class="tag is-success is-medium">v2.0.0</span>
-                            <span class="tag is-danger is-medium">Shell</span>
-                        </div>
-
-                        <div>
-                            <a target="FMiCa-TW.sh" href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTN" type="button">GitHub Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="ProgramList[6].IsClick">
-                    <br>
-                    <div class="content">
-                        <h3>twcall</h3>
-                        <p>一個能在zhcon中輸入繁體中文的腳本。</p>
-
-                        <div class="column">
-                            <span class="tag is-warning is-medium">2018-08-16</span>
-                            <span class="tag is-success is-medium">v1.0.0</span>
-                            <span class="tag is-danger is-medium">Shell</span>
-                        </div>
-
-                        <div>
-                            <a target="twcall" href="https://github.com/Lian0123/twcall"><button class="ABLBTN" type="button">GitHub Link</button></a>
-                        </div>
-
-                    </div>
-                </div>
-                <br>
-
-                <div v-if="IsBaseView">
-                    <br>
-                    <div class="content">
-                        <h3>相關連結</h3>
-
-                        <div>
-                            <p>GitHub<a target="GitHubLian0123" href="https://github.com/Lian0123/"><button class="ABLBTN" type="button">Github Link</button></a></p>
-                        </div>
-                        <br>
-
-                        <div>
-                            <p>SideShare<a target="SideShareLian0123" href="https://www.slideshare.net/ssuser6090c0"><button class="ABLBTN" type="button">SlideShare Link</button></a></p>
-                        </div>
-                        <br>
-
-                        <div>
-                            <p>FaceBook<a target="FaceBookLian0123" href="https://www.facebook.com/profile.php?id=100003135147006"><button class="ABLBTN" type="button">FaceBook Link</button></a></p>
-                        </div>
-                        <br>
-
-                    </div>
-                    <br>
-                </div>
-            </div>
-
-            <div class="content">
-                <h3>留言板</h3>
-                <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="tFOs4YES" data-limit="5"></script>
             </div>
             <br>
-        </div>
 
-</body>
+            <!--無資料的位移空間-->
+            <div id="noneBolck"></div>
+
+            <!--作品檢視遮罩>
+            <div id="maskView"></div-->
+
+            <!--首頁畫面-->
+            <div id="mainView" >
+                <!--歡迎說明-->
+                <div class="content BaseBlock">
+                    <h3>{{$t("hello")}}</h3>
+                    <hr>
+                    <p>{{$t("helloMeta")}}</p>
+
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("about")}}</h3>
+                    <hr>
+                    <div>
+                        <p>{{$t("name")}}</p>
+                        <p><b>{{$t("skill")}}</b>：{{$t("skillMeta")}}</p>
+                    </div>    
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("seniority")}}</h3>
+                    <hr>
+                    <div>
+                        <p>{{$t("seniorityMeta[0]")}}</p>
+                        <p>{{$t("seniorityMeta[1]")}}</p>
+                        <p>{{$t("seniorityMeta[2]")}}</p>
+                        <p>{{$t("seniorityMeta[3]")}}</p>
+                        <p>{{$t("seniorityMeta[4]")}}</p>
+                    </div>    
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("sideProject")}}</h3>
+                    <hr>
+                    <div>
+                        <p><b>UnknownClang：</b><br>{{$t("projectMeta[0]")}}</p>
+                        <p><b>JsCppString：</b><br>{{$t("projectMeta[1]")}}</p>
+                        <p><b>FMiCa-TW.sh：</b><br>{{$t("projectMeta[2]")}}</p>
+                        <p><b>TextArt：</b><br>{{$t("projectMeta[3]")}}</p>
+                        <p><b>Twcall：</b><br>{{$t("projectMeta[4]")}}</p>
+                    </div>    
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("writings")}}</h3>
+                    <div>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[0]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[1]")}}</p>
+                        <p><b>{{$t("EasyBase")}}</b><br> {{$t("writingsMeta[2]")}}</p>
+                        <p><b>{{$t("EasyBase")}}</b><br> {{$t("writingsMeta[3]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[4]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[5]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[6]")}}</p>
+                        
+                    </div>    
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("links")}}</h3>
+                    <hr>
+                    <div>
+                        <p>GitHub<a target="GitHubLian0123" href="https://github.com/Lian0123/"><button class="ABLBTN" type="button">Github Link</button></a></p>
+                    </div>
+                    <br>
+                    <div>
+                        <p>SideShare<a target="SideShareLian0123" href="https://www.slideshare.net/ssuser6090c0"><button class="ABLBTN" type="button">SlideShare Link</button></a></p>
+                    </div>
+                    <br>
+                    <div>
+                        <p>FaceBook<a target="FaceBookLian0123" href="https://www.facebook.com/profile.php?id=100003135147006"><button class="ABLBTN" type="button">FaceBook Link</button></a></p>
+                    </div>
+                    <br>
+                </div>
+                <br>
+            </div>
+
+            <!--教學文件畫面-->
+            <div id="documentView" >
+
+                <div v-for="(item, index) in $t('slideView').length" class="content BaseBlock">
+                    <h3>{{$t("slideView")[index].titleText}}</h3>  
+                    
+                    <div class="column">
+                        <span class="tag is-warning is-medium">{{$t("slideView")[index].writeDate}}</span>
+                        <span class="tag is-success is-medium">{{$t("slideView")[index].version}}</span>
+                        <span class="tag is-danger is-medium">{{$t("slideType")}}</span>
+                    </div>
+
+                    <div class="columns is-gapless">
+                        <div class="column">
+                            <div class="iframe-slideshare-16x9">
+                                <iframe v-bind:src="$t('slideView')[index].frameName"> </iframe>                  
+                            </div> 
+                        </div>
+                        <div class="column">
+                            <div class="TEXTAREAS">
+                                <h4>{{$t("about")}}</h4>
+                                <p>{{$t("slideView")[index].mainText}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                    </div>
+    
+                </div>
+                <br>
+                
+            </div>
+
+            <!--專案作品畫面-->
+            <div id="projectView" >
+                <div v-for="(item, index) in $t('slideView').length" class="content BaseBlock">
+                    <h3>{{$t("slideView")[index].titleText}}</h3>  
+                    
+                    <div class="column">
+                        <span class="tag is-warning is-medium">{{$t("slideView")[index].writeDate}}</span>
+                        <span class="tag is-success is-medium">{{$t("slideView")[index].version}}</span>
+                        <span class="tag is-danger is-medium">{{$t("slideView")[index].langBase}}</span>
+                    </div>
+
+                    <div class="columns is-gapless">
+                        <div v-if="$t('slideView')[index].type === 'slideShare'" class="column">
+                            <div class="iframe-slideshare-16x9">
+                                <iframe v-bind:src="$t('slideView')[index].frameName"> </iframe>                  
+                            </div> 
+                        </div>
+                        <div v-else class="column">
+                            <div>
+                                <img width="100%" height="100%" v-bind:src="$t('slideView')[index].frameName" />                 
+                            </div> 
+                        </div>
+                        <div class="column">
+                            <div class="TEXTAREAS">
+                                <h4>{{$t("about")}}</h4>
+                                <p>{{$t("slideView")[index].mainText}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div v-if="$t('slideView')[index].links === ''">
+                        <a href="javascript:void(0);"><button class="ABLBTN" type="button">委託專案源碼不得公開</button></a>
+                    </div>
+                    <div v-else>
+                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">Github Link</button></a>
+                    </div>
+
+                </div>
+                <br>
+            </div>
+
+            <!--網頁畫面-->
+            <div id="aboutView" >
+                <!--div class="content BlueBlock">
+                    <h3>說明</h3>
+                    <hr>
+                    <div>
+                        <p>本網頁為本人lian0123的數位履歷與作品集整理的用途。</p>
+                    </div>
+                </div-->
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("technology")}}</h3>
+                    <hr>
+                    <div>
+                        <p><b>Javascript</b>: Vue.js、Vue-i18n、Particles.js</p>
+                        <p><b>CSS</b>: Animate.css、bulma.css</p>
+                    </div>
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("version")}}</h3>
+                    <hr>
+                    <div>
+                        <p v-for="(item, index) in $t('versionList').length">{{$t("versionList")[index].date}}: {{$t("versionList")[index].data}}</p>
+                    </div>
+                </div>
+                <br>
+
+            </div>
+
+            <!--留言板-->
+            <div id="talkView">
+                <div class="content BaseBlock">
+                    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="tFOs4YES" data-limit="5"></script>
+                </div>
+                <br>
+            </div>
+        </div>
+    </body>
 </html>
 
+<script src="./Source/JS/mainView.js"></script>
+<script src="./Source/JS/menuView.js"></script>
+<script src="./Source/JS/documentView.js"></script>
+<script src="./Source/JS/projectView.js"></script>
+<script src="./Source/JS/aboutView.js"></script>
+
 <script src="./Source/JS/index.js"></script>
+

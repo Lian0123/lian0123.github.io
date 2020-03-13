@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "WenQuanYi Micro Hei Mono";
-  src: url(/Source/CSS/WenQuanYi\ Micro\ Hei.ttf);
+  src: url(./WenQuanYi\ Micro\ Hei.ttf);
 }
 
 html, body{
@@ -14,7 +14,7 @@ html, body{
   padding: 0px;
 }
 
-#particles-js{
+#particlesJS{
   background-color:#1d1d3a;
   width: 100%;
   height: 100%;
@@ -35,6 +35,36 @@ html, body{
   border: 0px;
 }
 
+.content{
+  text-align: justify;
+}
+
+#noneBolck{
+  height: 15%;
+  width: 100%;
+}
+
+#menuView{
+  position: fixed;
+  height: 10%;
+  width: 100%;
+  z-index:999;
+  line-height: initial;
+}
+
+#mainView{
+  z-index:998;
+}
+
+#maskView{
+  position: fixed;
+  top:10%;
+  left:0%;
+  right:0%;
+  bottom: 0%;
+  z-index:10;
+}
+
 .panel{
   position:absolute;
   color: aliceblue;
@@ -45,19 +75,63 @@ html, body{
   padding: 0px; 
 }
 
-.content {
-  z-index: 1;
+.RedBlock {
+  z-index: 111;
+  margin:0 auto;
+  background-color: rgba(255, 0, 0, 0.575);
+  width: 90%;
+  padding: 2% 2.5%;
+  backdrop-filter: blur(2.5px);
+}
+
+.RedBlock:hover {
+  backdrop-filter: blur(5px);
+}
+
+.BlueBlock {
+  z-index: 111;
+  margin:0 auto;
+  background-color: rgba(0, 132, 255, 0.575);
+  width: 90%;
+  padding: 2% 2.5%;
+  backdrop-filter: blur(2.5px);
+}
+
+.BlueBlock:hover {
+  backdrop-filter: blur(5px);
+}
+
+.WhiteBlock {
+  z-index: 111;
+  margin:0 auto;
+  background-color: rgba(238, 238, 238, 0.466);
+  width: 90%;
+  padding: 2% 2.5%;
+  backdrop-filter: blur(2.5px);
+}
+
+.WhiteBlock:hover {
+  backdrop-filter: blur(5px);
+}
+
+.BaseBlock {
+  z-index: 111;
   margin:0 auto;
   background-color: rgba(55, 57, 87, 0.466);
   width: 90%;
   padding: 2% 2.5%;
+  backdrop-filter: blur(2.5px);
+}
+
+.BaseBlock:hover {
+  backdrop-filter: blur(5px);
 }
 
 .TITLECONTENT {
-  z-index: 1;
   color: aliceblue;
   background-color: rgba(21, 21, 32, 0.924);
   padding: 20px 10px;
+  backdrop-filter: blur(5px);
 }
 
 .ABLBTN{
@@ -189,7 +263,7 @@ select.ABLSELECT:hover{
   border:0.5px rgb(255, 247, 130) solid; 
   border-bottom-color: rgb(255, 247, 130);
   outline-style: none ;
-  line-height:18px;
+  line-height:16px;
   font-size: 16px;
 }
 
@@ -197,7 +271,7 @@ select.ABLSELECT option{
   background-color: rgb(26, 27, 41);
   outline-style: none ;
   color: aliceblue;   
-  line-height:18px;
+  line-height:16px;
   font-size: 16px; 
 }
 
@@ -261,6 +335,17 @@ select.ABLSELECT option{
   width: 100%;
   height: 100%;
   border:1px solid #CCC; 
+}
+
+.TEXTAREAS{
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.TEXTAREAS h4{
+  text-align: center;
 }
 
 .BreathingAreaLight{

@@ -302,7 +302,7 @@ const documentView = new Vue({
                 ]
             },
             "jp": {
-                slideType:`技術教育`,
+                slideType:`教育`,
                 about:`紹介`,
                 slideView:[
                     {

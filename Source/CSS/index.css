@@ -16,8 +16,8 @@ html, body{
 
 #particlesJS{
   background-color:#1d1d3a;
-  width: 100%;
-  height: 100%;
+  width: 120%;
+  height: 120%;
   margin: 0px;
   padding: 0px;
   z-index: -999;

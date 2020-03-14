@@ -10,14 +10,14 @@
 
 html, body{
   background-color:#1d1d3a;
-  margin: 0px;
-  padding: 0px;
+  margin: -10%;
+  padding: -10%;
 }
 
 #particlesJS{
   background-color:#1d1d3a;
-  width: 120%;
-  height: 120%;
+  width: 100%;
+  height: 100%;
   margin: 0px;
   padding: 0px;
   z-index: -999;

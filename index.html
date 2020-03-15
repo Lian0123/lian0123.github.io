@@ -36,11 +36,11 @@
                         
                             <!-- Right side -->
                             <div v-if="isShowBtn" class="level-right">
-                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')">{{$t("index")}}</a></p>
-                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('documentView')">{{$t("documents")}}</a></p>
-                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('projectView')">{{$t("program")}}</a></p>
-                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('aboutView')">{{$t("about")}}</a></p>
-                                <p class="level-item"><a class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io" target="Web_GitHub">GitHub</a></p>
+                                <p class="level-item"><a id="indexBTN"     class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')">{{$t("index")}}</a></p>
+                                <p class="level-item"><a id="documentsBTN" class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('documentView')">{{$t("documents")}}</a></p>
+                                <p class="level-item"><a id="programBTN"   class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('projectView')">{{$t("program")}}</a></p>
+                                <p class="level-item"><a id="aboutBTN"     class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('aboutView')">{{$t("about")}}</a></p>
+                                <p class="level-item"><a id="githubBTN"    class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io" target="Web_GitHub">GitHub</a></p>
 
                                 <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);"><select v-model="locale" class="ABLSELECT">
                                     <option value="zh-tw">繁體中文</option>

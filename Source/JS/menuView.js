@@ -56,6 +56,7 @@ const menuView = new Vue({
             documentView.$i18n.locale = this.locale;
             projectView.$i18n.locale  = this.locale;
             aboutView.$i18n.locale    = this.locale;
+            talkView.$i18n.locale     = this.locale;
         }
     },
     i18n:new VueI18n({

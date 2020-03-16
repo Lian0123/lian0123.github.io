@@ -175,9 +175,14 @@
                     </div>
 
                     <div class="columns is-gapless">
-                        <div class="column">
+                        <div v-if="$t('slideView')[index].type === 'slideShare'" class="column">
                             <div class="iframe-slideshare-16x9">
                                 <iframe v-bind:src="$t('slideView')[index].frameName"> </iframe>                  
+                            </div> 
+                        </div>
+                        <div v-else class="column">
+                            <div>
+                                <img width="100%" height="100%" v-bind:src="$t('slideView')[index].frameName" />                 
                             </div> 
                         </div>
                         <div class="column">
@@ -189,7 +194,7 @@
                     </div>
 
                     <div>
-                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">SlideShare Link</button></a>
+                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">{{$t('slideView')[index].buttonName}}</button></a>
                     </div>
     
                 </div>
@@ -240,15 +245,6 @@
 
             <!--網頁畫面-->
             <div id="aboutView" >
-                <!--div class="content BlueBlock">
-                    <h3>說明</h3>
-                    <hr>
-                    <div>
-                        <p>本網頁為本人lian0123的數位履歷與作品集整理的用途。</p>
-                    </div>
-                </div-->
-                <br>
-
                 <div class="content BaseBlock">
                     <h3>{{$t("technology")}}</h3>
                     <hr>

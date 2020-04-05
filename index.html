@@ -2,8 +2,10 @@
 <html lang="zh-tw">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.2">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport"               content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible"  content="ie=edge">
+        <meta http-equiv="Content-Language" content="zh-TW">
+        <meta http-equiv="X-UA-Compatible"  content="ie=edge">
 
         <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/index.css">
         <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/bulma.css">
@@ -97,10 +99,22 @@
                     <hr>
                     <div>
                         <p>{{$t("name")}}</p>
-                        <p><b>{{$t("skill")}}</b>：{{$t("skillMeta")}}</p>
+                        <p><b>{{$t("Introduction")}}</b>：{{$t("Introductions")}}</p>
                     </div>    
                 </div>
                 <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("skills")}}</h3>
+                    <hr>
+                    <div v-for="(item, index) in $t('skillsList').length">
+                        <h5>{{$t('skillsList')[index].Type}}</h5>
+                        <div v-for="(isubtem, subindex) in $t('skillsList')[index].List.length">
+                            <p>{{subindex+1}}. {{$t("skillsList")[index].List[subindex].SkillName}}：{{$t("skillsList")[index].List[subindex].Level}}</p>
+                        </div>
+                        <br>
+                    </div>
+                </div>
 
                 <div class="content BaseBlock">
                     <h3>{{$t("seniority")}}</h3>

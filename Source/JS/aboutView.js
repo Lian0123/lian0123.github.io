@@ -32,6 +32,10 @@ const aboutView = new Vue({
                     {
                         date : `2020-03-13`,
                         data : `第二版網頁測試上線`,
+                    },
+                    {
+                        date : `2020-04-05`,
+                        data : `第2.1版調整`,
                     }
                 ]
             },
@@ -54,6 +58,10 @@ const aboutView = new Vue({
                     {
                         date : `2020-03-13`,
                         data : `第二版网页测试上线`,
+                    },
+                    {
+                        date : `2020-04-05`,
+                        data : `第2.1版调整`,
                     }
                 ]
             },
@@ -76,6 +84,10 @@ const aboutView = new Vue({
                     {
                         date : `2020-03-13`,
                         data : `The second version test`,
+                    },
+                    {
+                        date : `2020-04-05`,
+                        data : `Update to version 2.1`,
                     }
                 ]
             },
@@ -98,6 +110,10 @@ const aboutView = new Vue({
                     {
                         date : `令和2年3月13日`,
                         data : `第二版テスト`,
+                    },
+                    {
+                        date : `令和2年4月5日`,
+                        data : `第2.1版修正`,
                     }
                 ]
             }

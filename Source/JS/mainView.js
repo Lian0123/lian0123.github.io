@@ -1,17 +1,248 @@
-
+Chart.platform.disableCSSInjection = true;
+Chart.defaults.global.defaultFontColor = "#fff";
+var SkillList0,SkillList1;
 const mainView = new Vue({
     el:"#mainView", 
-    data:{
+    data:{/*
+        aaa:c3.generate({
+            bindto: "#SkillList",
+            data: {
+                x: `x`,
+                columns: [0,1,2],
+                types:{}
+                
+             
+            }
+        }),*/
+       // bbb:
     },
     mounted() {
-        this.$i18n.locale = 'zh-tw';
+        this.$i18n.locale = `zh-tw`;
+        SkillList0 = new Chart(document.getElementById(`SkillList0`).getContext(`2d`), {
+            type: `horizontalBar`,
+            data: {
+                labels: [`全端網頁設計`, `人工智慧(Fuzzy領域)`, `計算機組織架構`, `資安管理`, `Electorn視窗程式開發`],
+                datasets: [{
+                    label: `熟練等級`,
+                    data: [5, 4, 4, 3, 3],
+                    backgroundColor: [
+                        `rgba(255, 255, 255, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                    ],
+                    borderWidth: 1
+                }],                
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                    yAxes: [{
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                },
+                elements: {
+                    rectangle: {
+                        borderWidth: 1,
+                    }
+                },
+            }
+        });
+        SkillList1 = new Chart(document.getElementById(`SkillList1`).getContext(`2d`), {
+            type: `horizontalBar`,
+            data: {
+                labels: [`Linux系統`, `Microsoft Word`, `Microsoft Presentation`, `Microsoft Excel`, `Git工具`,
+                `VS Code`,`PhpMyAdmin`,`Vim`,`SSH`,`GCC`,`G++`,`Visual Studio`,`Draw.io`,`Krita`,`XeLatex`,`LibreOffice`,`Sketchup`,`Unity遊戲引擎(2D)`,`Android Studio`,`Blender`],
+                datasets: [{
+                    label: `熟練等級`,
+                    data: [5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 1],
+                    backgroundColor: [
+                        `rgba(255, 255, 255, 1)`,
+                        `rgba(255, 255, 255, 1)`,
+                        `rgba(255, 255, 255, 1)`,
+                        `rgba(255, 255, 255, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(135, 135, 135, 1)`,
+                    ],
+                    borderWidth: 1
+                }],
+                
+
+                
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                    yAxes: [{
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                },
+                elements: {
+                    rectangle: {
+                        borderWidth: 1,
+                    }
+                },
+            }
+        });
+        SkillList2 = new Chart(document.getElementById(`SkillList2`).getContext(`2d`), {
+            type: `horizontalBar`,
+            data: {
+                labels: [`C`, `C++`, `C#(WPF、Unity腳本)`, `Bash`, `PHP`, `JavaScript(含node.js)`, `GO`,`Python`,`Kotlin`,`System Verilog`,`VHDL`,`JAVA`],
+                datasets: [{
+                    label: `熟練等級`,
+                    data: [4, 4, 4, 4, 4, 4, 3, 2, 2, 2, 2, 1],
+                    backgroundColor: [
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                        `rgba(135, 135, 135, 1)`,
+                    ],
+                    borderWidth: 1
+                }],
+                
+
+                
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                    yAxes: [{
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                },
+                elements: {
+                    rectangle: {
+                        borderWidth: 1,
+                    }
+                },
+            }
+        });
+        SkillList3 = new Chart(document.getElementById(`SkillList3`).getContext(`2d`), {
+            type: `horizontalBar`,
+            data: {
+                labels: [`Vue`, `Vue-i18n`, `Vue-Router`, `Electorn.js`, `bootstarp`, `TocasUI`, `gin(Go)`, `Laravel`, `Webpack`],
+                datasets: [{
+                    label: `熟練等級`,
+                    data: [4, 4, 4, 4, 4, 4, 4, 3, 2],
+                    backgroundColor: [
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(225, 225, 225, 1)`,
+                        `rgba(195, 195, 195, 1)`,
+                        `rgba(165, 165, 165, 1)`,
+                    ],
+                    borderWidth: 1
+                }],                
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                    yAxes: [{
+						scaleLabel: {
+							display: true,
+						},
+                        gridLines: {
+                            color:`rgba(255, 255, 255, 0.4)`
+                        },
+                    }],
+                },
+                elements: {
+                    rectangle: {
+                        borderWidth: 1,
+                    }
+                },
+            }
+        });
     },
     methods:{
 
     },
     i18n:new VueI18n({
-        locale: 'zh-tw',
-        fallbackLocale: 'zh-tw',
+        locale: `zh-tw`,
+        fallbackLocale: `zh-tw`,
         messages:{
             "zh-tw": {
                 hello         : `Hi, 歡迎來到這個網頁`,

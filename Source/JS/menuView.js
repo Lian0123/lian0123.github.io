@@ -28,21 +28,31 @@ const menuView = new Vue({
                 document.getElementsByTagName("div").documentView.style.display = "none";
                 document.getElementsByTagName("div").projectView.style.display  = "none";
                 document.getElementsByTagName("div").aboutView.style.display    = "none";
+                document.getElementsByTagName("div").blogView.style.display     = "none";
             }else if(pageName == "documentView" ){
                 document.getElementsByTagName("div").mainView.style.display     = "none";
                 document.getElementsByTagName("div").documentView.style.display = "";
                 document.getElementsByTagName("div").projectView.style.display  = "none";
                 document.getElementsByTagName("div").aboutView.style.display    = "none";
+                document.getElementsByTagName("div").blogView.style.display     = "none";
             }else if(pageName == "projectView" ){
                 document.getElementsByTagName("div").mainView.style.display     = "none";
                 document.getElementsByTagName("div").documentView.style.display = "none";
                 document.getElementsByTagName("div").projectView.style.display  = "";
                 document.getElementsByTagName("div").aboutView.style.display    = "none";
+                document.getElementsByTagName("div").blogView.style.display     = "none";
             }else if(pageName == "aboutView" ){
                 document.getElementsByTagName("div").mainView.style.display     = "none";
                 document.getElementsByTagName("div").documentView.style.display = "none";
                 document.getElementsByTagName("div").projectView.style.display  = "none";
                 document.getElementsByTagName("div").aboutView.style.display    = "";
+                document.getElementsByTagName("div").blogView.style.display     = "none";
+            }else if(pageName == "blogView" ){
+                document.getElementsByTagName("div").mainView.style.display     = "none";
+                document.getElementsByTagName("div").documentView.style.display = "none";
+                document.getElementsByTagName("div").projectView.style.display  = "none";
+                document.getElementsByTagName("div").aboutView.style.display    = "none";
+                document.getElementsByTagName("div").blogView.style.display     = "";
             }
         },
         changeState:function(nextState){
@@ -56,6 +66,7 @@ const menuView = new Vue({
             documentView.$i18n.locale = this.locale;
             projectView.$i18n.locale  = this.locale;
             aboutView.$i18n.locale    = this.locale;
+            blogView.$i18n.locale     = this.locale;
             talkView.$i18n.locale     = this.locale;
         }
     },
@@ -90,6 +101,7 @@ const menuView = new Vue({
                     program       : `Program Project`,
                     portfolio     : `portfolio`,
                     about         : `About This Web`,
+                    blog          : `Blog`,
                     bulletinBoard : `Bulletin Board`,
             },
             "jp": {
@@ -99,6 +111,7 @@ const menuView = new Vue({
                     program       : `Program作品`,
                     portfolio     : `作品集`,
                     about         : `ィアについてWeb`,
+                    blog          : `Blog`,
                     bulletinBoard : `掲示板`,
             },
         }

@@ -8,14 +8,18 @@
   src: url(./WenQuanYi\ Micro\ Hei.ttf);
 }
 
+.alignRight{
+  text-align: right;
+}
+
 html, body{
-  background-color:#1d1d3a;
+  background-color:#909090;
   margin: -10%;
   padding: -10%;
 }
 
 #particlesJS{
-  background-color:#1d1d3a;
+  background-color:#909090;
   width: 100%;
   height: 120%;
   margin: 0px;
@@ -25,7 +29,7 @@ html, body{
 }
 
 .BTNBUFFER{
-  background-color:#1d1d3a;
+  background-color:#909090;
   text-align: center;
   color: aliceblue;
   margin: 0px;
@@ -117,7 +121,8 @@ html, body{
 .BaseBlock {
   z-index: 111;
   margin:0 auto;
-  background-color: rgba(55, 57, 87, 0.466);
+  background-color: rgba(48, 48, 48, 0.466);
+  box-shadow: 0 0 1em rgb(46, 46, 46);
   width: 90%;
   padding: 2% 2.5%;
   backdrop-filter: blur(2.5px);
@@ -125,12 +130,14 @@ html, body{
 
 .BaseBlock:hover {
   backdrop-filter: blur(5px);
+  box-shadow: 0 0 1em rgb(26, 26, 26);
 }
 
 .TITLECONTENT {
   color: aliceblue;
-  background-color: rgba(21, 21, 32, 0.924);
+  background: linear-gradient(0.25turn,rgba(78, 78, 78, 0.924),rgba(136, 136, 136, 0.924));
   padding: 20px 10px;
+  background-size: 200% 100%;
   backdrop-filter: blur(5px);
 }
 
@@ -138,7 +145,7 @@ html, body{
   z-index: 2;
   text-align: center;
   color:aliceblue;
-  background-color: rgba(55, 57, 87, 0.466);
+  background-color: rgba(32, 32, 32, 0.466);
   border:2px rgb(255, 255, 255) solid;
   cursor:pointer;
   width:100%;
@@ -148,8 +155,8 @@ html, body{
 .ABLBTN:hover{
   z-index: 2;
   text-align: center;
-  color:rgb(255, 247, 130);
-  background-color: rgba(55, 57, 87, 0.466);
+  color:rgb(255, 250, 185);
+  background-color: rgba(32, 32, 32, 0.466);
   border:2px rgb(255, 247, 130) solid;
   cursor:pointer;
   width:100%;
@@ -160,7 +167,7 @@ html, body{
   z-index: 2;
   text-align: center;
   color:aliceblue;
-  background-color: rgba(55, 57, 87, 0.466);
+  background-color: rgba(32, 32, 32, 0.466);
   border:2px rgb(255, 255, 255) solid;
   cursor:pointer;
   width:100%;
@@ -170,8 +177,8 @@ html, body{
 .ABLBTNSMALL:hover{
   z-index: 2;
   text-align: center;
-  color:rgb(255, 247, 130);
-  background-color: rgba(55, 57, 87, 0.466);
+  color:rgb(255, 250, 185);
+  background-color: rgba(32, 32, 32, 0.466);
   border:2px rgb(255, 247, 130) solid;
   cursor:pointer;
   width:100%;
@@ -188,13 +195,13 @@ html, body{
 .TITLE_ABLBTN:hover{
   z-index: 2;
   text-align: center;
-  color:rgb(255, 247, 130);
+  color:rgb(255, 250, 185);
   cursor:pointer;
 }
 
 
 h1:hover{
-  color:rgb(255, 247, 130);
+  color:rgb(255, 250, 185);
 }
 
 navbar-link {
@@ -204,9 +211,9 @@ navbar-link {
 input.ABLINPUT{
   width:100%;
   height:30px;
-  background-color: rgba(45, 47, 71, 0.712);
+  background-color: rgba(22, 22, 22, 0.712);
   color: aliceblue;
-  border:0.5px rgba(45, 47, 71, 0.712) solid; /*外框*/
+  border:0.5px rgba(22, 22, 22, 0.712) solid; /*外框*/
   border-bottom-color: aliceblue;
   caret-color: aliceblue; /*閃耀屬標*/ 
   outline-style: none ;
@@ -216,22 +223,22 @@ input.ABLINPUT{
 input.ABLINPUT:hover{
   width:100%;
   height:30px;
-  background-color: rgba(45, 47, 71, 0.712);
-  color: rgb(255, 247, 130);
-  border:0.5px rgba(45, 47, 71, 0.712) solid; /*外框*/
-  border-bottom-color: rgb(255, 247, 130);
-  caret-color: rgb(255, 247, 130); /*閃耀屬標*/  
+  background-color: rgba(22, 22, 22, 0.712);
+  color: rgb(255, 250, 185);
+  border:0.5px rgba(22, 22, 22, 0.712) solid; /*外框*/
+  border-bottom-color: rgb(255, 250, 185);
+  caret-color: rgb(255, 250, 185); /*閃耀屬標*/  
   outline-style: none ;
 }
 
 input.ABLINPUT:focus{
   width:100%;
   height:30px;
-  background-color: rgba(45, 47, 71, 0.712);
-  color: rgb(255, 247, 130);
-  border:0.5px rgba(45, 47, 71, 0.712) solid; /*外框*/
-  border-bottom-color: rgb(255, 247, 130);
-  caret-color: rgb(255, 247, 130); /*閃耀屬標*/  
+  background-color: rgba(22, 22, 22, 0.712);
+  color: rgb(255, 250, 185);
+  border:0.5px rgba(22, 22, 22, 0.712) solid; /*外框*/
+  border-bottom-color: rgb(255, 250, 185);
+  caret-color: rgb(255, 250, 185); /*閃耀屬標*/  
   outline-style: none ;
 }
 
@@ -240,13 +247,13 @@ input::placeholder{
 }
 
 input:hover::placeholder{
-  color: rgb(255, 247, 130);
+  color: rgb(255, 250, 185);
 }
 
 select.ABLSELECT{
   width:100%;
   height:30px;
-  background-color: rgba(45, 47, 71, 0.712);
+  background-color: rgba(22, 22, 22, 0.712);
   color: aliceblue;
   border:0.5px aliceblue solid; /*外框*/
   border-bottom-color: aliceblue;
@@ -258,17 +265,17 @@ select.ABLSELECT{
 select.ABLSELECT:hover{
   width:100%;
   height:30px;
-  background-color: rgba(45, 47, 71, 0.712);
-  color: rgb(255, 247, 130);
+  background-color: rgba(22, 22, 22, 0.712);
+  color: rgb(255, 250, 185);
   border:0.5px rgb(255, 247, 130) solid; 
-  border-bottom-color: rgb(255, 247, 130);
+  border-bottom-color: rgb(255, 250, 185);
   outline-style: none ;
   line-height:16px;
   font-size: 16px;
 }
 
 select.ABLSELECT option{
-  background-color: rgb(26, 27, 41);
+  background-color: rgb(17, 17, 17);
   outline-style: none ;
   color: aliceblue;   
   line-height:16px;
@@ -353,20 +360,22 @@ select.ABLSELECT option{
   animation-direction: alternate-reverse;
   -webkit-animation-iteration-count:infinite;
   animation-iteration-count:infinite;
-  -webkit-animation-duration: 2s;
-  animation-duration:2s;
+  -webkit-animation-duration: 4s;
+  animation-duration:4s;
   -webkit-animation-name:mymove;
   animation-name:mymove;
 }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
-  from {background-color: rgba(21, 21, 32, 0.924);}
-  to {background-color: rgba(29, 22, 41, 0.924);}
+  0% {background-position:0% 0%;}
+  50% {background-position: 50% 0%;}
+  100% {background-position: 100% 0%;}
 }
 
 /* Standard syntax */
 @keyframes mymove {
-  from {background-color: rgba(21, 21, 32, 0.924);}
-  to {background-color: rgba(29, 22, 41, 0.924);}
+  0% {background-position:0% 0%;}
+  50% {background-position: 50% 0%;}
+  100% {background-position: 100% 0%;}
 }

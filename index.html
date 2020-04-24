@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"               content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -14,8 +13,12 @@
         <script src="./Source/JS/Include/particlesjs-config.js"></script>
         <script src="./Source/JS/Include/particles.js"></script>
         <script src="./Source/JS/Include/vue.js"></script>
+        <script>Vue.config.devtools=false</script>
+        <script>Vue.config.productionTip=false</script>
         <script src="./Source/JS/Include/vue-router.js"></script>
         <script src="./Source/JS/Include/vue-i18n.js"></script>
+        <script src="./Source/JS/Include/Chart.bundle.min.js"></script>
+        <script src="./Source/JS/Include/Chart.min.js"></script>
         <title>lian0123 WEB</title>
     </head>
 
@@ -42,6 +45,7 @@
                                 <p class="level-item"><a id="documentsBTN" class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('documentView')">{{$t("documents")}}</a></p>
                                 <p class="level-item"><a id="programBTN"   class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('projectView')">{{$t("program")}}</a></p>
                                 <p class="level-item"><a id="aboutBTN"     class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('aboutView')">{{$t("about")}}</a></p>
+                                <p class="level-item"><a id="aboutBTN"     class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('blogView')">{{$t("blog")}}</a></p>
                                 <p class="level-item"><a id="githubBTN"    class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io" target="Web_GitHub">GitHub</a></p>
 
                                 <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);"><select v-model="locale" class="ABLSELECT">
@@ -80,20 +84,8 @@
             <!--無資料的位移空間-->
             <div id="noneBolck"></div>
 
-            <!--作品檢視遮罩>
-            <div id="maskView"></div-->
-
             <!--首頁畫面-->
             <div id="mainView" >
-                <!--歡迎說明-->
-                <div class="content BaseBlock">
-                    <h3>{{$t("hello")}}</h3>
-                    <hr>
-                    <p>{{$t("helloMeta")}}</p>
-
-                </div>
-                <br>
-
                 <div class="content BaseBlock">
                     <h3>{{$t("about")}}</h3>
                     <hr>
@@ -107,12 +99,41 @@
                 <div class="content BaseBlock">
                     <h3>{{$t("skills")}}</h3>
                     <hr>
-                    <div v-for="(item, index) in $t('skillsList').length">
-                        <h5>{{$t('skillsList')[index].Type}}</h5>
-                        <div v-for="(isubtem, subindex) in $t('skillsList')[index].List.length">
-                            <p>{{subindex+1}}. {{$t("skillsList")[index].List[subindex].SkillName}}：{{$t("skillsList")[index].List[subindex].Level}}</p>
+
+                    <div>
+                        <h5>{{$t('skillsList')[0].Type}}：</h5>
+                        <div class="columns is-gapless">
+                            <div class="column">
+                                <canvas id="SkillList0"></canvas>
+                            </div>
                         </div>
-                        <br>
+                    </div>
+
+                    <div>
+                        <h5>{{$t('skillsList')[1].Type}}：</h5>
+                        <div class="columns is-gapless">
+                            <div class="column">
+                                <canvas id="SkillList1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5>{{$t('skillsList')[2].Type}}：</h5>
+                        <div class="columns is-gapless">
+                            <div class="column">
+                                <canvas id="SkillList2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5>{{$t('skillsList')[3].Type}}：</h5>
+                        <div class="columns is-gapless">
+                            <div class="column">
+                                <canvas id="SkillList3"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -178,7 +199,6 @@
 
             <!--教學文件畫面-->
             <div id="documentView" >
-
                 <div v-for="(item, index) in $t('slideView').length" class="content BaseBlock">
                     <h3>{{$t("slideView")[index].titleText}}</h3>  
                     
@@ -280,6 +300,22 @@
 
             </div>
 
+            <!--日誌畫面-->
+            <div id="blogView">
+                <div v-for="(item,index) in $t('blogList').length">
+                    <div class="content BaseBlock">
+                        <h3>{{$t("blogList")[index].title}}</h3>
+                        <hr>
+                        <div v-for="(subitem,subindex) in $t('blogList')[index].mainText.length">
+                            <p>{{$t("blogList")[index].mainText[subindex]}}</p>
+                            <br>
+                        </div>
+                        <p class="alignRight">{{$t("blogList")[index].date}}</p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            
             <!--留言板-->
             <div class="content BaseBlock">
                 <div id="talkView" >
@@ -292,7 +328,6 @@
                 <br>
             </div>
             <br>
-
         </div>
     </body>
 </html>
@@ -302,7 +337,7 @@
 <script src="./Source/JS/documentView.js"></script>
 <script src="./Source/JS/projectView.js"></script>
 <script src="./Source/JS/aboutView.js"></script>
+<script src="./Source/JS/blogView.js"></script>
 <script src="./Source/JS/talkView.js"></script>
 
 <script src="./Source/JS/index.js"></script>
-

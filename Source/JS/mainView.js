@@ -39,7 +39,8 @@ const mainView = new Vue({
                 scales: {
                     xAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize:1,
                         },
 						scaleLabel: {
 							display: true,
@@ -104,7 +105,8 @@ const mainView = new Vue({
                 scales: {
                     xAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize:1,
                         },
 						scaleLabel: {
 							display: true,
@@ -161,7 +163,8 @@ const mainView = new Vue({
                 scales: {
                     xAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize:1,
                         },
 						scaleLabel: {
 							display: true,
@@ -211,7 +214,8 @@ const mainView = new Vue({
                 scales: {
                     xAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize:1,
                         },
 						scaleLabel: {
 							display: true,

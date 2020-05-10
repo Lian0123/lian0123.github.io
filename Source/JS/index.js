@@ -1,8 +1,9 @@
 var jsonUri = "data:text/plain;base64,"+window.btoa(JSON.stringify(partJson));
-
 particlesJS.load('particlesJS', jsonUri, function() {
     console.log('callback - particles.js config loaded');
 });
+
+document.getElementsByTagName("div").topMask.className  = "animated fadeOut delay-500ms";
 
 document.getElementsByTagName("div").mainView.style.display     = "";
 document.getElementsByTagName("div").documentView.style.display = "none";

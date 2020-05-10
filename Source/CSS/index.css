@@ -12,6 +12,17 @@
   text-align: right;
 }
 
+#topMask {
+  background-color:#909090;
+  position: absolute;
+  margin: 0px;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -300%;
+  z-index: 999;
+}
+
 html, body{
   background-color:#909090;
   margin: -10%;

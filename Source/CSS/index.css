@@ -14,13 +14,11 @@
 
 #topMask {
   background-color:#909090;
-  position: absolute;
+  position: fixed;
   margin: 0px;
-  top: -10%;
-  left: -10%;
-  right: -10%;
-  bottom: -300%;
-  z-index: 999;
+  width: 120%;
+  height: 120%;
+  z-index: 1000;
 }
 
 html, body{

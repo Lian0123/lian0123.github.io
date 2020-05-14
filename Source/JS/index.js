@@ -4,6 +4,9 @@ particlesJS.load('particlesJS', jsonUri, function() {
 });
 
 document.getElementsByTagName("div").topMask.className  = "animated fadeOut delay-500ms";
+setTimeout(() => {
+    document.getElementsByTagName("div").topMask.style.display  = "none";
+}, 1000);
 
 document.getElementsByTagName("div").mainView.style.display     = "";
 document.getElementsByTagName("div").documentView.style.display = "none";

@@ -3,18 +3,8 @@ Chart.defaults.global.defaultFontColor = "#fff";
 var SkillList0,SkillList1;
 const mainView = new Vue({
     el:"#mainView", 
-    data:{/*
-        aaa:c3.generate({
-            bindto: "#SkillList",
-            data: {
-                x: `x`,
-                columns: [0,1,2],
-                types:{}
-                
-             
-            }
-        }),*/
-       // bbb:
+    data:{
+        isShowBtn:true,
     },
     mounted() {
         this.$i18n.locale = `zh-tw`;
@@ -313,9 +303,10 @@ const mainView = new Vue({
                                     ]}
                                 ],
                 seniority     : `資歷`,
-                seniorityMeta : [`2016 國立臺南大學第九屆學生會新聞部部長`,`2017 國立臺南大學資訊工程學系第十屆宿營攝影長`,`2017 國立臺南大學資訊科學服務社 南化國小Scratch程式設計課講師`,`2018 國立臺南大學資訊科學服務社 南化國小Scratch程式設計課攝影`,`2019 參與下世代物聯網通訊技術虛擬實作工作坊`],
+                seniorityMeta : [`2016 國立臺南大學第九屆學生會新聞部部長`,`2017 國立臺南大學資訊工程學系第十屆宿營攝影長`,`2017 國立臺南大學資訊科學服務社 南化國小Scratch程式設計課講師`,`2018 國立臺南大學資訊科學服務社 南化國小Scratch程式設計課攝影`,`2019 參與下世代物聯網通訊技術虛擬實作工作坊`,`2020 參與第16屆台灣軟體工程演討會並進行報告`],
                 sideProject   : `個人業餘專案`,
-                projectMeta   : [`一個自定義C語言Macro，使語意流暢化的header檔。`,`在C++中使用像是Javascript自由的語法。`,`一個輔助Linux Mint Cinnamon系統安裝完後安裝其他常用程式的腳本。`,`純文字藝術。`,`使zhcorn能轉成UTF8繁體中文的小工具。`],
+                projectMeta   : [`一個輔助Linux Mint Cinnamon系統安裝完後安裝其他常用程式的腳本。`,`純文字藝術。`,`使zhcorn能轉成UTF8繁體中文的小工具。`,`開發中，使用Javascript實現galgame文字冒險遊戲引擎。`,`開發中，使用Javascript與系統檔案儲存實現的Json儲存資料庫。`],
+                information   : `相關資訊`,
                 writings      : `著作`,
                 EasyLinux     : `看似比較簡單的Linux推坑教學`,
                 EasyBase      : `看似比較簡單的推坑教學`,
@@ -386,9 +377,10 @@ const mainView = new Vue({
                                     ]}
                                 ],
                 seniority     : `资历`,
-                seniorityMeta : [`2016 国立台南大学第九届学生会新闻部部长`,`2017 国立台南大学资讯工程学系第十届宿营摄影长`,`2017 国立台南大学资讯科​​学服务社南化国小Scratch程式设计课讲师` ,`2018 国立台南大学资讯科​​学服务社南化国小Scratch程式设计课摄影`,`2019 参与下世代物联网通讯技术虚拟实作工作坊`],
+                seniorityMeta : [`2016 国立台南大学第九届学生会新闻部部长`,`2017 国立台南大学资讯工程学系第十届宿营摄影长`,`2017 国立台南大学资讯科​​学服务社南化国小Scratch程式设计课讲师` ,`2018 国立台南大学资讯科​​学服务社南化国小Scratch程式设计课摄影`,`2019 参与下世代物联网通讯技术虚拟实作工作坊`,`2020 参与第16届台湾软体工程演讨会并进行报告`],
                 sideProject   : `个人业余专案`,
-                projectMeta   : [`一个自定义C语言Macro，使语意流畅化的header档。`,`在C++中使用像是Javascript自由的语法。`,`一个辅助Linux Mint Cinnamon系统安装完后安装其他常用程式的脚本。`,`纯文字艺术。`,`使zhcorn能转成UTF8繁体中文的小工具。`],
+                projectMeta   : [`一个辅助Linux Mint Cinnamon系统安装完后安装其他常用程式的脚本。`,`纯文字艺术。`,`使zhcorn能转成UTF8繁体中文的小工具。`,`开发中，使用Javascript实现galgame文字冒险游戏引擎。`,`开发中，使用Javascript与系统档案储存实现的Json储存资料库。`],
+                information   : `相关信息`,
                 writings      : `著作`,
                 EasyLinux     : `看似比较简单的Linux推坑教学`,
                 EasyBase      : `看似比较简单的推坑教学`,
@@ -460,9 +452,10 @@ const mainView = new Vue({
                                     ]}
                 ],
                 seniority     : `Seniority`,
-                seniorityMeta : [`2016 Ninth Student Union of National Tainan University minister of information`,`2017 Tenth Camping Photography, Department of Information Engineering, National Tainan University`,`2017 National Tainan University Information Science Service Club, Nanhua Elementary School Scratch Program Design Class lecturer`,`2018 National Tainan University Information Science Service Club, Nanhua Elementary School Scratch Scratch Program Design Class photography`,`2019 Participate in the virtual reality workshop of next generation IoT communication technology`],
+                seniorityMeta : [`2016 Ninth Student Union of National Tainan University minister of information`,`2017 Tenth Camping Photography, Department of Information Engineering, National Tainan University`,`2017 National Tainan University Information Science Service Club, Nanhua Elementary School Scratch Program Design Class lecturer`,`2018 National Tainan University Information Science Service Club, Nanhua Elementary School Scratch Scratch Program Design Class photography`,`2019 Participate In The Virtual Reality Workshop Of Next Generation IoT Communication Technology`,`2020 Participate In The 16TH Software Engineering Association Taiwan Conference`],
                 sideProject   : `Side-Project`,
-                projectMeta   : [`One Define the C language Macro，then make semantic helpful with header file.`,`Useing Javascript string type in C++.`,`A script to assist the installation of other common programs after the Linux Mint Cinnamon system is installed.`,`Only text art.`,`Turn Zhcorn into a UTF-8 Traditional Chinese tool.`],
+                projectMeta   : [`A script to assist the installation of other common programs after the Linux Mint Cinnamon system is installed.`,`Only text art.`,`Turn Zhcorn into a UTF-8 Traditional Chinese tool.`,`In development, use Javascript to realize the galgame text adventure game engine.`,`In development, use Javascript and system file storage to realize the JSON storage database.`],
+                information   : `relevant information`,
                 writings      : `Writings`,
                 EasyLinux     : `See maybe simple Linux teaching`,
                 EasyBase      : `See maybe simple teaching`,
@@ -534,9 +527,10 @@ const mainView = new Vue({
                 Introduction  : `情報`,
                 Introductions : `まだ仕事を探しているエンジニア、アマチュア技術記事ライター、アマチュア風景写真家、素人お絵かきマニア。`,
                 seniority     : `経歴`,
-                seniorityMeta : [`平成28年 国立台南大学第九屆学生会新聞部部長`,`平成29年 国立台南大学情報工学系第十屆キャンプ攝影`,`平成29年 国立台南大学情報科学服務部 南化国民小学Scratchプログラミングコース講師`,`平成30年 国立台南大学情報科学服務部 南化国民小学Scratchプログラミングコース攝影`,`令和元年 次世代のIoT通信技術の仮想ワークショップに参加する`],
+                seniorityMeta : [`平成28年 国立台南大学第九屆学生会新聞部部長`,`平成29年 国立台南大学情報工学系第十屆キャンプ攝影`,`平成29年 国立台南大学情報科学服務部 南化国民小学Scratchプログラミングコース講師`,`平成30年 国立台南大学情報科学服務部 南化国民小学Scratchプログラミングコース攝影`,`令和元年 次世代のIoT通信技術の仮想ワークショップに参加する`,`令和2年 第16回台湾ソフトウェアエンジニアリングアソシエーション会議報告に参加する`],
                 sideProject   : `Side-Project`,
-                projectMeta   : [`C言語マクロを定義してから、ヘッダーファイルでセマンティックを役立てます。`,`C ++でJavaScriptのような構文を使用します。`,`Linux Mint Cinnamonシステムのインストール後、他の一般的なプログラムのインストールを支援するスクリプト。`,`テキストアート。`,`ZhcornをUTF-8繁体字ツールに変えることができます。`],
+                projectMeta   : [`Linux Mint Cinnamonシステムのインストール後、他の一般的なプログラムのインストールを支援するスクリプト。`,`テキストアート。`,`ZhcornをUTF-8繁体字ツールに変えることができます。`,`開発中は、Javascriptを使用してギャルゲームテキストアドベンチャーゲームエンジンを実現します。`,`開発中は、JavaScriptおよびシステムファイルストレージを使用して、JSONストレージデータベースを実現します。`],
+                information   : `関連情報`,
                 writings      : `著作`,
                 EasyLinux     : `一見シンプルなLinux教学`,
                 EasyBase      : `一見シンプルな教学`,

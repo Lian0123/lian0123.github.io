@@ -99,43 +99,641 @@
                     </div>    
                 </div>
                 <br>
-
-                <div class="content BaseBlock">
-                    <h3>{{$t("skills")}}</h3>
+                
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[0].Type}}</h3>
                     <hr>
-
-                    <div>
-                        <h5>{{$t('skillsList')[0].Type}}：</h5>
-                        <div class="columns is-gapless">
-                            <div class="column">
-                                <canvas height="150%"id="SkillList0"></canvas>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>全端網頁設計開發<br></h3>
+                                <hr>
+                                <p class="center">兩年以上經歷</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Electron視窗程式開發<br></h3>
+                                <hr>
+                                <p class="center">一年以上經歷</p>
                             </div>
                         </div>
                     </div>
-
-                    <div>
-                        <h5>{{$t('skillsList')[1].Type}}：</h5>
-                        <div class="columns is-gapless">
-                            <div class="column">
-                                <canvas height="150%"id="SkillList1"></canvas>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>計算機組織架構<br></h3>
+                                <hr>
+                                <p class="center">一年以上研究</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>資安管理<br></h3>
+                                <hr>
+                                <p class="center">一年以下研究</p>
                             </div>
                         </div>
                     </div>
-
-                    <div>
-                        <h5>{{$t('skillsList')[2].Type}}：</h5>
-                        <div class="columns is-gapless">
-                            <div class="column">
-                                <canvas height="150%"id="SkillList2"></canvas>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[0].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>全端網頁設計開發<br></h3>
+                                <hr>
+                                <p class="center">兩年以上經歷</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>Electron視窗程式開發<br></h3>
+                                <hr>
+                                <p class="center">一年以上經歷</p>
                             </div>
                         </div>
                     </div>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>計算機組織架構<br></h3>
+                                <hr>
+                                <p class="center">一年以上研究</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>資安管理<br></h3>
+                                <hr>
+                                <p class="center">一年以下研究</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <div>
-                        <h5>{{$t('skillsList')[3].Type}}：</h5>
-                        <div class="columns is-gapless">
-                            <div class="column">
-                                <canvas height="150%"id="SkillList3"></canvas>
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[2].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Javascript<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Node.js<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Bash<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>C<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>GO<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>PHP<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>C#<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>C++<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[2].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Javascript<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Node.js<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Bash<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>C<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>GO<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>PHP<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>C#<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>C++<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[3].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vue.js<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Electron.js<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>TocasUI<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Bootstrap<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Gin(GO)<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-i18n<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Laravel<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-Router<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[3].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vue.js<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Electron.js<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>TocasUI<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Bootstrap<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Gin(GO)<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-i18n<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Laravel<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-Router<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[1].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>MS Office<br></h3>
+                                <hr>
+                                <p class="center">使用六年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Linux系統<br></h3>
+                                <hr>
+                                <p class="center">使用五年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Git Tool<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>VS Code<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>PhpMyAdmin<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vim<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>SSH<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>GCC<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>G++<br></h3>
+                                <hr>
+                                <p class="center">使用二年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Visual Studio<br></h3>
+                                <hr>
+                                <p class="center">使用二年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Draw.io<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Krita<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Unity2D<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>LibreOffice<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Sketchup<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>XeLaTeX<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Android Studio<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Blender<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Cinema 4D<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br><br></h3>
+                                <p class="center"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[1].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>MS Office<br></h3>
+                                <hr>
+                                <p class="center">使用六年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Linux系統<br></h3>
+                                <hr>
+                                <p class="center">使用五年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Git Tool<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>VS Code<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>PhpMyAdmin<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vim<br></h3>
+                                <hr>
+                                <p class="center">使用三年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>SSH<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>GCC<br></h3>
+                                <hr>
+                                <p class="center">使用兩年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>G++<br></h3>
+                                <hr>
+                                <p class="center">使用二年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Visual Studio<br></h3>
+                                <hr>
+                                <p class="center">使用二年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Draw.io<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Krita<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Unity2D<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>LibreOffice<br></h3>
+                                <hr>
+                                <p class="center">使用一年以上</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Sketchup<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>XeLaTeX<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>AndroidStudio<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Blender<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Cinema 4D<br></h3>
+                                <hr>
+                                <p class="center">使用一年以下</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br><br></h3>
+                                <p class="center"></p>
                             </div>
                         </div>
                     </div>
@@ -150,20 +748,188 @@
                         <p>{{$t("seniorityMeta[2]")}}</p>
                         <p>{{$t("seniorityMeta[3]")}}</p>
                         <p>{{$t("seniorityMeta[4]")}}</p>
+                        <p>{{$t("seniorityMeta[5]")}}</p>
                     </div>    
                 </div>
                 <br>
 
-                <div class="content BaseBlock">
+                <div v-if="isShowBtn" class="content BaseBlock">
                     <h3>{{$t("sideProject")}}</h3>
                     <hr>
-                    <div>
-                        <p><b>UnknownClang：</b><br>{{$t("projectMeta[0]")}}</p>
-                        <p><b>JsCppString：</b><br>{{$t("projectMeta[1]")}}</p>
-                        <p><b>FMiCa-TW.sh：</b><br>{{$t("projectMeta[2]")}}</p>
-                        <p><b>TextArt：</b><br>{{$t("projectMeta[3]")}}</p>
-                        <p><b>Twcall：</b><br>{{$t("projectMeta[4]")}}</p>
-                    </div>    
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2018] FMiCa-TW.sh：</b><br>{{$t("projectMeta[0]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="FMiCa-TW.sh_GitHub"    href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2018] TextArt：</b><br>{{$t("projectMeta[1]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="TextArt_GitHub"    href="https://github.com/Lian0123/TextArt"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2019] twcall：</b><br>{{$t("projectMeta[2]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="twcall_GitHub"    href="https://github.com/Lian0123/twcall"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
+                                    <a                           href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2020] js-galgame-engine：</b><br>{{$t("projectMeta[3]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="js_galgame_engine_GitHub"    href="https://github.com/Lian0123/js-galgame-engine"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2020] jsonSave-DB：</b><br>{{$t("projectMeta[4]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="jsonSave_DB_GitHub"    href="https://github.com/Lian0123/jsonSave-DB"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a target="jsonSave_DB_Documents" href="https://github.com/Lian0123/jsonSave-DB/blob/master/doc/zh/api.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t("sideProject")}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2018] FMiCa-TW.sh：</b><br>{{$t("projectMeta[0]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="FMiCa-TW.sh_GitHub"    href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2018] TextArt：</b><br>{{$t("projectMeta[1]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="TextArt_GitHub"    href="https://github.com/Lian0123/TextArt"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2019] twcall：</b><br>{{$t("projectMeta[2]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="twcall_GitHub"    href="https://github.com/Lian0123/twcall"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
+                                    <a                           href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2020] js-galgame-engine：</b><br>{{$t("projectMeta[3]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="js_galgame_engine_GitHub"    href="https://github.com/Lian0123/js-galgame-engine"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2020] jsonSave-DB：</b><br>{{$t("projectMeta[4]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="jsonSave_DB_GitHub"    href="https://github.com/Lian0123/jsonSave-DB"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a target="jsonSave_DB_Documents" href="https://github.com/Lian0123/jsonSave-DB/blob/master/doc/zh/api.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
                 </div>
                 <br>
 
@@ -177,7 +943,6 @@
                         <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[4]")}}</p>
                         <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[5]")}}</p>
                         <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[6]")}}</p>
-                        
                     </div>    
                 </div>
                 <br>

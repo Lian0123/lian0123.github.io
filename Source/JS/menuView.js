@@ -13,8 +13,10 @@ const menuView = new Vue({
         setInterval(() => {
             if(window.outerWidth > window.outerHeight){
                 this.isShowBtn = true;
+                mainView.isShowBtn = true;
             }else{
                 this.isShowBtn = false;
+                mainView.isShowBtn = false;
             }
         },500);
     },

@@ -11,16 +11,15 @@ const mainView = new Vue({
             `./Source/SVG/electron_app.html`,
             `./Source/SVG/archive.html`,
             `./Source/SVG/Information_Security.html`
-        ]
+        ],
+        timer     :null,
     },
     mounted() {
         this.$i18n.locale = `zh-tw`;
 
         setTimeout(function() {
-            setInterval(function() {
-                mainView.LoadNextFrame();
-            },10000);
-        },2000);
+            mainView.addTimer();
+        },500);
     },
     methods:{
         LoadBeforeFrame:function(){
@@ -39,7 +38,15 @@ const mainView = new Vue({
         },
         changeSelect:function(index){
             this.nowFrame = index;
+            this.addTimer();
         },
+        addTimer:function(){
+            clearInterval(this.timer);
+
+            this.timer = setInterval(function() {
+                mainView.LoadNextFrame();
+            },8000);
+        }
     },
     i18n:new VueI18n({
         locale: `zh-tw`,

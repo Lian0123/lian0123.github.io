@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/index.css">
         <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/bulma.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/animate.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
         <script src="./Source/JS/Include/particlesjs-config.js"></script>
         <script src="./Source/JS/Include/particles.js"></script>
@@ -74,10 +74,10 @@
                                         <option value="jp">日本語</option>
                                     </select></a></p>
                                     
-                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(false)">cilck here to close detail</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(false)">cilck there to close detail</a></p>
                                 </div>
                                 <div v-else>
-                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(true)">cilck here to show detail</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(true)">cilck there to show detail</a></p>
                                 </div>
                             </div>
                     </nav>
@@ -87,10 +87,12 @@
 
             <!--無資料的位移空間-->
             <div id="noneBolck"></div>
-
             <!--首頁畫面-->
             <div id="mainView" >
                 <div class="content BaseBlock">
+                    <!-- document.getElementById("aa").contentDocument.getElementById("rect948-8-0-2-0-6").className = "" ; animate__animated animate__bounce -->
+                    <!--object id="aa" data="./Source/SVG/server_fe.svg" type="image/svg+xml"></object-->
+                   
                     <h3>{{$t("about")}}</h3>
                     <hr>
                     <div>
@@ -99,42 +101,21 @@
                     </div>    
                 </div>
                 <br>
-                
+
                 <div v-if="isShowBtn" class="content BaseBlock">
                     <h3>{{$t('skillsList')[0].Type}}</h3>
                     <hr>
                     <div class="cards">
-                        <div class="dashedBlock col8">
-                            <div class="area">
-                                <h3 class="center"><br>全端網頁設計開發<br></h3>
-                                <hr>
-                                <p class="center">兩年以上經歷</p>
-                            </div>
+                        <div class="col16">
+                            <iframe  v-bind:src="frameSrc[nowFrame]" width="100%" margin="0" scrolling="No" frameborder="0" frameborder="0" onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';this.style.height=(this.contentWindow.document.body.scrollHeight)+'px',this.style.width=(this.contentWindow.document.body.scrollWidth*1.77)+'px'"></iframe>
                         </div>
-                        <div class="dashedBlock col8">
-                            <div class="area">
-                                <h3 class="center"><br>Electron視窗程式開發<br></h3>
-                                <hr>
-                                <p class="center">一年以上經歷</p>
-                            </div>
+                        <div class="col16">
+                            <h3 class="center"  class="TITLECONTENT">{{$t('mainSkill')[nowFrame]}}</h3>
                         </div>
-                    </div>
-                    <div class="cards">
-                        <div class="dashedBlock col8">
-                            <div class="area">
-                                <h3 class="center"><br>計算機組織架構<br></h3>
-                                <hr>
-                                <p class="center">一年以上研究</p>
-                            </div>
+                        <div class="col16">
+                            <h3 class="center"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="LoadBeforeFrame()"><</a>  <span v-for="(item,index) in 4"><a v-if="index===nowFrame" class="TITLE_ABLBTN" href="javascript:void(0);" >●</a><a v-else @click="changeSelect(index)" class="TITLE_ABLBTN" href="javascript:void(0);" >○</a></span> <a class="TITLE_ABLBTN" href="javascript:void(0);" @click="LoadNextFrame()">></a></h3>
                         </div>
-                        <div class="dashedBlock col8">
-                            <div class="area">
-                                <h3 class="center"><br>資安管理<br></h3>
-                                <hr>
-                                <p class="center">一年以下研究</p>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
                 </div>
                 <div v-else class="content BaseBlock">
                     <h3>{{$t('skillsList')[0].Type}}</h3>
@@ -144,14 +125,14 @@
                             <div class="area">
                                 <h3 class="center"><br>全端網頁設計開發<br></h3>
                                 <hr>
-                                <p class="center">兩年以上經歷</p>
+                                <p class="center">★★★★★</p>
                             </div>
                         </div>
                         <div class="dashedBlock col16">
                             <div class="area">
                                 <h3 class="center"><br>Electron視窗程式開發<br></h3>
                                 <hr>
-                                <p class="center">一年以上經歷</p>
+                                <p class="center">★★★★☆</p>
                             </div>
                         </div>
                     </div>
@@ -160,14 +141,14 @@
                             <div class="area">
                                 <h3 class="center"><br>計算機組織架構<br></h3>
                                 <hr>
-                                <p class="center">一年以上研究</p>
+                                <p class="center">★★★★☆</p>
                             </div>
                         </div>
                         <div class="dashedBlock col16">
                             <div class="area">
                                 <h3 class="center"><br>資安管理<br></h3>
                                 <hr>
-                                <p class="center">一年以下研究</p>
+                                <p class="center">★★★☆☆</p>
                             </div>
                         </div>
                     </div>
@@ -766,7 +747,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="FMiCa-TW.sh_GitHub"    href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Docs</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
                                     <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -783,7 +764,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="TextArt_GitHub"    href="https://github.com/Lian0123/TextArt"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Docs</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
                                     <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -800,7 +781,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="twcall_GitHub"    href="https://github.com/Lian0123/twcall"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Docs</button></a>
+                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
                                     <a                           href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -817,7 +798,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="js_galgame_engine_GitHub"    href="https://github.com/Lian0123/js-galgame-engine"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Docs</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
                                     <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -834,7 +815,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="jsonSave_DB_GitHub"    href="https://github.com/Lian0123/jsonSave-DB"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a target="jsonSave_DB_Documents" href="https://github.com/Lian0123/jsonSave-DB/blob/master/doc/zh/api.md"><button class="ABLBTNOPT" type="button">Docs</button></a>
+                                    <a target="jsonSave_DB_Documents" href="https://github.com/Lian0123/jsonSave-DB/blob/master/doc/zh/api.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
                                     <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -855,7 +836,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="FMiCa-TW.sh_GitHub"    href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Docs</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
                                     <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -872,7 +853,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="TextArt_GitHub"    href="https://github.com/Lian0123/TextArt"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Docs</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
                                     <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -889,7 +870,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="twcall_GitHub"    href="https://github.com/Lian0123/twcall"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Docs</button></a>
+                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
                                     <a                           href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -906,7 +887,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="js_galgame_engine_GitHub"    href="https://github.com/Lian0123/js-galgame-engine"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Docs</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
                                     <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -923,7 +904,7 @@
                             <div class="area">
                                 <p><b>{{$t("information")}}：</b><br>
                                     <a target="jsonSave_DB_GitHub"    href="https://github.com/Lian0123/jsonSave-DB"><button class="ABLBTNOPT" type="button">GitHub</button></a>
-                                    <a target="jsonSave_DB_Documents" href="https://github.com/Lian0123/jsonSave-DB/blob/master/doc/zh/api.md"><button class="ABLBTNOPT" type="button">Docs</button></a>
+                                    <a target="jsonSave_DB_Documents" href="https://github.com/Lian0123/jsonSave-DB/blob/master/doc/zh/api.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
                                     <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
                                 </p>
                             </div>
@@ -966,44 +947,6 @@
                 <br>
             </div>
 
-            <!--教學文件畫面-->
-            <div id="documentView" >
-                <div v-for="(item, index) in $t('slideView').length" class="content BaseBlock">
-                    <h3>{{$t("slideView")[index].titleText}}</h3>  
-                    
-                    <div class="column">
-                        <span class="tag is-warning is-medium">{{$t("slideView")[index].writeDate}}</span>
-                        <span class="tag is-success is-medium">{{$t("slideView")[index].version}}</span>
-                        <span class="tag is-danger is-medium">{{$t("slideType")}}</span>
-                    </div>
-
-                    <div class="columns is-gapless">
-                        <div v-if="$t('slideView')[index].type === 'slideShare'" class="column">
-                            <div class="iframe-slideshare-16x9">
-                                <iframe v-bind:src="$t('slideView')[index].frameName"> </iframe>                  
-                            </div> 
-                        </div>
-                        <div v-else class="column">
-                            <div>
-                                <img width="100%" height="100%" v-bind:src="$t('slideView')[index].frameName" />                 
-                            </div> 
-                        </div>
-                        <div class="column">
-                            <div class="TEXTAREAS">
-                                <h4>{{$t("about")}}</h4>
-                                <p>{{$t("slideView")[index].mainText}}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">{{$t('slideView')[index].buttonName}}</button></a>
-                    </div>
-    
-                </div>
-                <br>
-                
-            </div>
 
             <!--專案作品畫面-->
             <div id="projectView" >

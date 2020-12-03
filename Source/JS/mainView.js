@@ -4,13 +4,22 @@ var SkillList0,SkillList1;
 const mainView = new Vue({
     el:"#mainView", 
     data:{
-        isShowBtn:true,
+        isShowBtn : true,
+        nowFrame  : 0,
+        frameSrc  : [
+            `./Source/SVG/server_fe.html`,
+            `./Source/SVG/electron_app.html`,
+            `./Source/SVG/archive.html`,
+            `./Source/SVG/Information_Security.html`
+        ]
     },
     mounted() {
         this.$i18n.locale = `zh-tw`;
+        /*
         SkillList0 = new Chart(document.getElementById(`SkillList0`).getContext(`2d`), {
             type: `horizontalBar`,
             data: {
+                labels: [`全端網頁設計`, `人工智慧(Fuzzy領域)`, `計算機組織架構`, `資安管理`, `Electorn視窗程式開發`],
                 labels: [`全端網頁設計`, `人工智慧(Fuzzy領域)`, `計算機組織架構`, `資安管理`, `Electorn視窗程式開發`],
                 datasets: [{
                     label: `熟練等級`,
@@ -229,10 +238,26 @@ const mainView = new Vue({
                     }
                 },
             }
-        });
+        });*/
     },
     methods:{
-
+        LoadBeforeFrame:function(){
+            if(this.nowFrame > 0){
+                this.nowFrame--;
+            }else{
+                this.nowFrame = 3;
+            }
+        },
+        LoadNextFrame:function(){
+            if(this.nowFrame < 3){
+                this.nowFrame++;
+            }else{
+                this.nowFrame = 0;
+            }
+        },
+        changeSelect:function(index){
+            this.nowFrame = index;
+        }
     },
     i18n:new VueI18n({
         locale: `zh-tw`,
@@ -246,6 +271,7 @@ const mainView = new Vue({
                 Introduction  : `簡介`,
                 Introductions : `一個還在找工作的準工程師、業餘教學文撰寫者、業餘風景攝影愛好者、業餘繪圖愛好者。`,
                 skills        : `技能列表`,
+                mainSkill     : [`全端網頁設計與開發`,`Electron視窗程式開發`,`計算機組織架構`,`資安管理`],
                 skillsList    : [
                                     {Type:"理論與技術",List:[
                                         {SkillName:"全端網頁設計", Level:"專精"},

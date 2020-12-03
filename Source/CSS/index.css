@@ -524,3 +524,9 @@ select.ABLSELECT option{
   margin:2.5px;
   line-height: 0;
 }
+
+.NOTCOLORBTN{
+  background-color: #00000000;
+  box-shadow: none;
+  border: none;
+}

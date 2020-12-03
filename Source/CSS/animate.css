@@ -3568,6 +3568,25 @@
   animation-iteration-count: infinite;
 }
 
+.animated.delay-100ms {
+  -webkit-animation-delay: 100ms;
+  animation-delay: 100ms;
+}
+
+.animated.delay-200ms {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+.animated.delay-300ms {
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+
+.animated.delay-400ms {
+  -webkit-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+
 .animated.delay-500ms {
   -webkit-animation-delay: 500ms;
   animation-delay: 500ms;

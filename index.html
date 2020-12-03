@@ -989,6 +989,45 @@
                 <br>
             </div>
 
+            <!--教學文件畫面-->
+            <div id="documentView" >
+                <div v-for="(item, index) in $t('slideView').length" class="content BaseBlock">
+                    <h3>{{$t("slideView")[index].titleText}}</h3>  
+                    
+                    <div class="column">
+                        <span class="tag is-warning is-medium">{{$t("slideView")[index].writeDate}}</span>
+                        <span class="tag is-success is-medium">{{$t("slideView")[index].version}}</span>
+                        <span class="tag is-danger is-medium">{{$t("slideType")}}</span>
+                    </div>
+
+                    <div class="columns is-gapless">
+                        <div v-if="$t('slideView')[index].type === 'slideShare'" class="column">
+                            <div class="iframe-slideshare-16x9">
+                                <iframe v-bind:src="$t('slideView')[index].frameName"> </iframe>                  
+                            </div> 
+                        </div>
+                        <div v-else class="column">
+                            <div>
+                                <img width="100%" height="100%" v-bind:src="$t('slideView')[index].frameName" />                 
+                            </div> 
+                        </div>
+                        <div class="column">
+                            <div class="TEXTAREAS">
+                                <h4>{{$t("about")}}</h4>
+                                <p>{{$t("slideView")[index].mainText}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">{{$t('slideView')[index].buttonName}}</button></a>
+                    </div>
+    
+                </div>
+                <br>
+                
+            </div>
+
             <!--網頁畫面-->
             <div id="aboutView" >
                 <div class="content BaseBlock">

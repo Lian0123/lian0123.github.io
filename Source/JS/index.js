@@ -8,9 +8,8 @@ setTimeout(() => {
     document.getElementsByTagName("div").topMask.style.display  = "none";
 }, 1000);
 
-document.getElementsByTagName("div").mainView.style.display     = "";/*
+document.getElementsByTagName("div").mainView.style.display     = "";
 document.getElementsByTagName("div").documentView.style.display = "none";
 document.getElementsByTagName("div").projectView.style.display  = "none";
 document.getElementsByTagName("div").aboutView.style.display    = "none";
 document.getElementsByTagName("div").blogView.style.display     = "none";
-*/

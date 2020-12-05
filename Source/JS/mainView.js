@@ -61,6 +61,15 @@ const mainView = new Vue({
                 Introductions : `一個還在找工作的準工程師、業餘教學文撰寫者、業餘風景攝影愛好者、業餘繪圖愛好者。`,
                 skills        : `技能列表`,
                 mainSkill     : [`全端網頁設計與開發`,`Electron視窗程式開發`,`計算機組織架構`,`資安管理`],
+                level         : {
+                    oneYearDown : `使用一年以下`,
+                    oneYearUp   : `使用一年以上`,
+                    twoYearUp   : `使用二年以上`,
+                    threeYearUp : `使用三年以上`,
+                    fourYearUp  : `使用四年以上`,
+                    fiveYearUp   : `使用五年以上`,
+                    sixYearUp   : `使用六年以上`,
+                },
                 skillsList    : [
                                     {Type:"理論與技術",List:[
                                         {SkillName:"全端網頁設計", Level:"專精"},
@@ -136,6 +145,16 @@ const mainView = new Vue({
                 Introduction  : `简介`,
                 Introductions : `一个还在找工作的工程师、业余教学文撰写者、业余风景摄影爱好者、业余绘图爱好者。`,
                 skills        : `技能列表`,
+                mainSkill     : [`全端网页设计与开发`,`Electron视窗程式开发`,`计算机组织架构`,`资安管理`],
+                level         : {
+                    oneYearDown : `使用一年以下`,
+                    oneYearUp   : `使用一年以上`,
+                    twoYearUp   : `使用二年以上`,
+                    threeYearUp : `使用三年以上`,
+                    fourYearUp  : `使用四年以上`,
+                    fiveYearUp   : `使用五年以上`,
+                    sixYearUp   : `使用六年以上`,
+                },
                 skillsList    : [
                                         {Type:"理论与技术",List:[
                                         {SkillName:"全端网页设计", Level:"专精"},
@@ -210,6 +229,16 @@ const mainView = new Vue({
                 Introduction  : `Introduction`,
                 Introductions : `An engineer still looking for a job, amateur technical article writer, amateur landscape photographer, amateur drawing enthusiast.`,
                 skills        : `Skill List`,
+                mainSkill     : [`Front-End Developer`,`Electron APP Developer`,`Computer Architecture`,`Information Security Management`],
+                level         : {
+                    oneYearDown : `using less 1 year`,
+                    oneYearUp   : `using more 1 year`,
+                    twoYearUp   : `using more 2 year`,
+                    threeYearUp : `using more 3 year`,
+                    fourYearUp  : `using more 4 year`,
+                    fiveYearUp   : `using more 5 year`,
+                    sixYearUp   : `using more 6 year`,
+                },
                 skillsList    : [
                                     {Type:"Theory and technology",List:[
                                         {SkillName:"Full-end web design", Level:"Specialization"},
@@ -283,6 +312,16 @@ const mainView = new Vue({
                 about         : `情報` ,
                 name          : `Lian0123（立花 永蓮）`,
                 skills        : `技術列表`,
+                mainSkill     : [`Front-End Developer`,`Electron APP Developer`,`Computer Architecture`,`Information Security Management`],
+                level         : {
+                    oneYearDown : `1年以下`,
+                    oneYearUp   : `1年以上`,
+                    twoYearUp   : `2年以上`,
+                    threeYearUp : `3年以上`,
+                    fourYearUp  : `4年以上`,
+                    fiveYearUp   : `5年以上`,
+                    sixYearUp   : `6年以上`,
+                },
                 skillsList    : [
                                     {Type:"Theory and technology",List:[
                                         {SkillName:"Full-end web design", Level:"Specialization"},

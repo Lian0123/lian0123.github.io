@@ -40,7 +40,11 @@ const aboutView = new Vue({
                     {
                         date : `2020-04-24`,
                         data : `第三版網頁測試上線`,
-                    }
+                    },
+                    {
+                        date : `2021-12-20`,
+                        data : `第3.1版調整`,
+                    },
                 ]
             },
             "zh-cn": {
@@ -70,7 +74,11 @@ const aboutView = new Vue({
                     {
                         date : `2020-04-24`,
                         data : `第三版网页测试上线`,
-                    }
+                    },
+                    {
+                        date : `2021-12-20`,
+                        data : `第3.1版调整`,
+                    },
                 ]
             },
             "en": {
@@ -100,7 +108,11 @@ const aboutView = new Vue({
                     {
                         date : `2020-04-24`,
                         data : `The third version test`,
-                    }
+                    },
+                    {
+                        date : `2021-12-20`,
+                        data : `Update to version 3.1`,
+                    },
                 ]
             },
             "jp": {
@@ -130,6 +142,10 @@ const aboutView = new Vue({
                     {
                         date : `令和2年4月24日`,
                         data : `第三版テスト`,
+                    },
+                    {
+                        date : `令和3年12月20日`,
+                        data : `Update to version 3.1`,
                     },
                 ]
             }

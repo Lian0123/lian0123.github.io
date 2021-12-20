@@ -58,7 +58,7 @@ const mainView = new Vue({
                 about         : `個人資訊` ,
                 name          : `Lian0123（連永立）`,
                 Introduction  : `簡介`,
-                Introductions : `一個還在找工作的準工程師、業餘教學文撰寫者、業餘風景攝影愛好者、業餘繪圖愛好者。`,
+                Introductions : `軟體工程師、業餘教學文撰寫者、業餘風景攝影愛好者、業餘繪圖愛好者。`,
                 skills        : `技能列表`,
                 mainSkill     : [`全端網頁設計與開發`,`Electron視窗程式開發`,`計算機組織架構`,`資安管理`],
                 level         : {
@@ -123,6 +123,8 @@ const mainView = new Vue({
                                         {SkillName:"TocasUI",Level:"熟懂"},
                                         {SkillName:"gin(Go)",Level:"熟懂"},
                                         {SkillName:"Laravel",Level:"熟懂"},
+                                        {SkillName:"Nest.js",Level:"基礎"},
+                                        {SkillName:"TypeOrm",Level:"基礎"},
 
                                     ]}
                                 ],
@@ -134,7 +136,7 @@ const mainView = new Vue({
                 writings      : `著作`,
                 EasyLinux     : `看似比較簡單的Linux推坑教學`,
                 EasyBase      : `看似比較簡單的推坑教學`,
-                writingsMeta  : [`Linux安裝篇linux mint 18 cinnamon`,`Linux安裝篇 manjaro linux 201606 kde`,`C語言從崩潰到崩潰Ex(一)`,`C語言從崩潰到崩潰Ex(二)`,`linux mint cinnamon 18.1 操作設定教學`,`講解在手機上使用 linux`,`Linux安裝篇 ArchLabs 2019.01.20安裝`],
+                writingsMeta  : [`Linux安裝篇linux mint 18 cinnamon`,`Linux安裝篇 manjaro linux 201606 kde`,`C語言從崩潰到崩潰Ex(一)`,`C語言從崩潰到崩潰Ex(二)`,`linux mint cinnamon 18.1 操作設定教學`,`講解在手機上使用 linux`,`Linux安裝篇 ArchLabs 2019.01.20安裝`,`使用Inkscape + Blender 2D 的動畫製作筆記`],
                 links         : `相關連結`,
             },
             "zh-cn": {
@@ -143,7 +145,7 @@ const mainView = new Vue({
                 about         : `个人资讯` ,
                 name          : `Lian0123（连永立）`,
                 Introduction  : `简介`,
-                Introductions : `一个还在找工作的工程师、业余教学文撰写者、业余风景摄影爱好者、业余绘图爱好者。`,
+                Introductions : `软体工程师、业余教学文撰写者、业余风景摄影爱好者、业余绘图爱好者。`,
                 skills        : `技能列表`,
                 mainSkill     : [`全端网页设计与开发`,`Electron视窗程式开发`,`计算机组织架构`,`资安管理`],
                 level         : {
@@ -208,6 +210,8 @@ const mainView = new Vue({
                                         {SkillName:"TocasUI",Level:"熟懂"},
                                         {SkillName:"gin(Go)",Level:"熟懂"},
                                         {SkillName:"Laravel",Level:"基础"},
+                                        {SkillName:"Nest.js",Level:"基础"},
+                                        {SkillName:"TypeOrm",Level:"基础"},
                                     ]}
                                 ],
                 seniority     : `资历`,
@@ -218,7 +222,7 @@ const mainView = new Vue({
                 writings      : `著作`,
                 EasyLinux     : `看似比较简单的Linux推坑教学`,
                 EasyBase      : `看似比较简单的推坑教学`,
-                writingsMeta  : [`Linux安装篇 linux mint 18 cinnamon`,`Linux安装篇 manjaro linux 201606 kde`,`C语言从崩溃到崩溃Ex(一)`,`C语言从崩溃到崩溃Ex(二)`,`linux mint cinnamon 18.1 操作设定教学`,`讲解在手机上使用linux`,`Linux安装篇ArchLabs 2019.01.20安装`],
+                writingsMeta  : [`Linux安装篇 linux mint 18 cinnamon`,`Linux安装篇 manjaro linux 201606 kde`,`C语言从崩溃到崩溃Ex(一)`,`C语言从崩溃到崩溃Ex(二)`,`linux mint cinnamon 18.1 操作设定教学`,`讲解在手机上使用linux`,`Linux安装篇ArchLabs 2019.01.20安装`,`使用Inkscape + Blender 2D 的动画制作笔记`],
                 links         : `相关连结`,
             },
             "en": {
@@ -227,7 +231,7 @@ const mainView = new Vue({
                 about         : `About` ,
                 name          : `Lian0123(Warren Lian)`,
                 Introduction  : `Introduction`,
-                Introductions : `An engineer still looking for a job, amateur technical article writer, amateur landscape photographer, amateur drawing enthusiast.`,
+                Introductions : `A software engineer, amateur technical article writer, amateur landscape photographer, amateur drawing enthusiast.`,
                 skills        : `Skill List`,
                 mainSkill     : [`Front-End Developer`,`Electron APP Developer`,`Computer Architecture`,`Information Security Management`],
                 level         : {
@@ -282,6 +286,8 @@ const mainView = new Vue({
                                         {SkillName:"System Verilog",Level:"basis"},
                                         {SkillName:"VHDL",Level:"basis"},
                                         {SkillName:"JAVA",Level:"used"},
+                                        {SkillName:"Nest.js",Level:"basis"},
+                                        {SkillName:"TypeOrm",Level:"basis"},
                                     ]},
                                     {Type:"Used framework",List:[
                                         {SkillName:"Vue",Level:"expert"},
@@ -303,7 +309,7 @@ const mainView = new Vue({
                 writings      : `Writings`,
                 EasyLinux     : `See maybe simple Linux teaching`,
                 EasyBase      : `See maybe simple teaching`,
-                writingsMeta  : [`Linux installation chapter, linux mint 18 cinnamon`,`Linux installation chapter,manjaro linux 201606 kde`,`C language from crazy to crazy EX (1)`,`C language from crazy to crazy EX (2)`,`linux mint cinnamon 18.1 Setting`,`How to using linux(debian) in android phone`,`Linux installation chapter, ArchLabs 2019.01.20 install`],
+                writingsMeta  : [`Linux installation chapter, linux mint 18 cinnamon`,`Linux installation chapter,manjaro linux 201606 kde`,`C language from crazy to crazy EX (1)`,`C language from crazy to crazy EX (2)`,`linux mint cinnamon 18.1 Setting`,`How to using linux(debian) in android phone`,`Linux installation chapter, ArchLabs 2019.01.20 install`,`Use Inkscape + Blender 2D make animation tutorial`],
                 links         : `Related links`,
             },
             "jp": {
@@ -375,11 +381,13 @@ const mainView = new Vue({
                                         {SkillName:"TocasUI",Level:"expert"},
                                         {SkillName:"gin(Go)",Level:"expert"},
                                         {SkillName:"Laravel",Level:"basis"},
+                                        {SkillName:"Nest.js",Level:"basis"},
+                                        {SkillName:"TypeOrm",Level:"basis"},
 
                                     ]}
                 ],
                 Introduction  : `情報`,
-                Introductions : `まだ仕事を探しているエンジニア、アマチュア技術記事ライター、アマチュア風景写真家、素人お絵かきマニア。`,
+                Introductions : `ソフトウェアエンジニア、まだ仕事を探しているエンジニア、アマチュア技術記事ライター、アマチュア風景写真家、素人お絵かきマニア。`,
                 seniority     : `経歴`,
                 seniorityMeta : [`平成28年 国立台南大学第九屆学生会新聞部部長`,`平成29年 国立台南大学情報工学系第十屆キャンプ攝影`,`平成29年 国立台南大学情報科学服務部 南化国民小学Scratchプログラミングコース講師`,`平成30年 国立台南大学情報科学服務部 南化国民小学Scratchプログラミングコース攝影`,`令和元年 次世代のIoT通信技術の仮想ワークショップに参加する`,`令和2年 第16回台湾ソフトウェアエンジニアリングアソシエーション会議報告に参加する`],
                 sideProject   : `Side-Project`,
@@ -388,7 +396,7 @@ const mainView = new Vue({
                 writings      : `著作`,
                 EasyLinux     : `一見シンプルなLinux教学`,
                 EasyBase      : `一見シンプルな教学`,
-                writingsMeta  : [`Linuxインストール linux mint 18 cinnamon`,`Linuxインストール manjaro linux 201606 kde`,`クレイジーからクレイジーまでのC言語Ex(一)`,`クレイジーからクレイジーまでのC言語Ex(二)`,`linux mint cinnamon 18.1 操作設定`,`AndroidフォンでLinux(debian)を使用する方法`,`Linuxインストール ArchLabs 2019.01.20インストール`],
+                writingsMeta  : [`Linuxインストール linux mint 18 cinnamon`,`Linuxインストール manjaro linux 201606 kde`,`クレイジーからクレイジーまでのC言語Ex(一)`,`クレイジーからクレイジーまでのC言語Ex(二)`,`linux mint cinnamon 18.1 操作設定`,`AndroidフォンでLinux(debian)を使用する方法`,`Linuxインストール ArchLabs 2019.01.20インストール`,`Inkscape + Blender2Dで作成されたアニメーションチュートリアルを使用`],
                 links         : `関連サイト`,
             },
         }

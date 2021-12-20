@@ -18,6 +18,17 @@ const documentView = new Vue({
                 about:`介紹`,
                 slideView:[
                     {
+                        titleText  : `使用Inkscape + Blender 2D 的動畫製作筆記`,
+                        writeDate  : `2020-11-22`,
+                        version    : `v0.0.7`,
+                        type       : `image`,
+                        frameName  : `./Source/IMG/blender.png`,
+                        mainText   : `使用開源軟體 Inkscape 與 Blender 2D製作動畫的教學文章。`,
+                        buttonName : `Github Link`,
+                        linksTag   : `using-inkscape-and-blender-make-2d-animation-book`,
+                        links      : `https://github.com/Lian0123/using-inkscape-and-blender-make-2d-animation-book/blob/main/book.md`,
+                    },
+                    {
                         titleText  : `一些網頁開發好用的程式庫或框架整理`,
                         writeDate  : `2020-03-05`,
                         version    : `v0.0.0`,
@@ -155,6 +166,17 @@ const documentView = new Vue({
                 slideType:`教学文`,
                 about:`介绍`,
                 slideView:[
+                    {
+                        titleText  : `使用Inkscape + Blender 2D 的动画制作笔记`,
+                        writeDate  : `2020-11-22`,
+                        version    : `v0.0.7`,
+                        type       : `image`,
+                        frameName  : `./Source/IMG/blender.png`,
+                        mainText   : `使用开源软体 Inkscape 与 Blender 2D制作动画的教学文章。`,
+                        buttonName : `Github Link`,
+                        linksTag   : `using-inkscape-and-blender-make-2d-animation-book`,
+                        links      : `https://github.com/Lian0123/using-inkscape-and-blender-make-2d-animation-book/blob/main/book.md`,
+                    },
                     {
                         titleText  : `一些网页开发好用的程式库或框架整理`,
                         writeDate  : `2020-03-05`,
@@ -294,6 +316,17 @@ const documentView = new Vue({
                 about:`Introduction`,
                 slideView:[
                     {
+                        titleText  : `Use Inkscape + Blender 2D make animation tutorial`,
+                        writeDate  : `2020-11-22`,
+                        version    : `v0.0.7`,
+                        type       : `image`,
+                        frameName  : `./Source/IMG/blender.png`,
+                        mainText   : `A tutorial article on using the open source software Inkscape and Blender 2D to make animations.`,
+                        buttonName : `Github Link`,
+                        linksTag   : `using-inkscape-and-blender-make-2d-animation-book`,
+                        links      : `https://github.com/Lian0123/using-inkscape-and-blender-make-2d-animation-book/blob/main/book.md`,
+                    },
+                    {
                         titleText  : `Some useful web libraries or frameworks for web development`,
                         writeDate  : `2020-03-05`,
                         version    : `v0.0.0`,
@@ -431,6 +464,17 @@ const documentView = new Vue({
                 slideType:`教学`,
                 about:`紹介`,
                 slideView:[
+                    {
+                        titleText  : `Inkscape + Blender2Dで作成されたアニメーションチュートリアルを使用`,
+                        writeDate  : `令和2年11月22日`,
+                        version    : `v0.0.7`,
+                        type       : `image`,
+                        frameName  : `./Source/IMG/blender.png`,
+                        mainText   : `オープンソースソフトウェアのInkscapeとBlender2Dを使用してアニメーションを作成するためのチュートリアル記事。`,
+                        buttonName : `Github Link`,
+                        linksTag   : `using-inkscape-and-blender-make-2d-animation-book`,
+                        links      : `https://github.com/Lian0123/using-inkscape-and-blender-make-2d-animation-book/blob/main/book.md`,
+                    },
                     {
                         titleText  : `Web開発に役立ついくつかのWebライブラリまたはフレームワーク`,
                         writeDate  : `令和2年3月5日`,

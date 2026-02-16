@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"               content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible"  content="ie=edge">
+        <meta http-equiv="Content-Language" content="zh-TW">
+        <meta http-equiv="X-UA-Compatible"  content="ie=edge">
+
+        <link rel="shortcut icon" href="./icon.svg">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/index.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./Source/CSS/bulma.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+        <!--script src="./Source/JS/Include/particlesjs-config.js"></script>
+        <script src="./Source/JS/Include/particles.js"></script-->
+        <script src="./Source/JS/Include/vue.js"></script>
+        <script>Vue.config.devtools=false</script>
+        <script>Vue.config.productionTip=false</script>
+        <script src="./Source/JS/Include/vue-router.js"></script>
+        <script src="./Source/JS/Include/vue-i18n.js"></script>
+        <script src="./Source/JS/Include/Chart.bundle.min.js"></script>
+        <script src="./Source/JS/Include/Chart.min.js"></script>
+        <title>lian0123 WEB</title>
+    </head>
+
+    <body>
+        <div id="topMask"></div>
+        <div id="particlesJS"></div>
+
+        <div class="panel">
+            <!--操作目錄界面-->
+            <div id="menuView">
+                <div class="TITLECONTENT">
+                    <nav class="level">
+                            <!-- Left side -->
+                            <div class="level-left">
+                            <div class="level-item">
+                                <div class="title field has-addons">
+                                    <a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')"><h1>lian0123 WebSite</h1></a>
+                                </div>
+                            </div>
+                            </div>
+                        
+                            <!-- Right side -->
+                            <div v-if="isShowBtn" class="level-right">
+                                <p class="level-item"><a id="indexBTN"     class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')">{{$t("index")}}</a></p>
+                                <p class="level-item"><a id="documentsBTN" class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('documentView')">{{$t("documents")}}</a></p>
+                                <p class="level-item"><a id="programBTN"   class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('projectView')">{{$t("program")}}</a></p>
+                                <p class="level-item"><a id="aboutBTN"     class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('aboutView')">{{$t("about")}}</a></p>
+                                <p class="level-item"><a id="blogBTN"      class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('blogView')">{{$t("blog")}}</a></p>
+                                <p class="level-item"><a id="githubBTN"    class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io" target="Web_GitHub">GitHub</a></p>
+
+                                <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);"><select v-model="locale" class="ABLSELECT">
+                                    <option value="zh-tw">繁體中文</option>
+                                    <option value="zh-cn">简体中文</option>
+                                    <option value="en">English</option>
+                                    <option value="jp">日本語</option>
+                                </select></a></p>
+                            </div>
+                            <div v-else class="level-right">
+                                <div v-if="isOpenBtn">
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('indexView')">{{$t("index")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('documentView')">{{$t("documents")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('projectView')">{{$t("program")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('aboutView')">{{$t("about")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeView('blogView')">{{$t("blog")}}</a></p>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="https://github.com/Lian0123/lian0123.github.io" target="Web_GitHub">GitHub</a></p>
+
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);"><select v-model="locale" class="ABLSELECT">
+                                        <option value="zh-tw">繁體中文</option>
+                                        <option value="zh-cn">简体中文</option>
+                                        <option value="en">English</option>
+                                        <option value="jp">日本語</option>
+                                    </select></a></p>
+                                    
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(false)">cilck there to close detail</a></p>
+                                </div>
+                                <div v-else>
+                                    <p class="level-item"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="changeState(true)">cilck there to show detail</a></p>
+                                </div>
+                            </div>
+                    </nav>
+                </div>
+            </div>
+            <br>
+
+            <!--無資料的位移空間-->
+            <div id="noneBolck"></div>
+            <!--首頁畫面-->
+            <div id="mainView" >
+                <div class="content BaseBlock">
+                    <!-- document.getElementById("aa").contentDocument.getElementById("rect948-8-0-2-0-6").className = "" ; animate__animated animate__bounce -->
+                    <!--object id="aa" data="./Source/SVG/server_fe.svg" type="image/svg+xml"></object-->
+                   
+                    <h3>{{$t("about")}}</h3>
+                    <hr>
+                    <div>
+                        <p>{{$t("name")}}</p>
+                        <p><b>{{$t("Introduction")}}</b>：{{$t("Introductions")}}</p>
+                    </div>    
+                </div>
+                <br>
+
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[0].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="col16">
+                            <iframe  v-bind:src="frameSrc[nowFrame]" width="100%" margin="0" scrolling="No" frameborder="0" frameborder="0" onload="this.style.height=(this.contentWindow.document.body.scrollHeight)+'px';this.style.height=(this.contentWindow.document.body.scrollHeight)+'px',this.style.width=(this.contentWindow.document.body.scrollWidth*1.77)+'px'"></iframe>
+                        </div>
+                        <div class="col16">
+                            <h3 class="center"  class="TITLECONTENT">{{$t('mainSkill')[nowFrame]}}</h3>
+                        </div>
+                        <div class="col16">
+                            <h3 class="center"><a class="TITLE_ABLBTN" href="javascript:void(0);" @click="LoadBeforeFrame()"><</a>  <span v-for="(item,index) in 4"><a v-if="index===nowFrame" class="TITLE_ABLBTN" href="javascript:void(0);" >●</a><a v-else @click="changeSelect(index)" class="TITLE_ABLBTN" href="javascript:void(0);" >○</a></span> <a class="TITLE_ABLBTN" href="javascript:void(0);" @click="LoadNextFrame()">></a></h3>
+                        </div>
+                    </div> 
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[0].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>全端網頁設計開發<br></h3>
+                                <hr>
+                                <p class="center">★★★★★</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>Electron視窗程式開發<br></h3>
+                                <hr>
+                                <p class="center">★★★★☆</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>計算機組織架構<br></h3>
+                                <hr>
+                                <p class="center">★★★★☆</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <h3 class="center"><br>資安管理<br></h3>
+                                <hr>
+                                <p class="center">★★★☆☆</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[2].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Javascript<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Node.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Bash<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>C<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>GO<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>PHP<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>C#<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>C++<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[2].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Javascript<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Node.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Bash<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>C<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>GO<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>PHP<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>C#<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>C++<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[3].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vue.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Electron.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>TocasUI<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Bootstrap<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Gin(GO)<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-i18n<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Laravel<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-Router<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Nest.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>TypeOrm<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[3].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vue.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Electron.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>TocasUI<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Bootstrap<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Gin(GO)<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-i18n<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Laravel<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vue-Router<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Nest.js<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>TypeOrm<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t('skillsList')[1].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>MS Office<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').sixYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Linux系統<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').sixYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Git Tool<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>VS Code<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Vim<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>PhpMyAdmin<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').threeYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>SSH<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>GCC<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>G++<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Visual Studio<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Krita<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Draw.io<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Unity2D<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>LibreOffice<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Sketchup<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>XeLaTeX<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Android Studio<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Blender<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br>Cinema 4D<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col4">
+                            <div class="area">
+                                <h3 class="center"><br><br></h3>
+                                <p class="center"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t('skillsList')[1].Type}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>MS Office<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').sixYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Linux系統<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').sixYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Git Tool<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>VS Code<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Vim<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').fourYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>PhpMyAdmin<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').threeYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>SSH<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').threeYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>GCC<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').threeYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>G++<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').threeYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Visual Studio<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').threeYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Krita<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').twoYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Draw.io<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Unity2D<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>LibreOffice<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearUp}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Sketchup<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>XeLaTeX<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>AndroidStudio<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Blender<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br>Cinema 4D<br></h3>
+                                <hr>
+                                <p class="center">{{$t('level').oneYearDown}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <h3 class="center"><br><br></h3>
+                                <p class="center"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("seniority")}}</h3>
+                    <hr>
+                    <div>
+                        <p>{{$t("seniorityMeta[0]")}}</p>
+                        <p>{{$t("seniorityMeta[1]")}}</p>
+                        <p>{{$t("seniorityMeta[2]")}}</p>
+                        <p>{{$t("seniorityMeta[3]")}}</p>
+                        <p>{{$t("seniorityMeta[4]")}}</p>
+                        <p>{{$t("seniorityMeta[5]")}}</p>
+                    </div>    
+                </div>
+                <br>
+
+                <div v-if="isShowBtn" class="content BaseBlock">
+                    <h3>{{$t("sideProject")}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2018] FMiCa-TW.sh：</b><br>{{$t("projectMeta[0]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="FMiCa-TW.sh_GitHub"    href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2018] TextArt：</b><br>{{$t("projectMeta[1]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="TextArt_GitHub"    href="https://github.com/Lian0123/TextArt"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2019] twcall：</b><br>{{$t("projectMeta[2]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="twcall_GitHub"    href="https://github.com/Lian0123/twcall"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
+                                    <a                           href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>[2020] js-galgame-engine：</b><br>{{$t("projectMeta[3]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col8">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="js_galgame_engine_GitHub"    href="https://github.com/Lian0123/js-galgame-engine"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div v-else class="content BaseBlock">
+                    <h3>{{$t("sideProject")}}</h3>
+                    <hr>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2018] FMiCa-TW.sh：</b><br>{{$t("projectMeta[0]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="FMiCa-TW.sh_GitHub"    href="https://github.com/Lian0123/FMiCa-TW.sh"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2018] TextArt：</b><br>{{$t("projectMeta[1]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="TextArt_GitHub"    href="https://github.com/Lian0123/TextArt"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                            href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2019] twcall：</b><br>{{$t("projectMeta[2]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="twcall_GitHub"    href="https://github.com/Lian0123/twcall"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a target="twcall_Documents" href="https://github.com/Lian0123/twcall/blob/master/README.md"><button class="ABLBTNOPT" type="button">Documents</button></a>
+                                    <a                           href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="cards">
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>[2020] js-galgame-engine：</b><br>{{$t("projectMeta[3]")}}</p>
+                            </div>
+                        </div>
+                        <div class="dashedBlock col16">
+                            <div class="area">
+                                <p><b>{{$t("information")}}：</b><br>
+                                    <a target="js_galgame_engine_GitHub"    href="https://github.com/Lian0123/js-galgame-engine"><button class="ABLBTNOPT" type="button">GitHub</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Documents</button></a>
+                                    <a                                      href="javascript:void(0);"><button class="ABLBTNDISABLEOPT" type="button">Example</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("writings")}}</h3>
+                    <div>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[0]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[1]")}}</p>
+                        <p><b>{{$t("EasyBase")}}</b><br> {{$t("writingsMeta[2]")}}</p>
+                        <p><b>{{$t("EasyBase")}}</b><br> {{$t("writingsMeta[3]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[4]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[5]")}}</p>
+                        <p><b>{{$t("EasyLinux")}}</b><br> {{$t("writingsMeta[6]")}}</p>
+                        <p><b>{{$t("EasyBase")}}</b><br> {{$t("writingsMeta[7]")}}</p>
+                    </div>    
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("links")}}</h3>
+                    <hr>
+                    <div>
+                        <p>GitHub<a target="GitHubLian0123" href="https://github.com/Lian0123/"><button class="ABLBTN" type="button">Github Link</button></a></p>
+                    </div>
+                    <br>
+                    <div>
+                        <p>SideShare<a target="SideShareLian0123" href="https://www.slideshare.net/ssuser6090c0"><button class="ABLBTN" type="button">SlideShare Link</button></a></p>
+                    </div>
+                    <br>
+                    <div>
+                        <p>FaceBook<a target="FaceBookLian0123" href="https://www.facebook.com/profile.php?id=100003135147006"><button class="ABLBTN" type="button">FaceBook Link</button></a></p>
+                    </div>
+                    <br>
+                    <div>
+                        <p>Pixiv<a target="PixivLian0123" href="https://www.pixiv.net/users/14175602"><button class="ABLBTN" type="button">Pixiv Link</button></a></p>
+                    </div>
+                    <br>
+                </div>
+                <br>
+            </div>
+
+
+            <!--專案作品畫面-->
+            <div id="projectView" >
+                <div v-for="(item, index) in $t('slideView').length" class="content BaseBlock">
+                    <h3>{{$t("slideView")[index].titleText}}</h3>  
+                    
+                    <div class="column">
+                        <span class="tag is-warning is-medium">{{$t("slideView")[index].writeDate}}</span>
+                        <span class="tag is-success is-medium">{{$t("slideView")[index].version}}</span>
+                        <span class="tag is-danger is-medium">{{$t("slideView")[index].langBase}}</span>
+                    </div>
+
+                    <div class="columns is-gapless">
+                        <div v-if="$t('slideView')[index].type === 'slideShare'" class="column">
+                            <div class="iframe-slideshare-16x9">
+                                <iframe v-bind:src="$t('slideView')[index].frameName"> </iframe>                  
+                            </div> 
+                        </div>
+                        <div v-else class="column">
+                            <div>
+                                <img width="100%" height="100%" v-bind:src="$t('slideView')[index].frameName" />                 
+                            </div> 
+                        </div>
+                        <div class="column">
+                            <div class="TEXTAREAS">
+                                <h4>{{$t("about")}}</h4>
+                                <p>{{$t("slideView")[index].mainText}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div v-if="$t('slideView')[index].links === ''">
+                        <a href="javascript:void(0);"><button class="ABLBTN" type="button">委託專案源碼不得公開</button></a>
+                    </div>
+                    <div v-else>
+                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">Github Link</button></a>
+                    </div>
+
+                </div>
+                <br>
+            </div>
+
+            <!--教學文件畫面-->
+            <div id="documentView" >
+                <div v-for="(item, index) in $t('slideView').length" class="content BaseBlock">
+                    <h3>{{$t("slideView")[index].titleText}}</h3>  
+                    
+                    <div class="column">
+                        <span class="tag is-warning is-medium">{{$t("slideView")[index].writeDate}}</span>
+                        <span class="tag is-success is-medium">{{$t("slideView")[index].version}}</span>
+                        <span class="tag is-danger is-medium">{{$t("slideType")}}</span>
+                    </div>
+
+                    <div class="columns is-gapless">
+                        <div v-if="$t('slideView')[index].type === 'slideShare'" class="column">
+                            <div class="iframe-slideshare-16x9">
+                                <iframe v-bind:src="$t('slideView')[index].frameName"> </iframe>                  
+                            </div> 
+                        </div>
+                        <div v-else class="column">
+                            <div>
+                                <img width="100%" height="100%" v-bind:src="$t('slideView')[index].frameName" />                 
+                            </div> 
+                        </div>
+                        <div class="column">
+                            <div class="TEXTAREAS">
+                                <h4>{{$t("about")}}</h4>
+                                <p>{{$t("slideView")[index].mainText}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a v-bind:target="$t('slideView')[index].linksTag" v-bind:href="$t('slideView')[index].links"><button class="ABLBTN" type="button">{{$t('slideView')[index].buttonName}}</button></a>
+                    </div>
+    
+                </div>
+                <br>
+                
+            </div>
+
+            <!--網頁畫面-->
+            <div id="aboutView" >
+                <div class="content BaseBlock">
+                    <h3>{{$t("technology")}}</h3>
+                    <hr>
+                    <div>
+                        <p><b>Javascript</b>: Vue.js、Vue-i18n、Particles.js</p>
+                        <p><b>CSS</b>: Animate.css、bulma.css</p>
+                    </div>
+                </div>
+                <br>
+
+                <div class="content BaseBlock">
+                    <h3>{{$t("version")}}</h3>
+                    <hr>
+                    <div>
+                        <p v-for="(item, index) in $t('versionList').length">{{$t("versionList")[index].date}}: {{$t("versionList")[index].data}}</p>
+                    </div>
+                </div>
+                <br>
+
+            </div>
+
+            <!--日誌畫面-->
+            <div id="blogView">
+                <div v-for="(item,index) in $t('blogList').length">
+                    <div class="content BaseBlock">
+                        <h3>{{$t("blogList")[index].title}}</h3>
+                        <hr>
+                        <div v-for="(subitem,subindex) in $t('blogList')[index].mainText.length">
+                            <p>{{$t("blogList")[index].mainText[subindex]}}</p>
+                            <br>
+                        </div>
+                        <p class="alignRight">{{$t("blogList")[index].date}}</p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            
+            <!--留言板-->
+            <div class="content BaseBlock">
+                <div id="talkView" >
+                    <h3>{{$t("bulletinBoard")}}</h3>
+                    <hr>
+                </div>
+                <div>
+                    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="tFOs4YES" data-limit="5"></script>
+                </div>
+                <br>
+            </div>
+            <br>
+        </div>
+    </body>
+</html>
+
+<script src="./Source/JS/mainView.js"></script>
+<script src="./Source/JS/menuView.js"></script>
+<script src="./Source/JS/documentView.js"></script>
+<script src="./Source/JS/projectView.js"></script>
+<script src="./Source/JS/aboutView.js"></script>
+<script src="./Source/JS/blogView.js"></script>
+<script src="./Source/JS/talkView.js"></script>
+
+<script src="./Source/JS/index.js"></script>

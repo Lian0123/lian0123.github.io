@@ -654,7 +654,7 @@
               "li",
               { className: "nav-contact-item" },
               e("button", { type: "button", className: "nav-link nav-btn" + (activePage === "contact" ? " is-active" : ""), onClick: function () { gotoPage("contact"); } }, t.nav.contact),
-              e("a", { className: "nav-v1-link", href: "./index.html?v=1" }, "v1")
+              e("a", { className: "nav-v1-link", href: "./v1/index.html" }, "v1")
             )
           ),
           e(

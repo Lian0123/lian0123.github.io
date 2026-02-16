@@ -154,8 +154,8 @@ body[data-theme="light"] .site::before {
 }
 
 .loader-progress-text {
-  margin: 0 0 0.45rem;
-  font-size: 0.9rem;
+  margin: 12rem 0 0.45rem;
+  font-size: 10rem;
   font-weight: 700;
   color: #c8f2dc;
   letter-spacing: 0.02em;

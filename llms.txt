@@ -1,0 +1,28 @@
+# lian0123 Portfolio
+
+This website is a professional engineering portfolio for lian0123.
+
+## Profile
+- Professional Backend Engineer
+- Professional Full-Stack Engineer
+
+## Focus Areas
+- Backend system architecture
+- API design and implementation
+- Full-stack development and delivery
+- Performance optimization
+- Security engineering practices
+
+## Primary Language
+- Traditional Chinese (zh-Hant-TW)
+- English (en)
+- Japanese (ja)
+
+## Main Pages
+- /#about : Background, experience, technical capabilities
+- /#portfolio : Project portfolio by category
+- /#log : Engineering logs and technical updates
+- /#contact : Contact information and message form
+
+## Canonical
+- https://lian0123.github.io/

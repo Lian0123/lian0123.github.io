@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /Source/
 
 Sitemap: https://lian0123.github.io/sitemap.xml

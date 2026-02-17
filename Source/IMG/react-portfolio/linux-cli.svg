@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Linux CLI tutorial preview">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#163f2f"/><stop offset="100%" stop-color="#348260"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <text x="80" y="285" font-family="Arial, sans-serif" font-size="66" font-weight="700" fill="#effff7">Linux CLI 基本教學</text>
+  <text x="80" y="350" font-family="Arial, sans-serif" font-size="34" fill="#c7f8e0">Terminal commands, w3m and vim basics</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="twcall preview">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#113427"/><stop offset="100%" stop-color="#2f6f53"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <text x="80" y="286" font-family="Arial, sans-serif" font-size="68" font-weight="700" fill="#eafff3">twcall</text>
+  <text x="80" y="352" font-family="Arial, sans-serif" font-size="34" fill="#c5f7df">Big5 terminal display helper</text>
+</svg>

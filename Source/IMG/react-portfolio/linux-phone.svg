@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Linux on phone preview">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#0e2f23"/><stop offset="100%" stop-color="#245f47"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <text x="80" y="285" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#d8ffea">Linux on Android Phone</text>
+  <text x="80" y="350" font-family="Arial, sans-serif" font-size="34" fill="#a6e9cb">GNUroot Debian usage guide</text>
+</svg>

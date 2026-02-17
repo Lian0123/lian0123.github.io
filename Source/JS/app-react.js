@@ -3,13 +3,13 @@
   const useEffect = React.useEffect;
   const useMemo = React.useMemo;
   const useState = React.useState;
-  const LOADER_MIN_DURATION = 2000;
+  const LOADER_MIN_DURATION = 1000;
   const loaderStartTime = Date.now();
 
   const I18N = {
     zh: {
-      pageTitle: { about: "關於我", portfolio: "作品頁", log: "日誌", contact: "聯絡我" },
-      nav: { about: "關於我", portfolio: "作品頁", log: "日誌", contact: "聯絡我" },
+      pageTitle: { about: "關於我", portfolio: "作品頁", log: "日誌", contact: "相關連結" },
+      nav: { about: "關於我", portfolio: "作品頁", log: "日誌", contact: "相關連結" },
       langLabel: "語言",
       themeDark: "深色",
       themeLight: "亮色",
@@ -24,14 +24,22 @@
       tabArticle: "文章",
       tabOther: "其他",
       profileTitle: "背景與經歷",
-      profileSubtitle: "長期投入後端與全端工程，持續優化系統效能、穩定性與安全性。",
+      profileSubtitle: "長期投入後端與全端工程，持續優化系統效能、穩定性與專案管理流程。",
       profileFacts: [
         "後端架構與 API 設計：涵蓋資料庫建模、快取與高併發處理。",
         "全端整合與部署：從前端互動到後端服務與部署流程。",
-        "資安實務：落實風險控管、權限設計與服務防護。"
+        "專案管理：落實排程規劃、風險控管與跨團隊協作。"
       ],
+      skillLabels: {
+        backendArchitecture: "後端架構",
+        databaseDesign: "資料庫設計",
+        apiEngineering: "API 工程",
+        fullStackDelivery: "全端交付",
+        aiAssistedDevelopment: "AI輔助開發",
+        projectManagement: "專案管理",
+        devopsOps: "DevOps 與維運"
+      },
       cardFrameTitle: "名片卡展示",
-      cardFrameSubtitle: "主名片與 QR 名片在此以 iframe 顯示，版面已調整為等高與跨裝置一致。",
       skillTitle: "技術能力矩陣",
       skillSubtitle: "以能力條與能力矩陣呈現核心技術。",
       capabilityTitle: "核心能力",
@@ -39,7 +47,7 @@
         { name: "後端架構設計", level: "高" },
         { name: "全端系統整合", level: "高" },
         { name: "效能優化", level: "中高" },
-        { name: "安全治理", level: "中高" }
+        { name: "專案管理", level: "中高" }
       ],
       journeyTitle: "經歷時間軸",
       portfolioTitle: "作品與專案",
@@ -48,8 +56,13 @@
       openPreview: "開啟預覽",
       logTitle: "工程日誌",
       logSubtitle: "記錄近期技術決策、優化重點與交付成果。",
-      contactTitle: "聯絡我",
-      contactSubtitle: "可透過以下方式聯絡，或用表單建立郵件草稿。",
+      contactTitle: "相關連結",
+      contactSubtitle: "相關連結",
+      linkGithub: "GitHub Link",
+      linkSlideshare: "SideShare Link",
+      linkFacebook: "FaceBook Link",
+      linkPixiv: "Pixiv Link",
+      oldSite: "舊版網頁",
       contactName: "姓名",
       contactEmail: "Email",
       contactTopic: "主旨",
@@ -58,8 +71,8 @@
       mailDefaultTopic: "網站聯絡"
     },
     en: {
-      pageTitle: { about: "About", portfolio: "Portfolio", log: "Log", contact: "Contact" },
-      nav: { about: "About", portfolio: "Portfolio", log: "Log", contact: "Contact" },
+      pageTitle: { about: "About", portfolio: "Portfolio", log: "Log", contact: "Related Links" },
+      nav: { about: "About", portfolio: "Portfolio", log: "Log", contact: "Related Links" },
       langLabel: "Language",
       themeDark: "Dark",
       themeLight: "Light",
@@ -74,14 +87,22 @@
       tabArticle: "Article",
       tabOther: "Other",
       profileTitle: "Background & Experience",
-      profileSubtitle: "Hands-on backend and full-stack engineering with strong focus on performance and reliability.",
+      profileSubtitle: "Hands-on backend and full-stack engineering focused on performance, reliability, and project delivery.",
       profileFacts: [
         "Backend architecture and API engineering with database and caching strategy.",
         "Full-stack integration from UX interactions to backend service delivery.",
-        "Security practice with access control and risk mitigation."
+        "Project management with planning, risk control, and team collaboration."
       ],
+      skillLabels: {
+        backendArchitecture: "Backend Architecture",
+        databaseDesign: "Database Design",
+        apiEngineering: "API Engineering",
+        fullStackDelivery: "Full-Stack Delivery",
+        aiAssistedDevelopment: "AI-Assisted Development",
+        projectManagement: "Project Management",
+        devopsOps: "DevOps & Ops"
+      },
       cardFrameTitle: "Business Card Showcase",
-      cardFrameSubtitle: "Main card and QR card are embedded with equal-height layout across devices.",
       skillTitle: "Technical Capability Matrix",
       skillSubtitle: "Core capabilities shown with progress bars and matrix view.",
       capabilityTitle: "Core Competencies",
@@ -89,7 +110,7 @@
         { name: "Backend Architecture", level: "High" },
         { name: "Full-Stack Integration", level: "High" },
         { name: "Performance Optimization", level: "Mid-High" },
-        { name: "Security Governance", level: "Mid-High" }
+        { name: "Project Management", level: "Mid-High" }
       ],
       journeyTitle: "Timeline",
       portfolioTitle: "Projects & Works",
@@ -98,8 +119,13 @@
       openPreview: "Open Preview",
       logTitle: "Engineering Log",
       logSubtitle: "Recent decisions, improvements, and delivery highlights.",
-      contactTitle: "Contact Me",
-      contactSubtitle: "Reach out directly or use the form to generate an email draft.",
+      contactTitle: "Related Links",
+      contactSubtitle: "Related Links",
+      linkGithub: "GitHub Link",
+      linkSlideshare: "SideShare Link",
+      linkFacebook: "FaceBook Link",
+      linkPixiv: "Pixiv Link",
+      oldSite: "Legacy Site",
       contactName: "Name",
       contactEmail: "Email",
       contactTopic: "Subject",
@@ -108,8 +134,8 @@
       mailDefaultTopic: "Website Contact"
     },
     jp: {
-      pageTitle: { about: "自己紹介", portfolio: "作品", log: "ログ", contact: "連絡" },
-      nav: { about: "自己紹介", portfolio: "作品", log: "ログ", contact: "連絡" },
+      pageTitle: { about: "自己紹介", portfolio: "作品", log: "ログ", contact: "関連リンク" },
+      nav: { about: "自己紹介", portfolio: "作品", log: "ログ", contact: "関連リンク" },
       langLabel: "言語",
       themeDark: "ダーク",
       themeLight: "ライト",
@@ -124,14 +150,22 @@
       tabArticle: "記事",
       tabOther: "その他",
       profileTitle: "背景と経歴",
-      profileSubtitle: "性能・安定性・保守性を重視したバックエンド/フルスタック実務を継続。",
+      profileSubtitle: "性能・安定性・保守性に加え、プロジェクト管理を重視した実務を継続。",
       profileFacts: [
         "バックエンド設計とAPI実装、DB設計、キャッシュ最適化。",
         "フロントからバックエンドまで一貫した実装と運用。",
-        "アクセス制御とリスク対策を含むセキュリティ実践。"
+        "プロジェクト管理として計画策定・リスク管理・チーム連携を実施。"
       ],
+      skillLabels: {
+        backendArchitecture: "バックエンド設計",
+        databaseDesign: "データベース設計",
+        apiEngineering: "APIエンジニアリング",
+        fullStackDelivery: "フルスタック実装",
+        aiAssistedDevelopment: "AI支援開発",
+        projectManagement: "プロジェクト管理",
+        devopsOps: "DevOps・運用"
+      },
       cardFrameTitle: "名刺カード表示",
-      cardFrameSubtitle: "メインカードとQRカードを等高レイアウトで表示。",
       skillTitle: "技術マトリクス",
       skillSubtitle: "能力バーでコア技術を可視化。",
       capabilityTitle: "コア能力",
@@ -139,7 +173,7 @@
         { name: "バックエンド設計", level: "高" },
         { name: "フルスタック統合", level: "高" },
         { name: "性能最適化", level: "中高" },
-        { name: "セキュリティ運用", level: "中高" }
+        { name: "プロジェクト管理", level: "中高" }
       ],
       journeyTitle: "経歴タイムライン",
       portfolioTitle: "作品・プロジェクト",
@@ -148,8 +182,13 @@
       openPreview: "プレビュー",
       logTitle: "エンジニアリングログ",
       logSubtitle: "最近の技術判断と改善内容を記録。",
-      contactTitle: "お問い合わせ",
-      contactSubtitle: "下記の連絡先、またはフォームでメール下書きを作成できます。",
+      contactTitle: "関連リンク",
+      contactSubtitle: "関連リンク",
+      linkGithub: "GitHub Link",
+      linkSlideshare: "SideShare Link",
+      linkFacebook: "FaceBook Link",
+      linkPixiv: "Pixiv Link",
+      oldSite: "旧版サイト",
       contactName: "名前",
       contactEmail: "メール",
       contactTopic: "件名",
@@ -160,15 +199,25 @@
   };
 
   const skillScores = [
-    { name: "Backend Architecture", score: 92 },
-    { name: "Database Design", score: 88 },
-    { name: "API Engineering", score: 91 },
-    { name: "Full-Stack Delivery", score: 87 },
-    { name: "Security Practice", score: 86 },
-    { name: "DevOps & Ops", score: 83 }
+    { key: "backendArchitecture", score: 95 },
+    { key: "databaseDesign", score: 90 },
+    { key: "apiEngineering", score: 92 },
+    { key: "fullStackDelivery", score: 88 },
+    { key: "aiAssistedDevelopment", score: 82 },
+    { key: "projectManagement", score: 80 },
+    { key: "devopsOps", score: 80}
   ];
 
   const logs = [
+    {
+      date: "2026-02-17",
+      title: { zh: "v1 日誌內容完成同步", en: "v1 log content synced", jp: "v1ログ内容を同期" },
+      text: {
+        zh: ["新增 v1 文章標題與內容到新版日誌。", "完成作品分類與載入流程優化同步。"],
+        en: ["Added v1 post title and content into the new log page.", "Completed portfolio classification and loading-flow sync updates."],
+        jp: ["v1の記事タイトルと本文を新ログに反映。", "作品分類とローディング改善の同期を完了。"]
+      }
+    },
     {
       date: "2026-02-16",
       title: { zh: "React 架構優化與互動升級", en: "React architecture and interaction upgrade", jp: "React構成とインタラクション改善" },
@@ -179,12 +228,12 @@
       }
     },
     {
-      date: "2026-02-10",
-      title: { zh: "效能與載入流程調整", en: "Performance and loading flow refinement", jp: "性能とローディングフロー改善" },
+      date: "2020-04-24",
+      title: { zh: "這是第一篇的文章", en: "This is the first post", jp: "これは最初の記事です" },
       text: {
-        zh: "縮減初始渲染成本，強化首屏體驗與跨裝置流暢度。",
-        en: "Reduced initial render cost and improved first-screen responsiveness across devices.",
-        jp: "初期描画コストを削減し、各端末での体感速度を改善。"
+        zh: ["值得紀念、值得紀念、值得紀念。", "\\( O ω O )/ 特此留文!!!"],
+        en: ["Memorable day, memorable day, truly memorable.", "\\( O ω O )/ A special note is left here!"],
+        jp: ["記念すべき日、記念すべき日、記念すべき日。", "\\( O ω O )/ ここに記録を残します!!!"]
       }
     }
   ];
@@ -192,39 +241,227 @@
   const portfolioItems = [
     {
       type: "program",
-      title: { zh: "Server Front-End Demo", en: "Server Front-End Demo", jp: "Server Front-End Demo" },
+      year: "2026",
+      date: "2026-01-01",
+      title: { zh: "專業名片製作工具", en: "Professional Business Card Tool", jp: "プロ名刺制作ツール" },
       description: {
-        zh: "展示前後端整合流程與資料呈現方式。",
-        en: "Demonstrates full-stack flow and data presentation.",
-        jp: "フロント/バック連携とデータ表示のデモ。"
+        zh: "可快速建立與展示個人專業名片的線上工具。",
+        en: "A web tool to quickly build and present professional business cards.",
+        jp: "プロフェッショナル名刺を素早く作成・表示できるWebツール。"
+      },
+      link: "https://lian0123.github.io/virtual-business-card-project/",
+      preview: "./Source/IMG/react-portfolio/pro-business-card.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2023",
+      date: "2023-01-01",
+      title: { zh: "JP-Voice-Saver", en: "JP-Voice-Saver", jp: "JP-Voice-Saver" },
+      description: {
+        zh: "日旅常用語音與會話保存輔助工具。",
+        en: "A helper tool to save and quickly access Japanese travel phrases.",
+        jp: "旅行向け日本語フレーズを保存・即時利用する補助ツール。"
+      },
+      link: "https://lian0123.github.io/jp-travel-talk-tool/",
+      preview: "./Source/IMG/react-portfolio/jp-voice-saver.svg",
+      tags: ["Program", "2023", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2022",
+      date: "2022-01-01",
+      title: { zh: "expressJS 模板", en: "expressJS Template", jp: "expressJS テンプレート" },
+      description: {
+        zh: "TypeScript + Express 的後端快速啟動模板。",
+        en: "A TypeScript + Express starter template for backend projects.",
+        jp: "TypeScript + Express のバックエンド開始用テンプレート。"
+      },
+      link: "http://github.com/Lian0123/my-typescript-express-template",
+      preview: "./Source/IMG/react-portfolio/express-template.svg",
+      tags: ["Program", "2022", "Template"]
+    },
+    {
+      type: "program",
+      year: "2019",
+      date: "2019-06-10",
+      title: { zh: "107-02-IOT-Project", en: "107-02-IOT-Project", jp: "107-02-IOT-Project" },
+      description: {
+        zh: "物聯網課程期末專案，NB-IOT 裝置資料回傳與 Web 顯示。",
+        en: "IOT course project with NB-IOT data flow to web dashboard.",
+        jp: "NB-IOTデータをWebに可視化するIoT授業プロジェクト。"
+      },
+      link: "https://github.com/Lian0123/107-02-IOT-Project",
+      preview: "./Source/IMG/react-portfolio/iot-project.svg",
+      tags: ["v1", "Program", "IOT"]
+    },
+    {
+      type: "program",
+      year: "2019",
+      date: "2019-01-09",
+      title: { zh: "教師Meeting預約系統", en: "Teacher Meeting System", jp: "教師Meeting予約システム" },
+      description: {
+        zh: "教師與學生小組預約管理系統。",
+        en: "Reservation management system for teacher/student meeting slots.",
+        jp: "教員と学生グループの予約管理システム。"
       },
       link: "https://github.com/Lian0123/lian0123.github.io",
-      preview: "./Source/SVG/server_fe.html",
-      tags: ["React", "Node.js", "API"]
+      preview: "./Source/IMG/react-portfolio/meeting-system.svg",
+      tags: ["v1", "Program", "Go"]
+    },
+    {
+      type: "program",
+      year: "2018",
+      date: "2018-08-16",
+      title: { zh: "twcall", en: "twcall", jp: "twcall" },
+      description: {
+        zh: "修正 Big5 編碼顯示問題的終端工具。",
+        en: "Terminal helper for Big5 encoding display issues.",
+        jp: "Big5文字化け対策向けの端末ツール。"
+      },
+      link: "https://github.com/Lian0123/twcall",
+      preview: "./Source/IMG/react-portfolio/twcall-tool.svg",
+      tags: ["v1", "Program", "Bash"]
+    },
+    {
+      type: "program",
+      year: "2018",
+      date: "2018-07-28",
+      title: { zh: "FMiCa-TW.sh", en: "FMiCa-TW.sh", jp: "FMiCa-TW.sh" },
+      description: {
+        zh: "Linux Mint Cinnamon Taiwan 使用者安裝腳本。",
+        en: "Installer script for Linux Mint Cinnamon Taiwan users.",
+        jp: "Linux Mint Cinnamon Taiwan向けインストールスクリプト。"
+      },
+      link: "https://github.com/Lian0123/FMiCa-TW.sh",
+      preview: "./Source/IMG/react-portfolio/fmica-tw.svg",
+      tags: ["v1", "Program", "Script"]
+    },
+    {
+      type: "program",
+      year: "2018",
+      date: "2018-04-15",
+      title: { zh: "Convolution Machine", en: "Convolution Machine", jp: "Convolution Machine" },
+      description: {
+        zh: "訊號與系統課程專案，支援捲積函數視覺化。",
+        en: "Signals and systems project with convolution visualization.",
+        jp: "畳み込み関数を可視化する信号処理プロジェクト。"
+      },
+      link: "https://github.com/Lian0123/CM",
+      preview: "./Source/IMG/react-portfolio/convolution-machine.svg",
+      tags: ["v1", "Program", "JavaScript"]
     },
     {
       type: "article",
-      title: { zh: "Technical Archive", en: "Technical Archive", jp: "Technical Archive" },
+      year: "2019",
+      date: "2019-01-30",
+      title: { zh: "Linux 安裝篇 ArchLabs Part3", en: "Linux Install ArchLabs Part3", jp: "Linuxインストール ArchLabs Part3" },
       description: {
-        zh: "技術文件與筆記整理頁。",
-        en: "Collection of technical notes and archives.",
-        jp: "技術ドキュメントとメモのアーカイブ。"
+        zh: "依 v1/documentView 分類為教學文章：安裝後設定建議。",
+        en: "Teaching article in v1/documentView: post-install setup suggestions.",
+        jp: "v1/documentView分類の教材：導入後の推奨設定。"
       },
-      link: "./Source/SVG/archive.html",
-      preview: "./Source/SVG/archive.html",
-      tags: ["Article", "Knowledge", "Docs"]
+      link: "https://www.slideshare.net/ssuser6090c0/linux-linux-archlabs-20190120-part3",
+      preview: "./Source/IMG/react-portfolio/archlabs-part3.svg",
+      tags: ["v1", "Article", "Linux"]
+    },
+    {
+      type: "article",
+      year: "2016",
+      date: "2016-12-31",
+      title: { zh: "C 語言從崩潰到崩潰 Ex(一)", en: "C Language Crash to Crash Ex(1)", jp: "C言語クラッシュからクラッシュ Ex(1)" },
+      description: {
+        zh: "依 v1/documentView 分類為教學文章：C 基礎語法說明。",
+        en: "Teaching article in v1/documentView: C language fundamentals.",
+        jp: "v1/documentView分類の教材：C言語の基礎解説。"
+      },
+      link: "https://www.slideshare.net/ssuser6090c0/cex-70564975",
+      preview: "./Source/IMG/react-portfolio/c-crash-ex1.svg",
+      tags: ["v1", "Article", "C"]
+    },
+    {
+      type: "article",
+      year: "2017",
+      date: "2017-08-23",
+      title: { zh: "C 語言從崩潰到崩潰 Ex(二)", en: "C Language Crash to Crash Ex(2)", jp: "C言語クラッシュからクラッシュ Ex(2)" },
+      description: {
+        zh: "依 v1/documentView 分類為教學文章：C 進階語法說明。",
+        en: "Teaching article in v1/documentView: advanced C syntax notes.",
+        jp: "v1/documentView分類の教材：C言語の応用構文。"
+      },
+      link: "https://www.slideshare.net/ssuser6090c0/cex-79080568",
+      preview: "./Source/IMG/react-portfolio/c-crash-ex2.svg",
+      tags: ["v1", "Article", "C"]
+    },
+    {
+      type: "article",
+      year: "2017",
+      date: "2017-06-26",
+      title: { zh: "看似比較簡單的Linux推坑教學 講解在手機上使用 linux", en: "Linux on Android Phone Tutorial", jp: "スマホでLinuxを使う解説" },
+      description: {
+        zh: "加入文章分類：Android 上使用 Linux（GNUroot Debian）說明。",
+        en: "Added to article category: using Linux (GNUroot Debian) on Android.",
+        jp: "記事カテゴリ追加：AndroidでLinux（GNUroot Debian）を使う解説。"
+      },
+      link: "https://www.slideshare.net/ssuser6090c0/linux-linux-77271842",
+      preview: "./Source/IMG/react-portfolio/linux-phone.svg",
+      tags: ["v1", "Article", "Linux"]
+    },
+    {
+      type: "article",
+      year: "2017",
+      date: "2017-04-08",
+      title: { zh: "看似比較簡單的Linux推坑教學 linux mint cinnamon 18.1 操作設定教學", en: "Linux Mint Cinnamon 18.1 Setup Tutorial", jp: "Linux Mint Cinnamon 18.1 設定チュートリアル" },
+      description: {
+        zh: "加入文章分類：Linux Mint Cinnamon 設定教學。",
+        en: "Added to article category: Linux Mint Cinnamon operation setup tutorial.",
+        jp: "記事カテゴリ追加：Linux Mint Cinnamon操作設定チュートリアル。"
+      },
+      link: "https://www.slideshare.net/ssuser6090c0/linux-linux-mint-cinnamon-181",
+      preview: "./Source/IMG/react-portfolio/linux-mint-181.svg",
+      tags: ["v1", "Article", "Linux"]
+    },
+    {
+      type: "article",
+      year: "2016",
+      date: "2016-10-15",
+      title: { zh: "看似比較簡單的Linux推坑教學 Linux安裝篇 manjaro linux 201606 kde", en: "Manjaro Linux 201606 KDE Tutorial", jp: "Manjaro Linux 201606 KDE 教材" },
+      description: {
+        zh: "加入文章分類：Manjaro Linux 安裝與設定。",
+        en: "Added to article category: Manjaro Linux installation and setup.",
+        jp: "記事カテゴリ追加：Manjaro Linuxの導入と設定。"
+      },
+      link: "https://www.slideshare.net/ssuser6090c0/linux-manjaro-linux-201606-kde",
+      preview: "./Source/IMG/react-portfolio/manjaro-201606.svg",
+      tags: ["v1", "Article", "Linux"]
+    },
+    {
+      type: "article",
+      year: "2016",
+      date: "2016-11-26",
+      title: { zh: "看似比較簡單的Linux推坑教學 Linux CLI 基本教學", en: "Linux CLI Basic Tutorial", jp: "Linux CLI 基本チュートリアル" },
+      description: {
+        zh: "加入文章分類：終端指令、w3m 與 vim 入門。",
+        en: "Added to article category: command line, w3m, and vim basics.",
+        jp: "記事カテゴリ追加：コマンド、w3m、vimの入門。"
+      },
+      link: "https://www.slideshare.net/ssuser6090c0/linux-linux-cli",
+      preview: "./Source/IMG/react-portfolio/linux-cli.svg",
+      tags: ["v1", "Article", "Linux"]
     },
     {
       type: "other",
-      title: { zh: "Engineering Notes", en: "Engineering Notes", jp: "Engineering Notes" },
+      year: "2019",
+      date: "2019-06-11",
+      title: { zh: "基於古典加密法中的替換密碼在音訊轉置到 bmp影像之欺騙偽造設計", en: "Image-Audio-Player Encryption Design", jp: "画像音声変換暗号設計" },
       description: {
-        zh: "其他實驗型專案與工程筆記。",
-        en: "Experiments and engineering note collection.",
-        jp: "実験プロジェクトとエンジニアリングノート。"
+        zh: "音訊轉置到 BMP 影像的欺騙偽造與加解密設計。",
+        en: "Audio-to-BMP deceptive encryption design.",
+        jp: "音声をBMPへ転置する暗号設計。"
       },
-      link: "https://github.com/Lian0123/lian0123.github.io",
-      preview: "./Source/SVG/electron_app.html",
-      tags: ["Experiment", "Prototype", "Other"]
+      link: "https://github.com/Lian0123/Image-Audio-Player",
+      preview: "./Source/IMG/react-portfolio/image-audio-player.svg",
+      tags: ["v1", "Other", "Security"]
     }
   ];
 
@@ -235,31 +472,90 @@
       return { finish: function () {} };
     }
 
-    let progress = 10;
-    fill.style.width = progress + "%";
-    if (progressText) {
-      progressText.textContent = progress + "%";
+    let current = 0;
+    let target = 0;
+
+    function paint(next) {
+      const value = Math.max(0, Math.min(100, Math.round(next)));
+      fill.style.width = value + "%";
+      if (progressText) {
+        progressText.textContent = value + "%";
+      }
     }
 
-    const timer = window.setInterval(function () {
-      const step = Math.max(1, Math.round((100 - progress) * 0.09));
-      progress = Math.min(93, progress + step);
-      fill.style.width = progress + "%";
-      if (progressText) {
-        progressText.textContent = progress + "%";
+    function setTarget(value) {
+      target = Math.max(target, Math.min(100, value));
+    }
+
+    const easingTimer = window.setInterval(function () {
+      const delta = target - current;
+      if (Math.abs(delta) < 0.2) {
+        current = target;
+      } else {
+        current += delta * 0.22;
       }
-      if (progress >= 93) {
-        window.clearInterval(timer);
+      paint(current);
+    }, 42);
+
+    setTarget(8);
+
+    if (document.readyState !== "loading") {
+      setTarget(32);
+    } else {
+      document.addEventListener("DOMContentLoaded", function () {
+        setTarget(32);
+      }, { once: true });
+    }
+
+    const trackedNodes = Array.from(document.querySelectorAll("img[src], iframe[src], link[rel='stylesheet'][href], script[src]"));
+    let total = 0;
+    let loaded = 0;
+
+    function syncResourceProgress() {
+      if (!total) {
+        setTarget(72);
+        return;
       }
-    }, 85);
+      const ratio = loaded / total;
+      setTarget(32 + Math.round(ratio * 56));
+    }
+
+    trackedNodes.forEach(function (node) {
+      if (node.tagName === "IMG" && node.complete) {
+        return;
+      }
+      total += 1;
+      const done = function () {
+        loaded += 1;
+        syncResourceProgress();
+      };
+      node.addEventListener("load", done, { once: true });
+      node.addEventListener("error", done, { once: true });
+    });
+    syncResourceProgress();
+
+    const libraryReadyTimer = window.setInterval(function () {
+      if (window.React && window.ReactDOM) {
+        setTarget(82);
+        window.clearInterval(libraryReadyTimer);
+      }
+    }, 40);
 
     return {
+      markAppReady: function () {
+        setTarget(94);
+      },
+      markWindowLoaded: function () {
+        setTarget(100);
+      },
       finish: function () {
-        window.clearInterval(timer);
-        fill.style.width = "100%";
-        if (progressText) {
-          progressText.textContent = "100%";
-        }
+        setTarget(100);
+        window.clearInterval(libraryReadyTimer);
+        window.setTimeout(function () {
+          current = 100;
+          paint(100);
+          window.clearInterval(easingTimer);
+        }, 120);
       }
     };
   }
@@ -444,40 +740,47 @@
           "section",
           { className: "section reveal" },
           e("h2", { className: "section-title" }, t.cardFrameTitle),
-          e("p", { className: "section-subtitle" }, t.cardFrameSubtitle),
           e(
             "div",
             { className: "card-grid card-grid--cards" },
             e(
               "article",
               { className: "card card-float" },
-              e("h3", { className: "card-title" }, "Main Card"),
               e(
                 "div",
                 { className: "iframe-card iframe-card--equal" },
                 e("iframe", {
-                  src: "./Lain0123_main_card.html",
-                  title: "Lain0123 Main Card",
+                  src: "./Lian0123_main_card.html",
+                  title: "Lian0123 Main Card",
                   loading: "lazy",
                   referrerPolicy: "no-referrer",
                   sandbox: "allow-scripts allow-same-origin"
                 })
+              ),
+              e(
+                "div",
+                { className: "card-actions" },
+                e("a", { className: "btn btn-primary", href: "./Lian0123_main_card.html", target: "_blank", rel: "noopener noreferrer" }, t.openPreview)
               )
             ),
             e(
               "article",
               { className: "card card-float" },
-              e("h3", { className: "card-title" }, "QR Card"),
               e(
                 "div",
                 { className: "iframe-card iframe-card--equal" },
                 e("iframe", {
-                  src: "./Lain0123_qr_card.html",
-                  title: "Lain0123 QR Card",
+                  src: "./Lian0123_qr_card.html",
+                  title: "Lian0123 QR Card",
                   loading: "lazy",
                   referrerPolicy: "no-referrer",
                   sandbox: "allow-scripts allow-same-origin"
                 })
+              ),
+              e(
+                "div",
+                { className: "card-actions" },
+                e("a", { className: "btn btn-primary", href: "./Lian0123_qr_card.html", target: "_blank", rel: "noopener noreferrer" }, t.openPreview)
               )
             )
           )
@@ -493,12 +796,12 @@
             e(
               "div",
               { className: "skill-bars" },
-              skillScores.map(function (skill) {
+              skillScores.map(function (skill, skillIndex) {
                 return e(
                   "div",
-                  { className: "skill-row", key: skill.name },
-                  e("span", { className: "skill-name" }, skill.name),
-                  e("div", { className: "skill-track" }, e("div", { className: "skill-fill", style: { width: skill.score + "%" } })),
+                  { className: "skill-row", key: skill.key },
+                  e("span", { className: "skill-name" }, (t.skillLabels && t.skillLabels[skill.key]) ? t.skillLabels[skill.key] : skill.key),
+                  e("div", { className: "skill-track" }, e("div", { className: "skill-fill", style: { "--skill-target": skill.score + "%", animationDelay: (skillIndex * 90) + "ms" } })),
                   e("span", { className: "skill-score" }, skill.score)
                 );
               })
@@ -510,10 +813,10 @@
               e(
                 "div",
                 { className: "capability-grid" },
-                t.capabilityItems.map(function (item) {
+                t.capabilityItems.map(function (item, index) {
                   return e(
                     "div",
-                    { className: "cap-item", key: item.name },
+                    { className: "cap-item", key: item.name, style: { animationDelay: (index * 80) + "ms" } },
                     e("p", { className: "cap-name" }, item.name),
                     e("p", { className: "cap-level" }, item.level)
                   );
@@ -548,17 +851,21 @@
               return e(
                 "article",
                 { className: "card reveal card-float", key: item.type + item.title.en },
-                e("h3", { className: "card-title" }, item.title[language]),
-                e("p", { className: "card-copy" }, item.description[language]),
                 e(
                   "div",
-                  { className: "iframe-card" },
-                  e("iframe", {
+                  { className: "card-head" },
+                  e("h3", { className: "card-title" }, item.title[language]),
+                  e("span", { className: "card-year" }, item.year || "----")
+                ),
+                e("p", { className: "card-copy" }, item.description[language]),
+                e(
+                  "a",
+                  { className: "portfolio-media", href: item.preview, target: "_blank", rel: "noopener noreferrer", "aria-label": item.title[language] + " preview" },
+                  e("img", {
                     src: item.preview,
-                    title: item.title[language],
+                    alt: item.title[language] + " preview",
                     loading: "lazy",
-                    referrerPolicy: "no-referrer",
-                    sandbox: "allow-scripts allow-same-origin"
+                    decoding: "async"
                   })
                 ),
                 e(
@@ -571,8 +878,7 @@
                 e(
                   "div",
                   { className: "card-actions" },
-                  e("a", { className: "btn btn-secondary", href: item.link, target: "_blank", rel: "noopener noreferrer" }, t.projectLink),
-                  e("a", { className: "btn btn-primary", href: item.preview, target: "_blank", rel: "noopener noreferrer" }, t.openPreview)
+                  e("a", { className: "btn btn-primary", href: item.link, target: "_blank", rel: "noopener noreferrer" }, t.projectLink)
                 )
               );
             })
@@ -594,11 +900,20 @@
             "ul",
             { className: "timeline" },
             logs.map(function (logItem) {
+              const logContent = logItem.text[language];
               return e(
                 "li",
                 { key: logItem.date + logItem.title.en, className: "timeline-item-rich" },
                 e("p", { className: "time-title" }, logItem.date + " · " + logItem.title[language]),
-                e("p", { className: "time-copy" }, logItem.text[language])
+                Array.isArray(logContent)
+                  ? e(
+                      "div",
+                      { className: "time-copy-list" },
+                      logContent.map(function (paragraph, paragraphIndex) {
+                        return e("p", { className: "time-copy", key: logItem.date + "-" + paragraphIndex }, paragraph);
+                      })
+                    )
+                  : e("p", { className: "time-copy" }, logContent)
               );
             })
           )
@@ -617,18 +932,11 @@
           e("p", { className: "section-subtitle" }, t.contactSubtitle),
           e(
             "ul",
-            { className: "contact-list" },
-            e("li", null, e("a", { className: "contact-link", href: "mailto:hello@example.com" }, "Email：hello@example.com")),
-            e("li", null, e("a", { className: "contact-link", href: "https://github.com/Lian0123/lian0123.github.io", target: "_blank", rel: "noopener noreferrer" }, "GitHub：Lian0123"))
-          ),
-          e(
-            "form",
-            { className: "contact-form", onSubmit: openMailDraft },
-            e("label", { className: "form-row" }, e("span", null, t.contactName), e("input", { type: "text", required: true, value: formState.name, onChange: function (ev) { setFormState(Object.assign({}, formState, { name: ev.target.value })); } })),
-            e("label", { className: "form-row" }, e("span", null, t.contactEmail), e("input", { type: "email", required: true, value: formState.email, onChange: function (ev) { setFormState(Object.assign({}, formState, { email: ev.target.value })); } })),
-            e("label", { className: "form-row" }, e("span", null, t.contactTopic), e("input", { type: "text", value: formState.topic, onChange: function (ev) { setFormState(Object.assign({}, formState, { topic: ev.target.value })); } })),
-            e("label", { className: "form-row" }, e("span", null, t.contactMessage), e("textarea", { rows: 6, required: true, value: formState.message, onChange: function (ev) { setFormState(Object.assign({}, formState, { message: ev.target.value })); } })),
-            e("button", { className: "btn btn-primary", type: "submit" }, t.contactSubmit)
+            { className: "contact-list contact-list--grid" },
+            e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://github.com/Lian0123", target: "_blank", rel: "noopener noreferrer" }, t.linkGithub)),
+            e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://www.slideshare.net/ssuser6090c0", target: "_blank", rel: "noopener noreferrer" }, t.linkSlideshare)),
+            e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://www.facebook.com/profile.php?id=100003135147006", target: "_blank", rel: "noopener noreferrer" }, t.linkFacebook)),
+            e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://www.pixiv.net/users/14175602", target: "_blank", rel: "noopener noreferrer" }, t.linkPixiv))
           )
         )
       );
@@ -643,7 +951,7 @@
         e(
           "div",
           { className: "topbar-inner" },
-          e("a", { href: "#about", className: "brand", onClick: function () { gotoPage("about"); } }, "lian0123 Portfolio"),
+          e("a", { href: "#about", className: "brand", onClick: function () { gotoPage("about"); } }, "lian0123 Website"),
           e(
             "ul",
             { className: "nav-list" },
@@ -654,7 +962,7 @@
               "li",
               { className: "nav-contact-item" },
               e("button", { type: "button", className: "nav-link nav-btn" + (activePage === "contact" ? " is-active" : ""), onClick: function () { gotoPage("contact"); } }, t.nav.contact),
-              e("a", { className: "nav-v1-link", href: "./v1/index.html" }, "v1")
+              e("a", { className: "nav-link nav-btn", target: "_blank", href: "./v1/index.html" }, t.oldSite)
             )
           ),
           e(
@@ -701,12 +1009,42 @@
         activePage === "log" ? renderLogPage() : null,
         activePage === "contact" ? renderContactPage() : null
       ),
-      e("footer", { className: "footer" }, "© " + year + " lian0123. Build with React.js")
+      e(
+        "footer",
+        { className: "footer" },
+        "© " + year + " lian0123. Build with React.js · ",
+        e("a", { href: "https://github.com/Lian0123", target: "_blank", rel: "noopener noreferrer" }, "GitHub")
+      )
     );
   }
 
   const loaderProgress = startLoaderProgress();
+  let appMounted = false;
+  let pageLoaded = document.readyState === "complete";
+  let loaderRemoved = false;
   registerServiceWorker();
+
+  function completeLoaderIfReady() {
+    if (loaderRemoved || !appMounted || !pageLoaded) {
+      return;
+    }
+    loaderProgress.finish();
+    const elapsed = Date.now() - loaderStartTime;
+    const waitMs = Math.max(0, LOADER_MIN_DURATION - elapsed);
+    window.setTimeout(function () {
+      if (loaderRemoved) {
+        return;
+      }
+      loaderRemoved = true;
+      removeLoader();
+    }, waitMs);
+  }
+
+  window.addEventListener("load", function () {
+    pageLoaded = true;
+    loaderProgress.markWindowLoaded();
+    completeLoaderIfReady();
+  });
 
   function mountApp() {
     const rootElement = document.getElementById("root");
@@ -714,10 +1052,18 @@
       return;
     }
     ReactDOM.createRoot(rootElement).render(e(App));
-    loaderProgress.finish();
-    const elapsed = Date.now() - loaderStartTime;
-    const waitMs = Math.max(0, LOADER_MIN_DURATION - elapsed);
-    window.setTimeout(removeLoader, waitMs);
+    appMounted = true;
+    loaderProgress.markAppReady();
+    completeLoaderIfReady();
+
+    window.setTimeout(function () {
+      if (loaderRemoved) {
+        return;
+      }
+      loaderRemoved = true;
+      loaderProgress.finish();
+      removeLoader();
+    }, 3200);
   }
 
   if ("requestIdleCallback" in window) {

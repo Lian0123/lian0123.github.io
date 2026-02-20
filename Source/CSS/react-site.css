@@ -155,7 +155,7 @@ body[data-theme="light"] .site::before {
 
 .loader-progress-text {
   margin: 10rem 0 0.55rem;
-  font-size: clamp(10.15rem, 2.8vw, 1.65rem);
+  font-size: clamp(8.15rem, 2.8vw, 1.65rem);
   font-weight: 500;
   color: #c8f2dc;
   letter-spacing: 0.02em;

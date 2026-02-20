@@ -242,12 +242,54 @@
     {
       type: "program",
       year: "2026",
+      date: "2026-02-20",
+      title: { zh: "WAF 安全規則檢查器", en: "WAF Rule Checker", jp: "WAFルール検査器" },
+      description: {
+        zh: "專業級安全規則驗證工具，支援多種 WAF 規則格式檢查、語法驗證與安全審計。",
+        en: "Professional security rule validation tool supporting multiple WAF formats with syntax checking and security audits.",
+        jp: "複数のWAFル形式に対応したプロフェッショナルな検証ツール、構文チェックと安全性監査機能。"
+      },
+      link: "https://lian0123.github.io/waf-rule-checker/index.html",
+      preview: "./Source/IMG/react-portfolio/waf-rule-checker.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2026",
+      date: "2026-02-20",
+      title: { zh: "迷你服務器資料庫生成器", en: "Mini Server DB Generator", jp: "ミニサーバーDB生成器" },
+      description: {
+        zh: "智能快速建立小型服務器資料庫的生成工、資料導入與一鍵導出功能。",
+        en: "Intelligent quick-start tool for mini server database generation with schema configuration and one-click export.",
+        jp: "小型サーバーデータベースを素早く構築・設定・エクスポートするスマートなジェネレーター。"
+      },
+      link: "https://lian0123.github.io/mini-server-db-generator/index.html",
+      preview: "./Source/IMG/react-portfolio/mini-server-db-generator.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2026",
+      date: "2026-02-20",
+      title: { zh: "密碼加密編輯器", en: "Password Encrypt Editor", jp: "パスワード暗号化エディター" },
+      description: {
+        zh: "安全的密碼加密編輯工具，支援多種加密演算法、本地存儲與便捷密碼管理功能。",
+        en: "Secure password encryption editor with multiple algorithms, local storage, and convenient password management features.",
+        jp: "複数の暗号化アルゴリズムとローカルストレージに対応したセキュアなパスワード編集・管理ツール。"
+      },
+      link: "https://lian0123.github.io/password-encrypt-editor/index.html",
+      preview: "./Source/IMG/react-portfolio/password-encrypt-editor.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2026",
       date: "2026-01-01",
       title: { zh: "專業名片製作工具", en: "Professional Business Card Tool", jp: "プロ名刺制作ツール" },
       description: {
-        zh: "可快速建立與展示個人專業名片的線上工具。",
-        en: "A web tool to quickly build and present professional business cards.",
-        jp: "プロフェッショナル名刺を素早く作成・表示できるWebツール。"
+        zh: "可快速建立與展示個人專業名片的線上工具，支援多種範本與客製化設計。",
+        en: "A web tool to quickly build and present professional business cards with multiple templates and customization.",
+        jp: "プロフェッショナル名刺を素早く作成・表示できるWebツール、複数のテンプレート対応。"
       },
       link: "https://lian0123.github.io/virtual-business-card-project/",
       preview: "./Source/IMG/react-portfolio/pro-business-card.svg",
@@ -259,9 +301,9 @@
       date: "2023-01-01",
       title: { zh: "JP-Voice-Saver", en: "JP-Voice-Saver", jp: "JP-Voice-Saver" },
       description: {
-        zh: "日旅常用語音與會話保存輔助工具。",
-        en: "A helper tool to save and quickly access Japanese travel phrases.",
-        jp: "旅行向け日本語フレーズを保存・即時利用する補助ツール。"
+        zh: "日旅常用語音與會話保存輔助工具，便於快速查詢與學習日文旅遊用語。",
+        en: "A helper tool to save and quickly access Japanese travel phrases with pronunciation guidance.",
+        jp: "旅行向け日本語フレーズを保存・即時利用する補助ツール、音声ガイド付き。"
       },
       link: "https://lian0123.github.io/jp-travel-talk-tool/",
       preview: "./Source/IMG/react-portfolio/jp-voice-saver.svg",
@@ -273,9 +315,9 @@
       date: "2022-01-01",
       title: { zh: "expressJS 模板", en: "expressJS Template", jp: "expressJS テンプレート" },
       description: {
-        zh: "TypeScript + Express 的後端快速啟動模板。",
-        en: "A TypeScript + Express starter template for backend projects.",
-        jp: "TypeScript + Express のバックエンド開始用テンプレート。"
+        zh: "TypeScript + Express 的後端快速啟動模板，包含最佳實踐與常用構件。",
+        en: "A TypeScript + Express starter template for backend projects with best practices and common utilities.",
+        jp: "TypeScript + Express のバックエンド開始用テンプレート、ベストプラクティス含む。"
       },
       link: "http://github.com/Lian0123/my-typescript-express-template",
       preview: "./Source/IMG/react-portfolio/express-template.svg",
@@ -287,9 +329,9 @@
       date: "2019-06-10",
       title: { zh: "107-02-IOT-Project", en: "107-02-IOT-Project", jp: "107-02-IOT-Project" },
       description: {
-        zh: "物聯網課程期末專案，NB-IOT 裝置資料回傳與 Web 顯示。",
-        en: "IOT course project with NB-IOT data flow to web dashboard.",
-        jp: "NB-IOTデータをWebに可視化するIoT授業プロジェクト。"
+        zh: "物聯網課程期末專案，NB-IOT 裝置資料回傳與 Web 即時顯示系統。",
+        en: "IOT course project with NB-IOT data flow to real-time web dashboard and visualization.",
+        jp: "NB-IOTデータをWebにリアルタイム可視化するIoT授業プロジェクト。"
       },
       link: "https://github.com/Lian0123/107-02-IOT-Project",
       preview: "./Source/IMG/react-portfolio/iot-project.svg",
@@ -301,9 +343,9 @@
       date: "2019-01-09",
       title: { zh: "教師Meeting預約系統", en: "Teacher Meeting System", jp: "教師Meeting予約システム" },
       description: {
-        zh: "教師與學生小組預約管理系統。",
-        en: "Reservation management system for teacher/student meeting slots.",
-        jp: "教員と学生グループの予約管理システム。"
+        zh: "教師與學生小組預約管理系統，支援時間衝突檢查與自動通知。",
+        en: "Reservation management system for teacher/student meeting slots with conflict detection and automatic notifications.",
+        jp: "教員と学生グループの予約管理システム、スケジュール衝突検出機能付き。"
       },
       link: "https://github.com/Lian0123/lian0123.github.io",
       preview: "./Source/IMG/react-portfolio/meeting-system.svg",
@@ -315,9 +357,9 @@
       date: "2018-08-16",
       title: { zh: "twcall", en: "twcall", jp: "twcall" },
       description: {
-        zh: "修正 Big5 編碼顯示問題的終端工具。",
-        en: "Terminal helper for Big5 encoding display issues.",
-        jp: "Big5文字化け対策向けの端末ツール。"
+        zh: "修正 Big5 編碼顯示問題的終端工具，便於台灣用戶使用 Linux 終端機。",
+        en: "Terminal helper for Big5 encoding display issues, enabling Taiwan Linux users better experience.",
+        jp: "Big5文字化け対策向けの端末ツール、台湾ユーザー向けのLinux支援。"
       },
       link: "https://github.com/Lian0123/twcall",
       preview: "./Source/IMG/react-portfolio/twcall-tool.svg",
@@ -329,9 +371,9 @@
       date: "2018-07-28",
       title: { zh: "FMiCa-TW.sh", en: "FMiCa-TW.sh", jp: "FMiCa-TW.sh" },
       description: {
-        zh: "Linux Mint Cinnamon Taiwan 使用者安裝腳本。",
-        en: "Installer script for Linux Mint Cinnamon Taiwan users.",
-        jp: "Linux Mint Cinnamon Taiwan向けインストールスクリプト。"
+        zh: "Linux Mint Cinnamon Taiwan 使用者安裝腳本，一鍵快速環境配置。",
+        en: "Installer script for Linux Mint Cinnamon Taiwan users with one-click environment setup.",
+        jp: "Linux Mint Cinnamon Taiwan向けインストールスクリプト、ワンクリック環境構築。"
       },
       link: "https://github.com/Lian0123/FMiCa-TW.sh",
       preview: "./Source/IMG/react-portfolio/fmica-tw.svg",
@@ -343,9 +385,9 @@
       date: "2018-04-15",
       title: { zh: "Convolution Machine", en: "Convolution Machine", jp: "Convolution Machine" },
       description: {
-        zh: "訊號與系統課程專案，支援捲積函數視覺化。",
-        en: "Signals and systems project with convolution visualization.",
-        jp: "畳み込み関数を可視化する信号処理プロジェクト。"
+        zh: "訊號與系統課程專案，支援捲積函數視覺化與互動式教學。",
+        en: "Signals and systems project with convolution visualization and interactive learning.",
+        jp: "畳み込み関数を可視化する信号処理プロジェクト、インタラクティブ学習対応。"
       },
       link: "https://github.com/Lian0123/CM",
       preview: "./Source/IMG/react-portfolio/convolution-machine.svg",

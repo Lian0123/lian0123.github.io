@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="WAF Rule Checker">
+  <defs><linearGradient id="g1" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#12382b"/><stop offset="100%" stop-color="#33765a"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#g1)"/>
+  <text x="80" y="286" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#eafff3">WAF 規則檢查器</text>
+  <text x="80" y="352" font-family="Arial, sans-serif" font-size="34" fill="#c5f7df">Security Rule Validator</text>
+</svg>

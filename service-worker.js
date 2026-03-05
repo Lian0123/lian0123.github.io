@@ -1,7 +1,9 @@
-const CACHE_NAME = "lian0123-portfolio-v2";
+const CACHE_NAME = "lian0123-portfolio-v3";
 const APP_SHELL = [
   "/",
   "/index.html",
+  "/Lian0123_main_card.html",
+  "/Lian0123_qr_card.html",
   "/manifest.webmanifest",
   "/icon.svg",
   "/Source/CSS/react-site.css",

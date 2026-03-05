@@ -242,6 +242,34 @@
     {
       type: "program",
       year: "2026",
+      date: "2026-03-05",
+      title: { zh: "自定義年曆系統", en: "User Define Calendar", jp: "ユーザー定義カレンダーシステム" },
+      description: {
+        zh: "可客製化設定的年曆系統，支持各類活動標記。",
+        en: "Customizable calendar system supporting various event markings.",
+        jp: "さまざまなイベントマークに対応したカスタマイズ可能なカレンダーシステム。"
+      },
+      link: "https://lian0123.github.io/user-define-calendar/",
+      preview: "./Source/IMG/react-portfolio/user-define-calendar.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2026",
+      date: "2026-02-28",
+      title: { zh: "地圖生成器", en: "Map Data Generator Editor", jp: "マップデータジェネレーターエディタ" },
+      description: {
+        zh: "提供互動地圖與資料編輯功能的生成工具。",
+        en: "Tool for generating interactive maps and editing data.",
+        jp: "インタラクティブマップとデータ編集機能を提供するジェネレーター。"
+      },
+      link: "https://lian0123.github.io/map-data-generator-editor/",
+      preview: "./Source/IMG/react-portfolio/map-data-generator-editor.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2026",
       date: "2026-02-20",
       title: { zh: "WAF 安全規則檢查器", en: "WAF Rule Checker", jp: "WAFルール検査器" },
       description: {
@@ -294,6 +322,20 @@
       link: "https://lian0123.github.io/virtual-business-card-project/",
       preview: "./Source/IMG/react-portfolio/pro-business-card.svg",
       tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2025",
+      date: "2025-11-15",
+      title: { zh: "相機模擬器", en: "Camera Simulator", jp: "カメラシミュレーター" },
+      description: {
+        zh: "模擬相機介面的實用工具。",
+        en: "Practical tool simulating a camera interface.",
+        jp: "カメラインターフェースをシミュレートする実用ツール。"
+      },
+      link: "https://lian0123.github.io/camera-simulator/",
+      preview: "./Source/IMG/react-portfolio/camera-simulator.svg",
+      tags: ["Program", "2025", "Tool"]
     },
     {
       type: "program",

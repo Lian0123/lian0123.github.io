@@ -242,6 +242,20 @@
     {
       type: "program",
       year: "2026",
+      date: "2026-03-16",
+      title: { zh: "parquet-tool.js", en: "parquet-tool.js", jp: "parquet-tool.js" },
+      description: {
+        zh: "一個 TypeScript 處理 Parquet 的工具。",
+        en: "A TypeScript tool for working with Parquet files.",
+        jp: "Parquetファイルを扱うTypeScriptツール。"
+      },
+      link: "https://github.com/Lian0123/parquet-tool",
+      preview: "./Source/IMG/react-portfolio/parquet-tool.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2026",
       date: "2026-03-05",
       title: { zh: "自定義年曆系統", en: "User Define Calendar", jp: "ユーザー定義カレンダーシステム" },
       description: {

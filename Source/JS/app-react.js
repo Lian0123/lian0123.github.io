@@ -242,6 +242,20 @@
     {
       type: "program",
       year: "2026",
+      date: "2026-03-29",
+      title: { zh: "自動產生Azure權限申請文件", en: "Azure Role Document Generator", jp: "Azure権限申請ドキュメントジェネレーター" },
+      description: {
+        zh: "自動生成 Azure 權限申請文件的線上工具，便於快速建立角色與權限說明。",
+        en: "Online tool that automatically generates Azure permission request documents for role and access descriptions.",
+        jp: "Azureの権限申請ドキュメントを自動生成するオンラインツール。"
+      },
+      link: "https://lian0123.github.io/az-role-document-generator",
+      preview: "./Source/IMG/react-portfolio/azure-role-document-generator.svg",
+      tags: ["Program", "2026", "Tool"]
+    },
+    {
+      type: "program",
+      year: "2026",
       date: "2026-03-16",
       title: { zh: "parquet-tool.js", en: "parquet-tool.js", jp: "parquet-tool.js" },
       description: {

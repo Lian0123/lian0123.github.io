@@ -1058,7 +1058,7 @@
             "ul",
             { className: "contact-list contact-list--grid" },
             e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://github.com/Lian0123", target: "_blank", rel: "noopener noreferrer" }, t.linkGithub)),
-            e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://medium.com/@lienyungli123", target: "_blank", rel: "noopener noreferrer" }, t.linkMedium)),
+            e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://medium.com/@lian000123", target: "_blank", rel: "noopener noreferrer" }, t.linkMedium)),
             e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://zenn.dev/lian0123", target: "_blank", rel: "noopener noreferrer" }, t.linkZenn)),
             e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://dev.to/lian0123", target: "_blank", rel: "noopener noreferrer" }, t.linkDevIo)),
             e("li", null, e("a", { className: "btn btn-secondary contact-link-btn", href: "https://www.slideshare.net/ssuser6090c0", target: "_blank", rel: "noopener noreferrer" }, t.linkSlideshare)),

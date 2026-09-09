@@ -1,14 +1,22 @@
 # lian0123.github.io
-個人作品集網頁
 
-## 技術架構
-- Frontend: React 18（UMD, production build）
-- Styling: 自訂 CSS（RWD / 現代化版型）
-- SEO: Meta tags、Open Graph、Twitter Card、JSON-LD、Sitemap、robots
+個人後端與全端工程作品集，使用 React 18 UMD 與原生 CSS，直接部署於 GitHub Pages。
 
-## 本次優化重點
-- 由 Vue 完整遷移為 React，已移除所有 Vue 相關程式碼與依賴檔案
-- 重新設計為 2026 風格的專業作品集介面
-- 新增技術視覺化（能力矩陣 + 能力條）
-- 強化響應式設計，支援桌機、平板、手機
-- 調整 SEO 設定並更新 `sitemap.xml`
+## 內容與設計
+
+- 首頁包含專業定位、代表作品與連結至實作的能力介紹；作品補充應用情境與技術切入點，兼顧招募與技術審閱。
+- 作品依程式、文章、其他分類；首頁作品及教材數量由資料計算。
+- 支援繁體中文、英文、日文，以及深色與亮色主題。
+- 響應式版型、鍵盤焦點、跳至主要內容與減少動態效果支援。
+- 保留舊版於 `v1/`，首頁保留專業名片與 QR 名片預覽，並可獨立開啟。
+- 移除強制載入等待；保留粒子背景，手機降低粒子數量，減少動態效果模式呈現靜態粒子。
+
+## 本機預覽
+
+```sh
+python3 -m http.server 8765
+```
+
+開啟 http://localhost:8765 。React 由 jsDelivr 載入，首次開啟需要網路。
+
+主要內容位於 `Source/JS/app-react.js`，樣式位於 `Source/CSS/react-site.css`。更新快取資源時請同步調整 `service-worker.js` 的快取版本。

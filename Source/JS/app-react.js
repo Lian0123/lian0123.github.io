@@ -3,8 +3,6 @@
   const useEffect = React.useEffect;
   const useMemo = React.useMemo;
   const useState = React.useState;
-  const LOADER_MIN_DURATION = 1000;
-  const loaderStartTime = Date.now();
 
   const I18N = {
     zh: {
@@ -210,15 +208,138 @@
     }
   };
 
-  const skillScores = [
-    { key: "backendArchitecture", score: 95 },
-    { key: "databaseDesign", score: 90 },
-    { key: "apiEngineering", score: 92 },
-    { key: "fullStackDelivery", score: 88 },
-    { key: "aiAssistedDevelopment", score: 82 },
-    { key: "projectManagement", score: 80 },
-    { key: "devopsOps", score: 80}
-  ];
+  const editorial = {
+    zh: {
+      heroTitle: "把需求轉化為可靠、可維護的軟體。",
+      heroSummary: "我是 lian0123，專注後端與全端開發。從 API、資料處理到互動工具，透過可檢視的程式碼與可操作的作品，呈現解決問題的方式。",
+      profileTitle: "以工程實作，連結需求與應用",
+      profileSubtitle: "我的作品涵蓋後端開發模板、資料工具、雲端權限文件與互動式網頁，關注重複工作的簡化，以及軟體長期維護的清晰度。",
+      profileFacts: ["後端開發：以 TypeScript 與 Express 模板整理服務開發的起點。", "資料與流程工具：將 Parquet 處理、Azure 權限文件等需求轉化為可重用工具。", "知識分享：透過 Linux、命令列與 C 語言教材，整理技術實作經驗。"],
+      featuredTitle: "代表作品", featuredSubtitle: "從開發基礎、資料處理到流程自動化，了解我的實作方向。",
+      skillTitle: "專業能力與實作依據", skillSubtitle: "每項能力都連結到具體作品，方便進一步了解程式碼與應用。",
+      evidence: "查看實作", metricPage: "公開程式作品", metricTabs: "技術教材", metricYear: "作品紀錄起點",
+      contactSubtitle: "從原始碼、技術文章與教學分享，進一步了解我的工作與關注的議題。",
+      portfolioSubtitle: "收錄開發工具、應用實作與技術教材。可開啟作品體驗，或前往原始碼了解細節。",
+      skillDetails: ["TypeScript · Express / 後端專案模板", "TypeScript · Parquet / 資料格式處理", "Azure / 權限申請文件產生", "Linux · Bash / 環境設定與工具"],
+      skillNames: ["後端開發基礎", "資料工具開發", "工作流程自動化", "系統環境與技術分享"]
+    },
+    en: {
+      heroTitle: "Turning requirements into maintainable software.",
+      heroSummary: "I'm lian0123, a backend and full-stack developer. Explore how I approach APIs, data processing, and interactive tools through source code and working projects.",
+      profileTitle: "Engineering from needs to applications",
+      profileSubtitle: "My projects span backend templates, data tools, cloud access documentation, and interactive websites, with a focus on repeatable workflows and maintainable code.",
+      profileFacts: ["Backend foundations with TypeScript and Express starter templates.", "Reusable tools for Parquet processing and Azure access documentation.", "Technical knowledge shared through Linux, command-line, and C learning materials."],
+      featuredTitle: "Selected projects", featuredSubtitle: "Explore backend foundations, data tooling, and workflow automation.",
+      skillTitle: "Capabilities in practice", skillSubtitle: "Follow each capability to a concrete project and explore its implementation.",
+      evidence: "Explore implementation", metricPage: "Code projects", metricTabs: "Learning resources", metricYear: "Projects since",
+      contactSubtitle: "Explore my code, technical writing, and learning resources.",
+      skillDetails: ["TypeScript · Express / Backend starter", "TypeScript · Parquet / Data processing", "Azure / Access request documentation", "Linux · Bash / Environment tooling"],
+      skillNames: ["Backend foundations", "Data tooling", "Workflow automation", "Systems & knowledge sharing"]
+    },
+    jp: {
+      heroTitle: "要件を、保守しやすいソフトウェアへ。",
+      heroSummary: "バックエンド・フルスタック開発に取り組む lian0123 です。API、データ処理、対話型ツールの実装を、ソースコードと公開作品で紹介します。",
+      profileTitle: "要件とアプリケーションをつなぐ実装",
+      profileSubtitle: "バックエンドのテンプレート、データツール、クラウド権限ドキュメント、Webアプリを制作。繰り返す作業の簡素化と保守性を大切にしています。",
+      profileFacts: ["TypeScript・Expressによるバックエンド開発テンプレート。", "Parquet処理やAzure権限申請を支えるツール。", "Linux・コマンドライン・C言語の学習資料を公開。"],
+      featuredTitle: "主な作品", featuredSubtitle: "バックエンド基盤、データ処理、ワークフロー自動化の実装例。",
+      skillTitle: "作品で見る技術領域", skillSubtitle: "各領域に対応する作品とソースコードをご覧いただけます。",
+      evidence: "実装を見る", metricPage: "プログラム作品", metricTabs: "学習資料", metricYear: "作品公開の起点",
+      contactSubtitle: "ソースコード、技術記事、学習資料をご覧ください。",
+      skillDetails: ["TypeScript · Express / 開発テンプレート", "TypeScript · Parquet / データ処理", "Azure / 権限申請ドキュメント", "Linux · Bash / 環境構築ツール"],
+      skillNames: ["バックエンド基盤", "データツール", "ワークフロー自動化", "システム環境・知識共有"]
+    }
+  };
+  const professionalCopy = {
+  "zh": {
+    "identity": "連永立 · lian0123",
+    "heroSummary": "專注 Node.js 後端與全端開發，將需求整理為可重用的服務基礎、資料工具與自動化流程。重視程式結構、維護成本與使用情境，讓技術實作回應實際問題。",
+    "profileTitle": "從問題拆解，到可檢視的工程實作",
+    "profileSubtitle": "我的開發方向涵蓋後端服務、資料處理與網頁工具。透過公開程式碼、可操作的應用與技術教材，呈現實作能力、問題意識與知識整理能力。",
+    "profileFacts": [
+      "服務開發：使用 TypeScript、Node.js 與 Express 建立後端開發模板，整理可重用的專案起點。",
+      "流程改善：針對資料格式處理、權限申請文件等重複工作，製作專門工具。",
+      "技術溝通：將 Linux、命令列與程式語言經驗整理為教材，讓知識可查閱、可分享。"
+    ],
+    "cardFrameTitle": "個人名片",
+    "cardSubtitle": "認識我的專業背景，或開啟 QR 名片保存聯絡資訊。",
+    "cardNames": [
+      "專業名片",
+      "QR 聯絡名片"
+    ],
+    "contextLabel": "應用情境",
+    "focusLabel": "技術切入點",
+    "sourceLabel": "檢視原始碼",
+    "demoLabel": "開啟應用",
+    "contactAction": "聯絡我",
+    "contexts": [
+      "後端專案反覆建立相似的初始結構，需要一致的開發起點。",
+      "處理 Parquet 資料時，需要能在 TypeScript 開發流程中使用的工具。",
+      "角色與權限說明需要整理成申請文件，適合以工具簡化重複製作。"
+    ],
+    "focuses": [
+      "TypeScript · Express：可從原始碼檢視專案組織與服務開發方式。",
+      "TypeScript · Parquet：可從原始碼檢視資料格式操作與工具介面。",
+      "Azure · 文件產生：可透過線上操作了解資料輸入與文件產出流程。"
+    ]
+  },
+  "en": {
+    "identity": "Lian Yong-Li · lian0123",
+    "heroSummary": "Focused on Node.js backend and full-stack development: reusable service foundations, data tools, and automated workflows. I care about code structure, maintenance, and the practical context behind each requirement.",
+    "profileTitle": "From problem analysis to inspectable implementation",
+    "cardFrameTitle": "Business cards",
+    "cardSubtitle": "Explore my professional profile or open the QR card to keep my contact details.",
+    "cardNames": [
+      "Professional card",
+      "QR contact card"
+    ],
+    "contextLabel": "Use case",
+    "focusLabel": "Technical focus",
+    "sourceLabel": "Review source",
+    "demoLabel": "Open application",
+    "contactAction": "Get in touch",
+    "contexts": [
+      "Backend projects repeatedly need a consistent starting structure.",
+      "Parquet data needs tooling that fits a TypeScript development workflow.",
+      "Role and access descriptions need to become request documents through a repeatable process."
+    ],
+    "focuses": [
+      "TypeScript · Express: inspect project organization and the backend development approach in source.",
+      "TypeScript · Parquet: inspect data operations and tool interfaces in source.",
+      "Azure · Document generation: explore the input-to-document workflow in the application."
+    ]
+  },
+  "jp": {
+    "identity": "連永立 · lian0123",
+    "heroSummary": "Node.jsによるバックエンドとフルスタック開発に取り組んでいます。サービスの基盤、データツール、業務フローの自動化を通じて、コードの構造と保守性を意識した実装を目指します。",
+    "profileTitle": "課題の整理から、確認できる実装へ",
+    "cardFrameTitle": "プロフィール名刺",
+    "cardSubtitle": "専門分野の紹介と、連絡先を保存できるQR名刺です。",
+    "cardNames": [
+      "プロフィール名刺",
+      "QR連絡先名刺"
+    ],
+    "contextLabel": "利用場面",
+    "focusLabel": "技術的な着眼点",
+    "sourceLabel": "ソースを見る",
+    "demoLabel": "アプリを開く",
+    "contactAction": "お問い合わせ",
+    "contexts": [
+      "バックエンド開発で繰り返し必要になる初期構成を整理。",
+      "TypeScriptの開発フローでParquetデータを扱うためのツール。",
+      "役割と権限の説明を申請ドキュメントにまとめる反復作業を支援。"
+    ],
+    "focuses": [
+      "TypeScript · Express：ソースコードでプロジェクト構成と実装方針を確認。",
+      "TypeScript · Parquet：データ操作とツールのインターフェースを確認。",
+      "Azure · ドキュメント生成：入力から文書出力までの流れをアプリで確認。"
+    ]
+  }
+};
+  Object.keys(editorial).forEach(lang => Object.assign(editorial[lang], professionalCopy[lang]));
+  Object.keys(I18N).forEach(function (lang) {
+    Object.assign(I18N[lang], editorial[lang], { heroEyebrow: "BACKEND & FULL-STACK DEVELOPER", linkSlideshare: "SlideShare" });
+  });
 
   const logs = [
     {
@@ -257,7 +378,7 @@
       date: "2026-03-29",
       title: { zh: "自動產生Azure權限申請文件", en: "Azure Role Document Generator", jp: "Azure権限申請ドキュメントジェネレーター" },
       description: {
-        zh: "自動生成 Azure 權限申請文件的線上工具，便於快速建立角色與權限說明。",
+        zh: "將 Azure 角色與權限說明整理為申請文件，讓重複的文件製作流程更容易執行。",
         en: "Online tool that automatically generates Azure permission request documents for role and access descriptions.",
         jp: "Azureの権限申請ドキュメントを自動生成するオンラインツール。"
       },
@@ -271,7 +392,7 @@
       date: "2026-03-16",
       title: { zh: "parquet-tool.js", en: "parquet-tool.js", jp: "parquet-tool.js" },
       description: {
-        zh: "一個 TypeScript 處理 Parquet 的工具。",
+        zh: "以 TypeScript 處理 Parquet 檔案，將資料格式操作整理為可重用的工具。",
         en: "A TypeScript tool for working with Parquet files.",
         jp: "Parquetファイルを扱うTypeScriptツール。"
       },
@@ -327,7 +448,7 @@
       date: "2026-02-20",
       title: { zh: "迷你服務器資料庫生成器", en: "Mini Server DB Generator", jp: "ミニサーバーDB生成器" },
       description: {
-        zh: "智能快速建立小型服務器資料庫的生成工、資料導入與一鍵導出功能。",
+        zh: "協助建立小型伺服器資料庫，提供資料匯入與匯出功能，簡化初始化流程。",
         en: "Intelligent quick-start tool for mini server database generation with schema configuration and one-click export.",
         jp: "小型サーバーデータベースを素早く構築・設定・エクスポートするスマートなジェネレーター。"
       },
@@ -397,11 +518,11 @@
       date: "2022-01-01",
       title: { zh: "expressJS 模板", en: "expressJS Template", jp: "expressJS テンプレート" },
       description: {
-        zh: "TypeScript + Express 的後端快速啟動模板，包含最佳實踐與常用構件。",
+        zh: "以 TypeScript 與 Express 建立後端專案起點，整理可重用的基礎結構，減少重複初始化工作。",
         en: "A TypeScript + Express starter template for backend projects with best practices and common utilities.",
         jp: "TypeScript + Express のバックエンド開始用テンプレート、ベストプラクティス含む。"
       },
-      link: "http://github.com/Lian0123/my-typescript-express-template",
+      link: "https://github.com/Lian0123/my-typescript-express-template",
       preview: "./Source/IMG/react-portfolio/express-template.svg",
       tags: ["Program", "2022", "Template"]
     },
@@ -481,9 +602,9 @@
       date: "2019-01-30",
       title: { zh: "Linux 安裝篇 ArchLabs Part3", en: "Linux Install ArchLabs Part3", jp: "Linuxインストール ArchLabs Part3" },
       description: {
-        zh: "依 v1/documentView 分類為教學文章：安裝後設定建議。",
-        en: "Teaching article in v1/documentView: post-install setup suggestions.",
-        jp: "v1/documentView分類の教材：導入後の推奨設定。"
+        zh: "安裝後設定建議。",
+        en: "post-install setup suggestions.",
+        jp: "導入後の推奨設定。"
       },
       link: "https://www.slideshare.net/ssuser6090c0/linux-linux-archlabs-20190120-part3",
       preview: "./Source/IMG/react-portfolio/archlabs-part3.svg",
@@ -495,9 +616,9 @@
       date: "2016-12-31",
       title: { zh: "C 語言從崩潰到崩潰 Ex(一)", en: "C Language Crash to Crash Ex(1)", jp: "C言語クラッシュからクラッシュ Ex(1)" },
       description: {
-        zh: "依 v1/documentView 分類為教學文章：C 基礎語法說明。",
-        en: "Teaching article in v1/documentView: C language fundamentals.",
-        jp: "v1/documentView分類の教材：C言語の基礎解説。"
+        zh: "C 基礎語法說明。",
+        en: "C language fundamentals.",
+        jp: "C言語の基礎解説。"
       },
       link: "https://www.slideshare.net/ssuser6090c0/cex-70564975",
       preview: "./Source/IMG/react-portfolio/c-crash-ex1.svg",
@@ -509,9 +630,9 @@
       date: "2017-08-23",
       title: { zh: "C 語言從崩潰到崩潰 Ex(二)", en: "C Language Crash to Crash Ex(2)", jp: "C言語クラッシュからクラッシュ Ex(2)" },
       description: {
-        zh: "依 v1/documentView 分類為教學文章：C 進階語法說明。",
-        en: "Teaching article in v1/documentView: advanced C syntax notes.",
-        jp: "v1/documentView分類の教材：C言語の応用構文。"
+        zh: "C 進階語法說明。",
+        en: "advanced C syntax notes.",
+        jp: "C言語の応用構文。"
       },
       link: "https://www.slideshare.net/ssuser6090c0/cex-79080568",
       preview: "./Source/IMG/react-portfolio/c-crash-ex2.svg",
@@ -523,9 +644,9 @@
       date: "2017-06-26",
       title: { zh: "看似比較簡單的Linux推坑教學 講解在手機上使用 linux", en: "Linux on Android Phone Tutorial", jp: "スマホでLinuxを使う解説" },
       description: {
-        zh: "加入文章分類：Android 上使用 Linux（GNUroot Debian）說明。",
-        en: "Added to article category: using Linux (GNUroot Debian) on Android.",
-        jp: "記事カテゴリ追加：AndroidでLinux（GNUroot Debian）を使う解説。"
+        zh: "Android 上使用 Linux（GNUroot Debian）說明。",
+        en: "using Linux (GNUroot Debian) on Android.",
+        jp: "AndroidでLinux（GNUroot Debian）を使う解説。"
       },
       link: "https://www.slideshare.net/ssuser6090c0/linux-linux-77271842",
       preview: "./Source/IMG/react-portfolio/linux-phone.svg",
@@ -537,9 +658,9 @@
       date: "2017-04-08",
       title: { zh: "看似比較簡單的Linux推坑教學 linux mint cinnamon 18.1 操作設定教學", en: "Linux Mint Cinnamon 18.1 Setup Tutorial", jp: "Linux Mint Cinnamon 18.1 設定チュートリアル" },
       description: {
-        zh: "加入文章分類：Linux Mint Cinnamon 設定教學。",
-        en: "Added to article category: Linux Mint Cinnamon operation setup tutorial.",
-        jp: "記事カテゴリ追加：Linux Mint Cinnamon操作設定チュートリアル。"
+        zh: "Linux Mint Cinnamon 設定教學。",
+        en: "Linux Mint Cinnamon operation setup tutorial.",
+        jp: "Linux Mint Cinnamon操作設定チュートリアル。"
       },
       link: "https://www.slideshare.net/ssuser6090c0/linux-linux-mint-cinnamon-181",
       preview: "./Source/IMG/react-portfolio/linux-mint-181.svg",
@@ -551,9 +672,9 @@
       date: "2016-10-15",
       title: { zh: "看似比較簡單的Linux推坑教學 Linux安裝篇 manjaro linux 201606 kde", en: "Manjaro Linux 201606 KDE Tutorial", jp: "Manjaro Linux 201606 KDE 教材" },
       description: {
-        zh: "加入文章分類：Manjaro Linux 安裝與設定。",
-        en: "Added to article category: Manjaro Linux installation and setup.",
-        jp: "記事カテゴリ追加：Manjaro Linuxの導入と設定。"
+        zh: "Manjaro Linux 安裝與設定。",
+        en: "Manjaro Linux installation and setup.",
+        jp: "Manjaro Linuxの導入と設定。"
       },
       link: "https://www.slideshare.net/ssuser6090c0/linux-manjaro-linux-201606-kde",
       preview: "./Source/IMG/react-portfolio/manjaro-201606.svg",
@@ -565,9 +686,9 @@
       date: "2016-11-26",
       title: { zh: "看似比較簡單的Linux推坑教學 Linux CLI 基本教學", en: "Linux CLI Basic Tutorial", jp: "Linux CLI 基本チュートリアル" },
       description: {
-        zh: "加入文章分類：終端指令、w3m 與 vim 入門。",
-        en: "Added to article category: command line, w3m, and vim basics.",
-        jp: "記事カテゴリ追加：コマンド、w3m、vimの入門。"
+        zh: "終端指令、w3m 與 vim 入門。",
+        en: "command line, w3m, and vim basics.",
+        jp: "コマンド、w3m、vimの入門。"
       },
       link: "https://www.slideshare.net/ssuser6090c0/linux-linux-cli",
       preview: "./Source/IMG/react-portfolio/linux-cli.svg",
@@ -588,115 +709,6 @@
       tags: ["v1", "Other", "Security"]
     }
   ];
-
-  function startLoaderProgress() {
-    const fill = document.getElementById("loader-progress-fill");
-    const progressText = document.getElementById("loader-progress-text");
-    if (!fill) {
-      return { finish: function () {} };
-    }
-
-    let current = 0;
-    let target = 0;
-
-    function paint(next) {
-      const value = Math.max(0, Math.min(100, Math.round(next)));
-      fill.style.width = value + "%";
-      if (progressText) {
-        progressText.textContent = value + "%";
-      }
-    }
-
-    function setTarget(value) {
-      target = Math.max(target, Math.min(100, value));
-    }
-
-    const easingTimer = window.setInterval(function () {
-      const delta = target - current;
-      if (Math.abs(delta) < 0.2) {
-        current = target;
-      } else {
-        current += delta * 0.22;
-      }
-      paint(current);
-    }, 42);
-
-    setTarget(8);
-
-    if (document.readyState !== "loading") {
-      setTarget(32);
-    } else {
-      document.addEventListener("DOMContentLoaded", function () {
-        setTarget(32);
-      }, { once: true });
-    }
-
-    const trackedNodes = Array.from(document.querySelectorAll("img[src], iframe[src], link[rel='stylesheet'][href], script[src]"));
-    let total = 0;
-    let loaded = 0;
-
-    function syncResourceProgress() {
-      if (!total) {
-        setTarget(72);
-        return;
-      }
-      const ratio = loaded / total;
-      setTarget(32 + Math.round(ratio * 56));
-    }
-
-    trackedNodes.forEach(function (node) {
-      if (node.tagName === "IMG" && node.complete) {
-        return;
-      }
-      total += 1;
-      const done = function () {
-        loaded += 1;
-        syncResourceProgress();
-      };
-      node.addEventListener("load", done, { once: true });
-      node.addEventListener("error", done, { once: true });
-    });
-    syncResourceProgress();
-
-    const libraryReadyTimer = window.setInterval(function () {
-      if (window.React && window.ReactDOM) {
-        setTarget(82);
-        window.clearInterval(libraryReadyTimer);
-      }
-    }, 40);
-
-    return {
-      markAppReady: function () {
-        setTarget(94);
-      },
-      markWindowLoaded: function () {
-        setTarget(100);
-      },
-      finish: function () {
-        setTarget(100);
-        window.clearInterval(libraryReadyTimer);
-        window.setTimeout(function () {
-          current = 100;
-          paint(100);
-          window.clearInterval(easingTimer);
-        }, 120);
-      }
-    };
-  }
-
-  function removeLoader() {
-    const loader = document.getElementById("site-loader");
-    document.body.classList.remove("is-loading");
-    if (!loader) {
-      return;
-    }
-    loader.classList.add("is-hidden");
-    window.setTimeout(function () {
-      if (loader && loader.parentNode) {
-        loader.parentNode.removeChild(loader);
-      }
-    }, 320);
-  }
 
   function initParticles(theme) {
     if (typeof window.particlesJS !== "function") {
@@ -721,13 +733,13 @@
     const lineColor = theme === "light" ? "#7bcfae" : "#2b9f72";
     window.particlesJS("particles-js", {
       particles: {
-        number: { value: 46, density: { enable: true, value_area: 900 } },
+        number: { value: window.innerWidth < 740 ? 24 : 46, density: { enable: true, value_area: 900 } },
         color: { value: particleColor },
         shape: { type: "circle" },
         opacity: { value: 0.35, random: true },
         size: { value: 3, random: true },
         line_linked: { enable: true, distance: 140, color: lineColor, opacity: 0.22, width: 1 },
-        move: { enable: true, speed: 1.8, random: false, straight: false, out_mode: "out" }
+        move: { enable: !window.matchMedia("(prefers-reduced-motion: reduce)").matches, speed: 0.9, random: false, straight: false, out_mode: "out" }
       },
       interactivity: {
         detect_on: "canvas",
@@ -757,15 +769,19 @@
   }
 
   function App() {
-    const initialPage = window.location.hash.replace("#", "") || "about";
+    const readPage = () => ["about", "portfolio", "log", "contact"].includes(window.location.hash.slice(1)) ? window.location.hash.slice(1) : "about";
+    const initialPage = readPage();
     const [activePage, setActivePage] = useState(initialPage);
     const [activeTab, setActiveTab] = useState("program");
     const [language, setLanguage] = useState("zh");
     const [theme, setTheme] = useState("dark");
-    const [formState, setFormState] = useState({ name: "", email: "", topic: "", message: "" });
     const year = new Date().getFullYear();
 
     const t = I18N[language] || I18N.zh;
+
+    useEffect(function () {
+      document.title = "lian0123 | " + t.pageTitle[activePage] + " · Backend & Full-Stack";
+    }, [activePage, language]);
 
     useEffect(function () {
       const savedLang = localStorage.getItem("site-lang");
@@ -777,7 +793,7 @@
         setTheme(savedTheme);
       }
       const onHashChange = function () {
-        setActivePage(window.location.hash.replace("#", "") || "about");
+        setActivePage(readPage());
       };
       window.addEventListener("hashchange", onHashChange);
       return function () {
@@ -795,7 +811,7 @@
       document.body.setAttribute("data-theme", theme);
       const metaTheme = document.querySelector('meta[name="theme-color"]');
       if (metaTheme) {
-        metaTheme.setAttribute("content", theme === "light" ? "#dbfaed" : "#0f2a20");
+        metaTheme.setAttribute("content", theme === "light" ? "#f5f6f1" : "#101918");
       }
       initParticles(theme);
     }, [theme]);
@@ -833,122 +849,51 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function openMailDraft(event) {
-      event.preventDefault();
-      const topic = formState.topic.trim() || t.mailDefaultTopic;
-      const body =
-        t.contactName + ": " + formState.name.trim() + "\n" +
-        t.contactEmail + ": " + formState.email.trim() + "\n\n" +
-        formState.message.trim();
-      window.location.href = "mailto:hello@example.com?subject=" + encodeURIComponent(topic) + "&body=" + encodeURIComponent(body);
-    }
-
     function renderAboutPage() {
-      return e(
-        "div",
-        { className: "page-content", key: "about" },
-        e(
-          "section",
-          { className: "section reveal" },
+      const selected = [portfolioItems.find(item => item.title.en === "expressJS Template"), portfolioItems.find(item => item.title.en === "parquet-tool.js"), portfolioItems[0]];
+      const evidence = selected.concat(portfolioItems.find(item => item.title.en === "FMiCa-TW.sh"));
+      return e("div", { className: "page-content", key: "about" },
+        e("section", { className: "section intro-section" },
+          e("p", { className: "eyebrow" }, "01 / PROFILE"),
           e("h2", { className: "section-title" }, t.profileTitle),
           e("p", { className: "section-subtitle" }, t.profileSubtitle),
-          e(
-            "ul",
-            { className: "fact-list" },
-            t.profileFacts.map(function (fact) {
-              return e("li", { key: fact }, fact);
-            })
-          )
-        ),
-        e(
-          "section",
-          { className: "section reveal" },
-          e("h2", { className: "section-title" }, t.cardFrameTitle),
-          e(
-            "div",
-            { className: "card-grid card-grid--cards" },
-            e(
-              "article",
-              { className: "card card-float" },
-              e(
-                "div",
-                { className: "iframe-card iframe-card--equal" },
-                e("iframe", {
-                  src: "./Lian0123_main_card.html",
-                  title: "Lian0123 Main Card",
-                  loading: "lazy",
-                  referrerPolicy: "no-referrer",
-                  sandbox: "allow-scripts allow-same-origin"
-                })
-              ),
-              e(
-                "div",
-                { className: "card-actions" },
-                e("a", { className: "btn btn-primary", href: "./Lian0123_main_card.html", target: "_blank", rel: "noopener noreferrer" }, t.openPreview)
-              )
-            ),
-            e(
-              "article",
-              { className: "card card-float" },
-              e(
-                "div",
-                { className: "iframe-card iframe-card--equal" },
-                e("iframe", {
-                  src: "./Lian0123_qr_card.html",
-                  title: "Lian0123 QR Card",
-                  loading: "lazy",
-                  referrerPolicy: "no-referrer",
-                  sandbox: "allow-scripts allow-same-origin"
-                })
-              ),
-              e(
-                "div",
-                { className: "card-actions" },
-                e("a", { className: "btn btn-primary", href: "./Lian0123_qr_card.html", target: "_blank", rel: "noopener noreferrer" }, t.openPreview)
-              )
-            )
-          )
-        ),
-        e(
-          "section",
-          { className: "section reveal" },
+          e("ul", { className: "fact-list" }, t.profileFacts.map(fact => e("li", { key: fact }, fact)))),
+        e("section", { className: "section" },
+          e("p", { className: "eyebrow" }, "02 / SELECTED WORK"),
+          e("h2", { className: "section-title" }, t.featuredTitle),
+          e("p", { className: "section-subtitle" }, t.featuredSubtitle),
+          e("div", { className: "featured-grid" }, selected.map((item, i) =>
+            e("article", { className: "card featured-card", key: item.link },
+              e("a", { className: "portfolio-media", href: item.link, target: "_blank", rel: "noopener noreferrer" },
+                e("img", { src: item.preview, alt: item.title[language], loading: "lazy", decoding: "async" })),
+              e("p", { className: "eyebrow" }, "0" + (i + 1) + " / " + item.year),
+              e("h3", { className: "card-title" }, item.title[language]),
+              e("p", { className: "card-copy" }, item.description[language]),
+              e("dl", { className: "project-detail" },
+                e("dt", null, t.contextLabel), e("dd", null, t.contexts[i]),
+                e("dt", null, t.focusLabel), e("dd", null, t.focuses[i])),
+              e("a", { className: "text-link", href: item.link, target: "_blank", rel: "noopener noreferrer" }, (i < 2 ? t.sourceLabel : t.demoLabel) + " ↗"))))),
+        e("section", { className: "section" },
+          e("p", { className: "eyebrow" }, "03 / EXPERTISE"),
           e("h2", { className: "section-title" }, t.skillTitle),
           e("p", { className: "section-subtitle" }, t.skillSubtitle),
-          e(
-            "div",
-            { className: "skill-layout" },
-            e(
-              "div",
-              { className: "skill-bars" },
-              skillScores.map(function (skill, skillIndex) {
-                return e(
-                  "div",
-                  { className: "skill-row", key: skill.key },
-                  e("span", { className: "skill-name" }, (t.skillLabels && t.skillLabels[skill.key]) ? t.skillLabels[skill.key] : skill.key),
-                  e("div", { className: "skill-track" }, e("div", { className: "skill-fill", style: { "--skill-target": skill.score + "%", animationDelay: (skillIndex * 90) + "ms" } })),
-                  e("span", { className: "skill-score" }, skill.score)
-                );
-              })
-            ),
-            e(
-              "div",
-              { className: "capability-card" },
-              e("h3", { className: "capability-title" }, t.capabilityTitle),
-              e(
-                "div",
-                { className: "capability-grid" },
-                t.capabilityItems.map(function (item, index) {
-                  return e(
-                    "div",
-                    { className: "cap-item", key: item.name, style: { animationDelay: (index * 80) + "ms" } },
-                    e("p", { className: "cap-name" }, item.name),
-                    e("p", { className: "cap-level" }, item.level)
-                  );
-                })
-              )
-            )
-          )
-        )
+          e("div", { className: "expertise-grid" }, evidence.map((item, i) =>
+            e("a", { className: "expertise-item", key: item.link, href: item.link, target: "_blank", rel: "noopener noreferrer" },
+              e("span", { className: "expertise-number", "aria-hidden": true }, "0" + (i + 1)),
+              e("div", null, e("h3", { className: "card-title" }, t.skillNames[i]), e("p", { className: "card-copy" }, t.skillDetails[i])),
+              e("span", { "aria-hidden": true }, "↗"))))),
+        e("section", { className: "section business-card-section" },
+          e("p", { className: "eyebrow" }, "04 / CONNECT"),
+          e("h2", { className: "section-title" }, t.cardFrameTitle),
+          e("p", { className: "section-subtitle" }, t.cardSubtitle),
+          e("div", { className: "business-card-grid" }, ["./Lian0123_main_card.html", "./Lian0123_qr_card.html"].map((src, i) =>
+            e("article", { className: "card", key: src },
+              e("h3", { className: "card-title" }, t.cardNames[i]),
+              e("div", { className: "business-card-preview" }, e("iframe", {
+                src: src, title: t.cardNames[i], loading: "lazy", referrerPolicy: "no-referrer",
+                sandbox: "allow-scripts allow-same-origin"
+              })),
+              e("a", { className: "text-link", href: src, target: "_blank", rel: "noopener noreferrer" }, t.openPreview + " ↗")))))
       );
     }
 
@@ -963,10 +908,10 @@
           e("p", { className: "section-subtitle" }, t.portfolioSubtitle),
           e(
             "div",
-            { className: "tab-list", role: "tablist", "aria-label": "portfolio tabs" },
-            e("button", { type: "button", className: "tab-btn" + (activeTab === "program" ? " is-active" : ""), onClick: function () { setActiveTab("program"); } }, t.tabProgram),
-            e("button", { type: "button", className: "tab-btn" + (activeTab === "article" ? " is-active" : ""), onClick: function () { setActiveTab("article"); } }, t.tabArticle),
-            e("button", { type: "button", className: "tab-btn" + (activeTab === "other" ? " is-active" : ""), onClick: function () { setActiveTab("other"); } }, t.tabOther)
+            { className: "tab-list", role: "group", "aria-label": t.portfolioTitle },
+            e("button", { type: "button", "aria-pressed": activeTab === "program", className: "tab-btn" + (activeTab === "program" ? " is-active" : ""), onClick: function () { setActiveTab("program"); } }, t.tabProgram),
+            e("button", { type: "button", "aria-pressed": activeTab === "article", className: "tab-btn" + (activeTab === "article" ? " is-active" : ""), onClick: function () { setActiveTab("article"); } }, t.tabArticle),
+            e("button", { type: "button", "aria-pressed": activeTab === "other", className: "tab-btn" + (activeTab === "other" ? " is-active" : ""), onClick: function () { setActiveTab("other"); } }, t.tabOther)
           ),
           e(
             "div",
@@ -1079,7 +1024,7 @@
         e(
           "div",
           { className: "topbar-inner" },
-          e("a", { href: "#about", className: "brand", onClick: function () { gotoPage("about"); } }, "lian0123 Website"),
+          e("a", { href: "#about", className: "brand", onClick: function () { gotoPage("about"); } }, "lian0123 / engineering"),
           e(
             "ul",
             { className: "nav-list" },
@@ -1114,24 +1059,26 @@
           "article",
           { className: "hero-card reveal" },
           e("p", { className: "eyebrow" }, t.heroEyebrow),
-          e("h1", { className: "hero-title" }, t.pageTitle[activePage] || t.pageTitle.about),
+          e("p", { className: "hero-identity" }, t.identity),
+          e("h1", { className: "hero-title" }, activePage === "about" ? t.heroTitle : t.pageTitle[activePage]),
           e("p", { className: "hero-summary" }, t.heroSummary),
           e("div", { className: "hero-actions" },
             e("button", { type: "button", className: "btn btn-primary", onClick: function () { gotoPage("portfolio"); } }, t.viewPortfolio),
-            e("a", { className: "btn btn-secondary", href: "https://github.com/Lian0123/lian0123.github.io", target: "_blank", rel: "noopener noreferrer" }, t.github)
+            e("a", { className: "btn btn-secondary", href: "mailto:lian0123@hi2.in" }, t.contactAction),
+            e("a", { className: "btn btn-secondary", href: "https://github.com/Lian0123", target: "_blank", rel: "noopener noreferrer" }, t.github)
           )
         ),
         e(
           "aside",
           { className: "hero-metrics panel reveal" },
-          e("div", { className: "metric" }, e("p", { className: "metric-name" }, t.metricPage), e("p", { className: "metric-value" }, t.pageTitle[activePage])),
-          e("div", { className: "metric" }, e("p", { className: "metric-name" }, t.metricTabs), e("p", { className: "metric-value" }, t.tabProgram + " / " + t.tabArticle + " / " + t.tabOther)),
-          e("div", { className: "metric" }, e("p", { className: "metric-name" }, t.metricYear), e("p", { className: "metric-value" }, String(year)))
+          e("div", { className: "metric" }, e("p", { className: "metric-name" }, t.metricPage), e("p", { className: "metric-value" }, String(portfolioItems.filter(item => item.type === "program").length))),
+          e("div", { className: "metric" }, e("p", { className: "metric-name" }, t.metricTabs), e("p", { className: "metric-value" }, String(portfolioItems.filter(item => item.type === "article").length))),
+          e("div", { className: "metric" }, e("p", { className: "metric-name" }, t.metricYear), e("p", { className: "metric-value" }, String(Math.min(...portfolioItems.map(item => Number(item.year))))))
         )
       ),
       e(
         "main",
-        { id: "content" },
+        { id: "content", tabIndex: -1 },
         activePage === "about" ? renderAboutPage() : null,
         activePage === "portfolio" ? renderPortfolioPage() : null,
         activePage === "log" ? renderLogPage() : null,
@@ -1140,63 +1087,12 @@
       e(
         "footer",
         { className: "footer" },
-        "© " + year + " lian0123. Build with React.js · ",
+        "© " + year + " lian0123. Built with React · ",
         e("a", { href: "https://github.com/Lian0123", target: "_blank", rel: "noopener noreferrer" }, "GitHub")
       )
     );
   }
 
-  const loaderProgress = startLoaderProgress();
-  let appMounted = false;
-  let pageLoaded = document.readyState === "complete";
-  let loaderRemoved = false;
   registerServiceWorker();
-
-  function completeLoaderIfReady() {
-    if (loaderRemoved || !appMounted || !pageLoaded) {
-      return;
-    }
-    loaderProgress.finish();
-    const elapsed = Date.now() - loaderStartTime;
-    const waitMs = Math.max(0, LOADER_MIN_DURATION - elapsed);
-    window.setTimeout(function () {
-      if (loaderRemoved) {
-        return;
-      }
-      loaderRemoved = true;
-      removeLoader();
-    }, waitMs);
-  }
-
-  window.addEventListener("load", function () {
-    pageLoaded = true;
-    loaderProgress.markWindowLoaded();
-    completeLoaderIfReady();
-  });
-
-  function mountApp() {
-    const rootElement = document.getElementById("root");
-    if (!rootElement) {
-      return;
-    }
-    ReactDOM.createRoot(rootElement).render(e(App));
-    appMounted = true;
-    loaderProgress.markAppReady();
-    completeLoaderIfReady();
-
-    window.setTimeout(function () {
-      if (loaderRemoved) {
-        return;
-      }
-      loaderRemoved = true;
-      loaderProgress.finish();
-      removeLoader();
-    }, 3200);
-  }
-
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(mountApp, { timeout: 1200 });
-  } else {
-    window.setTimeout(mountApp, 0);
-  }
+  ReactDOM.createRoot(document.getElementById("root")).render(e(App));
 })();

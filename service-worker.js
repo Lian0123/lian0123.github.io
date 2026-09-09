@@ -1,4 +1,4 @@
-const CACHE_NAME = "lian0123-portfolio-v3";
+const CACHE_NAME = "lian0123-portfolio-v5";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -7,7 +7,8 @@ const APP_SHELL = [
   "/manifest.webmanifest",
   "/icon.svg",
   "/Source/CSS/react-site.css",
-  "/Source/JS/app-react.js"
+  "/Source/JS/app-react.js",
+  "/Source/JS/Include/particles.min.js"
 ];
 
 self.addEventListener("install", function (event) {
@@ -25,7 +26,7 @@ self.addEventListener("activate", function (event) {
       return Promise.all(
         keys
           .filter(function (key) {
-            return key !== CACHE_NAME;
+            return key.startsWith("lian0123-portfolio-") && key !== CACHE_NAME;
           })
           .map(function (key) {
             return caches.delete(key);

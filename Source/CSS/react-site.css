@@ -1427,3 +1427,6 @@ body, body[data-theme="light"] { background-color: var(--portfolio-bg); backgrou
 .link-grid { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 900px) { .link-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .link-grid { grid-template-columns: 1fr; } }
+.language-select { min-height: 40px; border: 1px solid var(--portfolio-line); border-radius: 2px; color: var(--portfolio-text); background: var(--portfolio-surface); padding: 0 .45rem; font-size: .8rem; }
+.topbar-inner { grid-template-columns: auto minmax(0, 1fr) auto auto auto; }
+@media (max-width: 900px) { .topbar-inner { grid-template-columns: 1fr auto auto auto; } .language-select { min-width: 62px; } }

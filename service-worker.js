@@ -7,7 +7,8 @@ const APP_SHELL = [
   "/manifest.webmanifest",
   "/icon.svg",
   "/Source/CSS/react-site.css",
-  "/Source/JS/app-react.js"
+  "/Source/JS/app-react.js",
+  "/Source/JS/Include/particles.min.js"
 ];
 
 self.addEventListener("install", function (event) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "lian0123-portfolio-v5";
+const CACHE_NAME = "lian0123-portfolio-v6";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -7,8 +7,7 @@ const APP_SHELL = [
   "/manifest.webmanifest",
   "/icon.svg",
   "/Source/CSS/react-site.css",
-  "/Source/JS/app-react.js",
-  "/Source/JS/Include/particles.min.js"
+  "/Source/JS/app-react.js"
 ];
 
 self.addEventListener("install", function (event) {

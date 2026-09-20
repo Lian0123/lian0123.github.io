@@ -18,7 +18,7 @@
     ["twcall", "university", "Linux · Shell", "處理終端機 Big5 顯示情境的工具，回應台灣 Linux 使用者的在地需求。", "https://github.com/Lian0123/twcall"],
     ["TextArt", "university", "Text Processing", "以文字與視覺呈現為主題，探索字元輸出與圖像表現。", "https://github.com/Lian0123/TextArt"],
     ["UnknownClang", "university", "C · Compiler", "從 C 語言與編譯概念出發的實驗型專案，呈現對語言底層的探索。", "https://github.com/Lian0123/UnknownClang"],
-    ["FMiCa-TW.sh", "university", "Linux · Bash", "為台灣使用者整理 Linux Mint Cinnamon 安裝與環境設定的自動化腳本。", "http://fmica-tw.sh"]
+    ["FMiCa-TW.sh", "university", "Linux · Bash", "為台灣使用者整理 Linux Mint Cinnamon 安裝與環境設定的自動化腳本。", "https://github.com/Lian0123/FMiCa-TW.sh"]
   ].map(x => ({ title:x[0], stage:x[1], tech:x[2], description:x[3], link:x[4], featured:!!x[5], thesis:!!x[6] }));
 
   const writings = [
@@ -30,7 +30,7 @@
     ["Linux 安裝篇 ArchLabs 2019.01.20 — Part 3", "university", "Linux · ArchLabs", "ArchLabs 安裝系列第三部分。", "https://www.slideshare.net/slideshow/linux-linux-archlabs-20190120-part3/129864461"],
     ["Linux 安裝篇 ArchLabs 2019.01.20 — Part 2", "university", "Linux · ArchLabs", "ArchLabs 安裝系列第二部分。", "https://www.slideshare.net/slideshow/linux-linux-archlabs-20190120-part2/129864001"],
     ["Linux 安裝篇 ArchLabs 2019.01.20 — Part 1", "university", "Linux · ArchLabs", "ArchLabs 安裝系列第一部分。", "https://www.slideshare.net/slideshow/linux-linux-archlabs-20190120-part1/129863580"],
-    ["Linux 推坑教學：FMiCa-tw.sh 說明文件", "university", "Linux · Bash", "FMiCa-TW.sh 的使用方式與設計說明。", "http://fmica-tw.sh"],
+    ["Linux 推坑教學：FMiCa-tw.sh 說明文件", "university", "Linux · Bash", "FMiCa-TW.sh 的使用方式與設計說明。", "https://www.slideshare.net/slideshow/linux-fmicatwsh/107815091"],
     ["C 語言從崩潰到崩潰 Ex（二）", "university", "C Language", "延續基礎內容的 C 語言實作教材。", "https://www.slideshare.net/slideshow/cex-79080568/79080568"],
     ["在手機上使用 Linux", "university", "Linux · Mobile", "介紹在行動裝置上使用 Linux 環境的方法。", "https://www.slideshare.net/slideshow/linux-linux-77271842/77271842"],
     ["Linux Mint Cinnamon 18.1 操作設定教學", "university", "Linux Mint", "桌面環境操作與系統設定入門。", "https://www.slideshare.net/slideshow/linux-linux-mint-cinnamon-181/74049170"],

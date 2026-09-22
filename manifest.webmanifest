@@ -1,14 +1,14 @@
 {
-  "name": "lian0123 Website",
+  "name": "連永立・個人網站",
   "short_name": "lian0123",
-  "description": "Professional Backend Engineer / Professional Full-Stack Engineer Portfolio",
+  "description": "連永立（lian0123）的自我介紹、個人專案、技術筆記與創作。",
   "lang": "zh-Hant-TW",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#0f2a20",
-  "theme_color": "#0f2a20",
+  "background_color": "#0b1210",
+  "theme_color": "#0b1210",
   "icons": [
     {
       "src": "./icon.svg",

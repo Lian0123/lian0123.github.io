@@ -1,4 +1,4 @@
-const CACHE_NAME = "lian0123-portfolio-v6";
+const CACHE_NAME = "lian0123-portfolio-v8";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,9 +6,12 @@ const APP_SHELL = [
   "/Lian0123_qr_card.html",
   "/manifest.webmanifest",
   "/icon.svg",
-  "/Source/CSS/react-site.css",
+  "/Source/CSS/engineering.css",
+  "/Source/JS/portfolio-content.js",
   "/Source/JS/app-react.js",
-  "/Source/JS/Include/particles.min.js"
+  "/Source/JS/Include/react-18.3.1.min.js",
+  "/Source/JS/Include/react-dom-18.3.1.min.js",
+  "/llms.txt"
 ];
 
 self.addEventListener("install", function (event) {
@@ -32,38 +35,34 @@ self.addEventListener("activate", function (event) {
             return caches.delete(key);
           })
       );
-    })
+    }).then(function () { return self.clients.claim(); })
   );
-  self.clients.claim();
 });
 
 self.addEventListener("fetch", function (event) {
-  if (event.request.method !== "GET") {
+  if (event.request.method !== "GET" || new URL(event.request.url).origin !== self.location.origin) {
     return;
   }
 
   event.respondWith(
-    caches.match(event.request).then(function (cachedResponse) {
-      if (cachedResponse) {
-        return cachedResponse;
+    caches.open(CACHE_NAME).then(async function (cache) {
+      const cachedResponse = await cache.match(event.request);
+      // Refresh document navigation; keep versioned application assets available offline.
+      if (cachedResponse && event.request.mode !== "navigate") return cachedResponse;
+      try {
+        const response = await fetch(event.request);
+        if (response.status === 200 && response.type === "basic") {
+          await cache.put(event.request, response.clone());
+        }
+        return response;
+      } catch (_) {
+        if (cachedResponse) return cachedResponse;
+        if (event.request.mode === "navigate") {
+          const fallback = await cache.match("/index.html");
+          if (fallback) return fallback;
+        }
+        return Response.error();
       }
-
-      return fetch(event.request)
-        .then(function (networkResponse) {
-          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== "basic") {
-            return networkResponse;
-          }
-
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then(function (cache) {
-            cache.put(event.request, responseToCache);
-          });
-
-          return networkResponse;
-        })
-        .catch(function () {
-          return caches.match("/index.html");
-        });
     })
   );
 });

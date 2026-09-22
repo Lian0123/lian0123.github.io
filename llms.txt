@@ -1,0 +1,22 @@
+# 連永立 · lian0123
+
+> The personal website of Lian (lian0123), a backend and full-stack engineer. Available in Traditional Chinese, English, and Japanese.
+
+I work mainly with TypeScript, Node.js, and React, and have also worked with C++ native addons. This site collects my personal projects, technical notes, and creative work from university onward: 15 engineering projects, 18 articles and learning materials, and 3 other creative works. Project dates describe the catalog entries; they are not employment dates. The learning-and-creating statistic is measured from 2015 and is not a claim of professional employment tenure.
+
+## Engineering
+
+- [Parquet toolkit](https://github.com/Lian0123/parquet-tool): TypeScript and C++ native-addon data processing.
+- [Scribeva React editor](https://github.com/Lian0123/scribeva-editor-react): React integration and editing interactions.
+- [Scribeva editor core](https://github.com/Lian0123/scribeva-editor): Content editing and core operations.
+- [Full engineering catalog](https://lian0123.github.io/#projects): Searchable public projects, including university work.
+
+## Writing and creative work
+
+- [Technical writing](https://lian0123.github.io/#writing): Linux, C, research, AI development, and practical engineering notes.
+- [Other creative work](https://lian0123.github.io/#other): Animation, Inkscape, Blender, and presentation design.
+- [GitHub](https://github.com/Lian0123)
+- [Medium](https://medium.com/@lian000123)
+- [Contact cards](https://lian0123.github.io/#contact)
+
+The interactive system map and case-study flows are conceptual illustrations, not live infrastructure telemetry or performance benchmarks. Repository links are the sources for implementation details.
